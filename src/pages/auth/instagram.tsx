@@ -10,7 +10,7 @@ const instagram = () => {
   const redirectUri = "https://veganmanna.org/auth/instagram/";
 
   const exchangeCodeForToken = async () => {
-    const res = await API.post("instagramApi", "/auth/token", { code });
+    const res = await API.post("instagram", "/auth/token", { code });
 
     console.log("res:", res);
   };
