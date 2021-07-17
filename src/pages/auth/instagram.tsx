@@ -8,10 +8,9 @@ const instagram = () => {
   const code: any = router.query.code;
 
   const exchangeCodeForToken = async () => {
-    console.log("code:", code);
-    // const res = await API.post("instagram", "/auth/token", { code });
+    const res = await API.post("instagram", "/auth/token", { code });
 
-    // console.log("res:", res);
+    console.log("res:", res);
   };
 
   useEffect(() => {
