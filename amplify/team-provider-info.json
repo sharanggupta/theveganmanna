@@ -9,29 +9,31 @@
       "UnauthRoleName": "amplify-theveganmanna-dev-121823-unauthRole",
       "StackName": "amplify-theveganmanna-dev-121823",
       "StackId": "arn:aws:cloudformation:eu-west-2:325606853561:stack/amplify-theveganmanna-dev-121823/1cd8aad0-e6b6-11eb-8703-02e8cf51f12c",
-      "AmplifyAppId": "d3rzniqxl4lqa4"
+      "AmplifyAppId": "d3rzniqxl4lqa4",
+      "APIGatewayAuthURL": "https://s3.amazonaws.com/amplify-theveganmanna-dev-121823-deployment/amplify-cfn-templates/api/APIGatewayAuthStack.json",
+      "AuthTriggerTemplateURL": "https://s3.amazonaws.com/amplify-theveganmanna-dev-121823-deployment/amplify-cfn-templates/auth/auth-trigger-cloudformation-template.json"
     },
     "categories": {
+      "auth": {
+        "theveganmannaAuth": {}
+      },
       "function": {
         "theveganmannaAuthPreSignup": {
           "deploymentBucketName": "amplify-theveganmanna-dev-121823-deployment",
           "s3Key": "amplify-builds/theveganmannaAuthPreSignup-7477676967516647685a-build.zip"
         },
-        "nutritionLambda": {
-          "deploymentBucketName": "amplify-theveganmanna-dev-121823-deployment",
-          "s3Key": "amplify-builds/nutritionLambda-363862725576776e4875-build.zip"
-        },
         "s3UploadLambda": {
           "deploymentBucketName": "amplify-theveganmanna-dev-121823-deployment",
           "s3Key": "amplify-builds/s3UploadLambda-6a4552354f7539453849-build.zip"
         },
+        "nutritionLambda": {
+          "deploymentBucketName": "amplify-theveganmanna-dev-121823-deployment",
+          "s3Key": "amplify-builds/nutritionLambda-363862725576776e4875-build.zip"
+        },
         "instagramLambda": {
           "deploymentBucketName": "amplify-theveganmanna-dev-121823-deployment",
-          "s3Key": "amplify-builds/instagramLambda-344f374e383766496c44-build.zip"
+          "s3Key": "amplify-builds/instagramLambda-63667430586c6738354f-build.zip"
         }
-      },
-      "auth": {
-        "theveganmannaAuth": {}
       }
     }
   }

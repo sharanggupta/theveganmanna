@@ -14,6 +14,8 @@ var express = require("express");
 var bodyParser = require("body-parser");
 var awsServerlessExpressMiddleware = require("aws-serverless-express/middleware");
 const AWS = require("aws-sdk");
+const https = require("https");
+const FormData = require("form-data");
 
 // declare a new express app
 var app = express();
@@ -48,11 +50,13 @@ app.get("/auth/*", function (req, res) {
 app.post("/auth", function (req, res) {
   let cognitoidentity = new AWS.CognitoIdentity();
 
+  const { access_token, user_id } = req.body;
+
   let params = {
     IdentityId: null,
-    IdentityPoolId: "eu-west-2:8b965729-05b4-485c-808b-986a303ea92e",
+    IdentityPoolId: "eu-west-2:b24c8c4a-fd7d-4156-8105-f1f97b76f0a1",
     Logins: {
-      Instagram: "17841400707366654",
+      Instragram: user_id,
     },
     TokenDuration: 86400, // Life span of your token in seconds. Maximum 24 hours.
   };
@@ -63,15 +67,50 @@ app.post("/auth", function (req, res) {
       if (err) {
         res.json({ message: "error occured", err });
       } else {
-        res.json({ message: "sucess", data });
+        res.json({ message: "success", data });
       }
     }
   );
 });
 
-app.post("/auth/*", function (req, res) {
-  // Add your code here
-  res.json({ success: "post call succeed!", url: req.url, body: req.body });
+const post = (code) => {
+  return new Promise((resolve, reject) => {
+    const form = new FormData();
+    form.append("client_id", "581301996194287");
+    form.append("client_secret", "0ddcf245704d6fae9d77b2383b04dc4c");
+    form.append("grant_type", "authorization_code");
+    form.append("redirect_uri", "https://veganmanna.org/auth/instagram/");
+    form.append("code", code);
+
+    const options = {
+      host: "api.instagram.com",
+      path: "/oauth/access_token",
+      method: "POST",
+      headers: form.getHeaders(),
+    };
+
+    //create the request object with the callback with the result
+    const req = https.request(options, (res) => {
+      res.setEncoding("utf8");
+      const body = [];
+      res.on("data", (chunk) => body.push(chunk));
+      res.on("end", () => resolve(body.join("")));
+    });
+
+    // handle the possible errors
+    req.on("error", (e) => {
+      reject(e.message);
+    });
+
+    // //finish the request
+    form.pipe(req);
+  });
+};
+
+app.post("/auth/token", async function (req, res) {
+  const { code } = req.body;
+  const data = await post(code);
+  res.json({ data });
 });
 
 /****************************

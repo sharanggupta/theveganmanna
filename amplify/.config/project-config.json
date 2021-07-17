@@ -1,4 +1,7 @@
 {
+  "providers": [
+    "awscloudformation"
+  ],
   "projectName": "theveganmanna",
   "version": "3.1",
   "frontend": "javascript",
@@ -10,8 +13,5 @@
       "BuildCommand": "yarn prod",
       "StartCommand": "yarn dev"
     }
-  },
-  "providers": [
-    "awscloudformation"
-  ]
+  }
 }

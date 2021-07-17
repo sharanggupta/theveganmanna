@@ -142,7 +142,7 @@
               "Action": [
                 "cognito-identity:GetOpenIdTokenForDeveloperIdentity"
               ],
-              "Resource": "arn:aws:cognito-identity:eu-west-2:325606853561:identitypool/eu-west-2:8b965729-05b4-485c-808b-986a303ea92e"
+              "Resource": "arn:aws:cognito-identity:eu-west-2:325606853561:identitypool/eu-west-2:b24c8c4a-fd7d-4156-8105-f1f97b76f0a1"
             },
             {
               "Effect": "Allow",
