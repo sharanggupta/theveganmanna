@@ -1,0 +1,16 @@
+.report-actions {
+  display: flex;
+  gap: 10px;
+
+  @media screen and (max-width: $tab-land) {
+    display: none;
+  }
+}
+
+.report-actions-mobile {
+  display: none;
+
+  @media screen and (max-width: $tab-land) {
+    display: block;
+  }
+}

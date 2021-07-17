@@ -1,0 +1,202 @@
+.custom-btn {
+  &, // this will tell that these styles will applied to <button> element too 'cause it doesn't have link & visited pseudo classes
+  &:link,
+  &:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 1rem 3rem;
+    border-radius: 10rem;
+    transition: all 0.2s;
+    position: relative;
+    font-size: $default-font-size;
+
+    // Change for the <button> element
+    border: 0;
+    cursor: pointer;
+
+    @media only screen and (max-width: $tab-port) {
+      font-size: 0.8rem;
+      padding: 0.8rem 1.6rem;
+    }
+  }
+
+  &--big {
+    @media only screen and (max-width: $tab-port) {
+      font-size: 0.9rem;
+      padding: 0.9rem 2rem;
+    }
+  }
+
+  &--small {
+    font-size: 0.9rem;
+    padding: 0.9rem 2rem;
+
+    &:hover {
+      transform: translateY(-2px); // when hover move up
+      box-shadow: 0 1rem 2rem rgba($color-black, 0.1);
+
+      &::after {
+        transform: scaleX(1.2) scaleY(1.4); // zoom out
+        opacity: 0;
+      }
+    }
+  }
+
+  &:hover {
+    transform: translateY(-3px); // when hover move up
+    box-shadow: 0 1rem 2rem rgba($color-black, 0.2);
+
+    &::after {
+      transform: scaleX(1.4) scaleY(1.6); // zoom out
+      opacity: 0;
+    }
+  }
+
+  //:focus shouldn't be put to none but if you do create something that will tell users that element is focused, it is for web accessibility
+  &:active,
+  &:focus {
+    outline: none;
+    // active state is in relation with initial link state
+    transform: translateY(-1px); // when active / focus move down a bit
+    box-shadow: 0 0.5rem 1rem rgba($color-black, 0.2);
+  }
+
+  &--white {
+    background-color: $color-white;
+    color: $color-grey-dark-1;
+
+    &::after {
+      background-color: $color-white;
+    }
+  }
+
+  &--green {
+    background-color: $color-primary;
+    color: $color-white;
+
+    &:hover {
+      color: #e0eae0;
+    }
+
+    &::after {
+      background-color: $color-primary;
+    }
+  }
+
+  &::after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 10rem;
+    // position it behind button parent
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all 0.4s;
+  }
+
+  &--animated {
+    animation: moveInBottom 0.5s ease-out 0.75s;
+    // apply the styles to zero percent before the animation starts
+    animation-fill-mode: backwards;
+  }
+}
+
+.nav-custom-btn {
+  &, // this will tell that these styles will applied to <button> element too 'cause it doesn't have link & visited pseudo classes
+  &:link,
+  &:visited {
+    @extend .no-select;
+    text-decoration: none;
+    padding: 1rem 3rem;
+    border-radius: 10rem;
+    transition: all 0.2s;
+    position: relative;
+    font-size: $default-font-size;
+    cursor: pointer;
+
+    @media only screen and (max-width: $tab-port) {
+      font-size: 0.8rem;
+      padding: 0.8rem 1.6rem;
+    }
+  }
+
+  &:hover {
+    background-color: #282828 !important; // important - because of dynamic inline style
+    border: 1px solid #282828;
+  }
+
+  //:focus shouldn't be put to none but if you do create something that will tell users that element is focused, it is for web accessibility
+  &:active,
+  &:focus {
+    outline: none;
+    // active state is in relation with initial link state
+    transform: translateY(-1px); // when active / focus move down a bit
+    box-shadow: 0 0.5rem 1rem rgba($color-black, 0.2);
+  }
+
+  &--white {
+    background-color: $color-white;
+    color: $color-grey-dark-1;
+
+    &::after {
+      background-color: $color-white;
+    }
+  }
+
+  &--green {
+    background-color: $color-primary;
+    color: $color-white;
+
+    &::after {
+      background-color: $color-primary;
+    }
+  }
+
+  &::after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 10rem;
+    // position it behind button parent
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all 0.4s;
+  }
+
+  &--animated {
+    animation: moveInBottom 0.5s ease-out 0.75s;
+    // apply the styles to zero percent before the animation starts
+    animation-fill-mode: backwards;
+  }
+}
+
+.btn-text {
+  &:link,
+  &:visited {
+    font-size: $default-font-size;
+    color: $color-primary;
+    display: inline-block; // apply box model properties
+    text-decoration: none;
+    border-bottom: 1px solid $color-primary;
+    padding: 3px;
+    transition: all 0.2s;
+  }
+
+  &:hover {
+    background-color: $color-primary;
+    color: $color-white;
+    box-shadow: 0 1rem 2rem rgba($color-black, 0.15);
+    transform: translateY(-2px); // move up
+  }
+
+  &:active {
+    box-shadow: 0 0.5rem 1rem rgba($color-black, 0.15);
+    transform: translateY(0);
+  }
+}

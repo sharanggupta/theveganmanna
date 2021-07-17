@@ -1,0 +1,39 @@
+// COLORS
+$color-primary: #55c57a;
+$color-primary-light: #7ed56f;
+$color-primary-dark: #28b485;
+
+$color-secondary-light: #ffb900;
+$color-secondary-dark: #ff7730;
+
+$color-tertiary-light: #2998ff;
+$color-tertiary-dark: #5643fa;
+
+$color-grey-light-1: #f7f7f7;
+$color-grey-light-2: #eee;
+
+$color-grey-dark-1: #777;
+$color-grey-dark-2: #999;
+$color-grey-dark-3: #333;
+
+$color-white: #fff;
+$color-black: #000;
+
+// FONT SIZES
+$default-font-size: 1rem;
+
+// GRID
+$grid-width: 114rem; // 1140px standard width
+$gutter-vertical: 4rem; // 40px Gutter Y
+$gutter-vertical-small: 3rem; // 30px Gutter Y
+$gutter-horizontal: 2rem; // 20px Gutter X
+
+// BOX SHADOWS
+$black-fifteen-percent: 0 1.5rem 4rem rgba($color-black, 0.15);
+$black-twenty-percent: 0 1.5rem 4rem rgba($color-black, 0.2);
+$black-forty-percent: 0 1.5rem 4rem rgba($color-black, 0.4);
+
+// MEDIA QUERIES
+$tab-land: 1200px;
+$tab-port: 900px;
+$phone: 600px;

@@ -1,0 +1,217 @@
+:root {
+  --surface-color: #fff;
+  --curve: 40;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(350px, 400px));
+  justify-content: center;
+  grid-template-rows: auto;
+  gap: 2rem;
+  list-style-type: none;
+
+  @media only screen and (max-width: $tab-land) {
+    grid-template-columns: repeat(2, minmax(350px, 1fr));
+  }
+
+  @media only screen and (max-width: $tab-port) {
+    padding: 20px;
+  }
+
+  @media only screen and (max-width: $tab-port - 100) {
+    grid-template-columns: none;
+  }
+}
+
+.ft-recipe {
+  position: relative;
+  width: 100%;
+  background: #f7f7f7;
+  display: flex;
+  flex-direction: column;
+  transition: 0.2s all;
+  border-radius: calc(var(--curve) * 1px);
+
+  &.animated {
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1607843137254902);
+
+    &:hover {
+      box-shadow: 0 0 88px 0 rgba(0, 0, 0, 0.1607843137254902);
+      transition: 0.2s all;
+    }
+  }
+
+  .ft-recipe__calories {
+    position: absolute;
+    top: -30px;
+    right: -30px;
+    width: 90px;
+    height: 90px;
+    z-index: 99;
+    // background: #2da314;
+    background: rgb(59, 170, 35);
+    background: linear-gradient(
+      80deg,
+      rgba(59, 170, 35, 1) 21%,
+      rgba(94, 213, 69, 1) 75%
+    );
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 1.2rem;
+    transform: rotate(15deg);
+
+    p {
+      margin-bottom: 0;
+      @media screen and (max-width: $phone) {
+        font-size: 1.1rem;
+      }
+    }
+
+    :nth-child(2) {
+      margin-top: -8px;
+      font-size: 1.05rem;
+      @media screen and (max-width: $phone) {
+        font-size: 1rem;
+      }
+    }
+  }
+
+  .ft-recipe__header {
+    position: relative;
+    height: 281px;
+    box-shadow: 0px 0px 130px 0 rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    border-radius: calc(var(--curve) * 1px);
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+
+    @media only screen and (max-width: $phone) {
+      height: 281px;
+    }
+
+    .ant-image {
+      width: 100%;
+      height: 100%;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: 50% 50%;
+    }
+  }
+
+  .ft-recipe__content {
+    flex: 1;
+    padding: 0 2em 2em;
+    .content__header {
+      .row-wrapper {
+        display: flex;
+        padding: 0.55em 0 0.3em;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 1px solid #d8d8d8;
+        .recipe-title {
+          font-weight: 600;
+          margin: 0;
+        }
+        .like {
+          display: flex;
+          align-items: center;
+        }
+      }
+      .recipe-details {
+        display: flex;
+        list-style: none;
+        padding: 1.4em 0 1em;
+        margin: 0;
+        justify-content: space-between;
+
+        .recipe-details-item {
+          // flex: 1;
+          font-size: 1.2rem;
+
+          .value {
+            color: #ff4f87;
+            margin-left: 0.35em;
+            vertical-align: bottom;
+          }
+          .title {
+            display: block;
+            margin-top: -4px;
+            font-size: 1.1rem;
+          }
+        }
+      }
+    }
+    .description {
+      margin: 0.3em 0 1.8em;
+      font-size: 1.1rem;
+    }
+    .content__footer {
+      text-align: center;
+      margin: 0 3rem;
+      a {
+        font-family: var(--headlinesFont);
+        display: inline-block;
+        background: $color-primary;
+        padding: 0.45em 1em;
+        width: 100%;
+        text-align: center;
+        border-radius: 5px;
+        color: #fff;
+        font-weight: 500;
+        letter-spacing: 0.2px;
+        font-size: 17px;
+        transition: transform 250ms ease, box-shadow 250ms ease;
+        &:hover {
+          transform: translateY(-3px);
+          box-shadow: 0 10px 34px 0 rgba(79, 255, 158, 0.32);
+        }
+      }
+    }
+    .ingredients {
+      padding: 0;
+      padding-left: 15px;
+      padding-bottom: 15px;
+      font-size: 1.1rem;
+    }
+    .instructions {
+      font-size: 1.1rem;
+      padding-bottom: 15px;
+
+      &__step {
+        display: grid;
+        grid-template-columns: 20px 1fr;
+        padding-bottom: 5px;
+        gap: 10px;
+
+        &__number {
+          @extend .no-select;
+          margin-top: 6px;
+          border-radius: 50%;
+          background: $color-primary;
+          color: $color-white;
+          display: flex;
+          width: 20px;
+          height: 20px;
+          justify-content: center;
+          align-items: center;
+          font-size: 0.9rem;
+        }
+      }
+    }
+    .actions {
+      padding-top: 30px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+  }
+}

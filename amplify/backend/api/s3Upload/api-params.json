@@ -1,0 +1,42 @@
+{
+  "paths": [
+    {
+      "name": "/upload",
+      "lambdaFunction": "s3UploadLambda",
+      "privacy": {
+        "private": true,
+        "auth": [
+          "/POST",
+          "/GET",
+          "/PUT",
+          "/PATCH",
+          "/DELETE"
+        ]
+      },
+      "policyResourceName": "/upload"
+    }
+  ],
+  "resourceName": "s3Upload",
+  "apiName": "s3Upload",
+  "functionArns": [
+    {
+      "lambdaFunction": "s3UploadLambda"
+    }
+  ],
+  "privacy": {
+    "auth": 1,
+    "unauth": 0,
+    "authRoleName": "amplify-theveganmanna-dev-121823-authRole",
+    "unAuthRoleName": "amplify-theveganmanna-dev-121823-unauthRole"
+  },
+  "dependsOn": [
+    {
+      "category": "function",
+      "resourceName": "s3UploadLambda",
+      "attributes": [
+        "Name",
+        "Arn"
+      ]
+    }
+  ]
+}

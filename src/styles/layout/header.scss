@@ -1,0 +1,67 @@
+.header {
+  height: 85vh;
+  background-image: linear-gradient(
+      to right bottom,
+      rgba($color-primary-light, 0.5),
+      rgba($color-primary-dark, 0.5)
+    ),
+    url(/pexels-background.jpg);
+  background-size: cover;
+  background-position: top; // top of image won't be cropped when resizing
+  position: relative; // origin
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    100% 75vh,
+    0 100%
+  ); // polygon (top-left, top-right, bottom-right, bottom-left), x y pos
+
+  // ------------------------------------------------------------------------------------
+  // If browser support this property then apply this style else apply default style
+  // ------------------------------------------------------------------------------------
+  @supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)) {
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+    height: 95vh; // 95% almost 100% of the viewport height
+  }
+
+  @media screen and (max-width: $phone) {
+    clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
+  }
+
+  // ------------------------------------------------------------------------------------------------
+  // When the resolution is higher than 192 dots per inch and larger than 600px(37.5em) or(,)
+  // if -webkit-min-device-pixel-ratio is 2.0 for Safari and larger than 600px(37.5rem) or(,)
+  // larger than 2000px(125em)
+  // ------------------------------------------------------------------------------------------------
+  @media only screen and (min-resolution: 192dpi) and (min-width: 37.5em),
+    only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 37.5em),
+    only screen and (min-width: 125em) {
+    background-image: linear-gradient(
+        to right bottom,
+        rgba($color-primary-light, 0.5),
+        rgba($color-primary-dark, 0.5)
+      ),
+      url(/pexels-background.jpg);
+  }
+
+  &__logo-box {
+    position: absolute;
+    top: 4rem;
+    left: 4rem;
+  }
+
+  &__logo {
+    height: 3.5rem;
+  }
+
+  &__text-box {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    width: 90%;
+    transform: translate(-50%, -50%); // Offset X Y
+    text-align: center; // Button Discover is treat as text 'cause of inline-block so use text-align: center
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "AppSyncApiName": "theveganmannaApi",
+  "DynamoDBBillingMode": "PAY_PER_REQUEST",
+  "DynamoDBEnableServerSideEncryption": false,
+  "AuthCognitoUserPoolId": {
+    "Fn::GetAtt": [
+      "auththeveganmannaAuth",
+      "Outputs.UserPoolId"
+    ]
+  }
+}

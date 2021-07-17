@@ -1,0 +1,76 @@
+.footer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding: 80px 0;
+  justify-content: space-around;
+  background-color: #282828;
+
+  @media screen and (max-width: $tab-port) {
+    grid-template-columns: 1fr;
+  }
+
+  &__heading {
+    color: #fff;
+    font-size: 1.5rem;
+
+    @media screen and (max-width: $tab-port) {
+      text-align: center;
+      margin: 0;
+    }
+  }
+
+  &__about {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  &__recent-recipes {
+    .recent-recipe-item {
+      color: $color-white;
+      font-size: 1.2rem;
+      cursor: pointer;
+      margin-bottom: 0.2rem;
+
+      &:hover {
+        text-decoration: underline;
+        // color: #777;
+      }
+    }
+
+    @media screen and (max-width: $tab-port) {
+      margin-top: 20px;
+      text-align: center;
+    }
+  }
+
+  &__categories {
+    .category-container {
+      display: flex;
+      flex-wrap: wrap;
+
+      @media screen and (max-width: $tab-port) {
+        justify-content: center;
+      }
+    }
+
+    .category-item {
+      background-color: #3a3a3a;
+      border-radius: 3px;
+      padding: 5px;
+      margin: 3px;
+      cursor: default;
+
+      &:hover {
+        background-color: #4a4a4a;
+        transition: 0.3s all;
+      }
+    }
+
+    @media screen and (max-width: $tab-port) {
+      margin-top: 20px;
+    }
+  }
+}

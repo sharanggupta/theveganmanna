@@ -1,0 +1,38 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-theveganmanna-dev-121823-authRole",
+      "UnauthRoleArn": "arn:aws:iam::325606853561:role/amplify-theveganmanna-dev-121823-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::325606853561:role/amplify-theveganmanna-dev-121823-authRole",
+      "Region": "eu-west-2",
+      "DeploymentBucketName": "amplify-theveganmanna-dev-121823-deployment",
+      "UnauthRoleName": "amplify-theveganmanna-dev-121823-unauthRole",
+      "StackName": "amplify-theveganmanna-dev-121823",
+      "StackId": "arn:aws:cloudformation:eu-west-2:325606853561:stack/amplify-theveganmanna-dev-121823/1cd8aad0-e6b6-11eb-8703-02e8cf51f12c",
+      "AmplifyAppId": "d3rzniqxl4lqa4"
+    },
+    "categories": {
+      "function": {
+        "theveganmannaAuthPreSignup": {
+          "deploymentBucketName": "amplify-theveganmanna-dev-121823-deployment",
+          "s3Key": "amplify-builds/theveganmannaAuthPreSignup-7477676967516647685a-build.zip"
+        },
+        "nutritionLambda": {
+          "deploymentBucketName": "amplify-theveganmanna-dev-121823-deployment",
+          "s3Key": "amplify-builds/nutritionLambda-363862725576776e4875-build.zip"
+        },
+        "s3UploadLambda": {
+          "deploymentBucketName": "amplify-theveganmanna-dev-121823-deployment",
+          "s3Key": "amplify-builds/s3UploadLambda-6a4552354f7539453849-build.zip"
+        },
+        "instagramLambda": {
+          "deploymentBucketName": "amplify-theveganmanna-dev-121823-deployment",
+          "s3Key": "amplify-builds/instagramLambda-344f374e383766496c44-build.zip"
+        }
+      },
+      "auth": {
+        "theveganmannaAuth": {}
+      }
+    }
+  }
+}

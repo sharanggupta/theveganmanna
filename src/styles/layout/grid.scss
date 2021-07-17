@@ -1,0 +1,83 @@
+.row {
+  max-width: $grid-width;
+  // background-color: ee;
+  margin: 0 auto;
+  padding: 0 30px;
+
+  &:not(:last-child) {
+    // select every row except the last row using :not()
+    // :last-child selector allows you to target the last element directly inside its containing/parent element.
+    // INFO: https://codepen.io/Retr0_0x315/pen/WzmYov
+    margin-bottom: $gutter-vertical;
+
+    @media screen and (max-width: $tab-port) {
+      margin-bottom: $gutter-vertical-small; // when in tab-port gutter vertical is small
+    }
+  }
+
+  @media screen and (max-width: $tab-port) {
+    max-width: 40rem; // when in tab-port set row to 40rem
+    padding: 0 3rem;
+  }
+
+  @media screen and (max-width: $phone) {
+    padding: 0 15px;
+  }
+
+  &::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  [class^="col-"] {
+    // ^ means select class that starts with col-, @ ends with col-, * select all with col-
+    // background-color: orangered;
+    float: left;
+
+    &:not(:last-child) {
+      margin-right: $gutter-horizontal;
+
+      @media screen and (max-width: $tab-port) {
+        margin-right: 0; // when in tab-port margin right is 0
+        margin-bottom: $gutter-vertical-small;
+      }
+    }
+
+    @media screen and (max-width: $tab-port) {
+      width: 100% !important; // !important to make sure the width is overridden
+    }
+  }
+
+  .col-1-of-2 {
+    // ((1140px - 60px) / 2 col)
+    width: calc((100% - $gutter-horizontal) / 2);
+  }
+
+  .col-1-of-3 {
+    // ((1140px - 2 * 60px) / 3 col)
+    width: calc((100% - 2 * $gutter-horizontal) / 3);
+  }
+
+  .col-2-of-3 {
+    // (2col * ((1140px - 2 * 60px) / 3 col)) + 60px)
+    width: calc(2 * ((100% - 2 * $gutter-horizontal) / 3) + $gutter-horizontal);
+  }
+
+  .col-1-of-4 {
+    // ((1140px - 3 * 60px) / 4 col)
+    width: calc((100% - 3 * $gutter-horizontal) / 4);
+  }
+
+  .col-2-of-4 {
+    // (2col * (1140px - 3 * 60px) / 4 col) + 60px)
+    width: calc(2 * ((100% - 3 * $gutter-horizontal) / 4) + $gutter-horizontal);
+  }
+
+  .col-3-of-4 {
+    // (3col * ((1140px - 3 * 60px) / 4 col)) + 2 * 60px)
+    width: calc(
+      3 * ((100% - 3 * $gutter-horizontal) / 4) + 2 * $gutter-horizontal
+    );
+  }
+}

@@ -1,0 +1,97 @@
+body {
+  font-family: $font-family;
+  background-color: #ffffff;
+  overflow-x: hidden;
+  padding: 2rem;
+
+  @media screen and (max-width: $tab-port) {
+    padding: 0;
+  }
+
+  .layout {
+    background-color: #f7f7f7;
+    min-height: calc(100vh - 40px);
+  }
+
+  .full-width-xs {
+    @media screen and (max-width: $phone) {
+      width: 100%;
+    }
+  }
+
+  .hide-xs {
+    @media screen and (max-width: $phone) {
+      display: none;
+    }
+  }
+
+  .show-xs {
+    display: none;
+    @media screen and (max-width: $phone) {
+      display: block;
+    }
+  }
+
+  ::placeholder {
+    /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #beeabe;
+    opacity: 1; /* Firefox */
+  }
+
+  :-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    color: #beeabe;
+  }
+
+  ::-ms-input-placeholder {
+    /* Microsoft Edge */
+    color: #beeabe;
+  }
+}
+
+.ant-btn {
+  &__danger {
+    background: crimson;
+    border: 1px solid crimson;
+
+    &:hover,
+    &:active,
+    &:focus {
+      background: #e33b5d;
+      border: 1px solid #e33b5d;
+    }
+  }
+}
+
+.text-danger {
+  color: crimson;
+  &:hover,
+  &:active,
+  &:focus {
+    color: #e33b5d;
+  }
+}
+
+.text-warning {
+  color: #faad14;
+
+  &:hover,
+  &:active,
+  &:focus {
+    color: #f1b438;
+  }
+}
+
+.ant-image-preview-img-wrapper {
+  width: 80%;
+  height: 80%;
+  top: 10%;
+  left: 10%;
+}
+
+.ant-upload-list-picture-card-container {
+  .ant-btn-text:hover {
+    background-color: transparent;
+    transform: none;
+  }
+}
