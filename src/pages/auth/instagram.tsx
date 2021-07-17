@@ -8,7 +8,7 @@ const instagram = () => {
   const router = useRouter();
   const code: any = router.query.code;
 
-  const redirectUri = "https://veganmanna.org/auth/instagram/";
+  const redirectUri = "https://www.veganmanna.org/auth/instagram/";
 
   const exchangeCodeForToken = async () => {
     var formData = new FormData();
