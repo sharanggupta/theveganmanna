@@ -11,7 +11,7 @@ const SocialLogin = () => {
 
   const instragramLogin = () => {
     const appId = "581301996194287";
-    const redirectUri = "https://www.veganmanna.org/auth/instagram/";
+    const redirectUri = "https://veganmanna.org/auth/instagram/";
     const url = `https://api.instagram.com/oauth/authorize?client_id=${appId}&redirect_uri=${redirectUri}&scope=user_profile,user_media&response_type=code`;
 
     window.location.href = url;
