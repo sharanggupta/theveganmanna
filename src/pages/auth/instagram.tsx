@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import { useRouter } from "next/router";
 import { Spin } from "antd";
-import axios from "axios";
 import { Auth, API } from "aws-amplify";
 
 const instagram = () => {
@@ -11,10 +10,7 @@ const instagram = () => {
   const redirectUri = "https://veganmanna.org/auth/instagram/";
 
   const exchangeCodeForToken = async () => {
-    const res = await axios.post(
-      "https://api.instagram.com/oauth/access_token",
-      { code }
-    );
+    const res = await API.post("instagramApi", "/auth/token", { code });
 
     console.log("res:", res);
   };
