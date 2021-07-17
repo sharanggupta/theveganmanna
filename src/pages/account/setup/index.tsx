@@ -25,12 +25,19 @@ const Setup = () => {
 
   const { loading, run } = useRequest(createUserApi, {
     manual: true,
-    onSuccess: async () => {
-      message.success({ content: "success!", key });
-      dispatchUser({ type: "UPDATE", user: (await me()) as User });
-      setTimeout(() => {
-        router.push("/");
-      }, 0);
+    onSuccess: async (success: boolean) => {
+      if (success) {
+        message.success({ content: "success!", key });
+        dispatchUser({ type: "UPDATE", user: (await me()) as User });
+        setTimeout(() => {
+          router.push("/");
+        }, 0);
+      } else {
+        message.error({
+          content: "username is already took, please choose another one",
+          key,
+        });
+      }
     },
     onError: () => {
       message.error({ content: "error!", key });

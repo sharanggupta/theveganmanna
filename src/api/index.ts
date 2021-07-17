@@ -87,11 +87,6 @@ export const createUserApi = async (data: { username: string }) => {
   const currentUser: any = jwt_decode(idToken);
   const { username } = data;
 
-  const user = await Auth.currentAuthenticatedUser();
-  await Auth.updateUserAttributes(user, {
-    "custom:username": username,
-  });
-
   try {
     const user = {
       id: username,
@@ -100,6 +95,11 @@ export const createUserApi = async (data: { username: string }) => {
       isActive: 1,
     };
     await API.graphql(graphqlOperation(createUser, { input: user }));
+
+    const currentAuth = await Auth.currentAuthenticatedUser();
+    await Auth.updateUserAttributes(currentAuth, {
+      "custom:username": username,
+    });
     return true;
   } catch (err) {
     catchError(err);
@@ -223,7 +223,6 @@ export const me = async () => {
     localStorage.setItem("idToken", idToken);
     localStorage.setItem("token", accessToken);
     localStorage.setItem("refresh", refreshToken);
-
     const currentUser: any = jwt_decode(idToken);
     const cognitoUsername = currentUser["cognito:username"];
     const id = currentUser["custom:username"] || cognitoUsername;
@@ -235,9 +234,12 @@ export const me = async () => {
       graphqlOperation(getUser, { id })
     );
 
+    const externalProvider =
+      currentUser.identities && currentUser.identities.length > 0;
+
     const user: User = getUserResponse?.data?.getUser;
 
-    if (user) return { ...user, isAdmin };
+    if (user) return { ...user, isAdmin, externalProvider };
     else
       return {
         id: "not_found",
@@ -255,9 +257,7 @@ export const logout = async () => {
     localStorage.removeItem("token");
     localStorage.removeItem("refresh");
     localStorage.removeItem("idToken");
-    console.log("logout started");
     await Auth.signOut();
-    console.log("logout ended, loclStorage");
     return true;
   } catch (err) {
     catchError(err);

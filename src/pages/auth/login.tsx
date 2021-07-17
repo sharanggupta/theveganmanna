@@ -111,9 +111,7 @@ const Login = () => {
                 />
               </Form.Item>
 
-              <Form.Item
-                style={{ display: "flex", justifyContent: "flex-end" }}
-              >
+              <Form.Item>
                 <Button
                   type="primary"
                   htmlType="submit"

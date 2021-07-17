@@ -1,5 +1,5 @@
 import { useRequest } from "ahooks";
-import { me } from "api";
+import { me, logout } from "api";
 import { Loader } from "components";
 import { User } from "interfaces";
 import React from "react";
@@ -27,6 +27,7 @@ const reducer = (state: any, action: Action) => {
     case "UPDATE":
       return action.user;
     case "SIGN_OUT":
+      logout();
       return defaultUser;
     case "SET_GUEST":
       return { ...defaultUser, id: "guest" };
@@ -60,6 +61,7 @@ export const UserProvider: React.FC<Props> = ({ children }) => {
           });
         }
       } else {
+        dispatch({ type: "SIGN_OUT" });
         dispatch({ type: "UPDATE", user: { ...defaultUser, id: "guest" } });
       }
     },

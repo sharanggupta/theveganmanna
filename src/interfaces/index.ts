@@ -29,6 +29,7 @@ export interface User {
   createdAt: string;
   updatedAt: string;
   isAdmin?: boolean;
+  externalProvider?: boolean;
 }
 
 export interface Recipe {

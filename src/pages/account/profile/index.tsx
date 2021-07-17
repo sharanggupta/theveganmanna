@@ -14,7 +14,7 @@ import {
 } from "@ant-design/icons";
 import { Card } from "components";
 import { useUser } from "contexts";
-import { API, graphqlOperation, Storage } from "aws-amplify";
+import { API, Auth, graphqlOperation, Storage } from "aws-amplify";
 import { updateUser } from "graphql/mutations";
 
 const { TextArea } = Input;
@@ -27,6 +27,15 @@ const Profile = () => {
 
   const onFinish = async (values: any) => {
     try {
+      if (
+        !user.externalProvider &&
+        values.currentPassword !== "" &&
+        values?.newPassword === ""
+      ) {
+        message.warning("Enter your new password");
+        return;
+      }
+
       const input = {
         id: user.id,
         bio: values.bio,
@@ -36,13 +45,28 @@ const Profile = () => {
           facebook: values.facebook,
         },
       };
-      console.log("input:", input);
+
       await API.graphql(graphqlOperation(updateUser, { input }));
+
+      const currentAuth = await Auth.currentAuthenticatedUser();
+      await Auth.changePassword(
+        currentAuth,
+        values.currentPassword,
+        values.newPassword
+      );
+
       message.success("Profile info updated");
+
       window.location.reload();
     } catch (err) {
       console.log("profile info err:", err);
-      message.error("Profile info not updated");
+      if (err?.message) {
+        if (err.code === "NotAuthorizedException") {
+          message.error("Current password is incorrect");
+        } else message.error(err.message);
+      } else {
+        message.error("Profile info not updated");
+      }
     }
   };
 
@@ -187,7 +211,12 @@ const Profile = () => {
                 </div>
               </div>
               <Form
-                initialValues={{ bio: user.bio, ...user.social }}
+                initialValues={{
+                  bio: user.bio,
+                  ...user.social,
+                  currentPassword: "",
+                  newPassword: "",
+                }}
                 onFinish={onFinish}
                 onFinishFailed={onFinishFailed}
               >
@@ -249,6 +278,20 @@ const Profile = () => {
                       placeholder="facebook username"
                     />
                   </Form.Item>
+
+                  {!user.externalProvider && (
+                    <>
+                      <p>Current Password</p>
+                      <Form.Item name="currentPassword">
+                        <Input.Password />
+                      </Form.Item>
+
+                      <p>New Confirmation</p>
+                      <Form.Item name="newPassword">
+                        <Input.Password />
+                      </Form.Item>
+                    </>
+                  )}
 
                   <Form.Item style={{ textAlign: "right" }}>
                     <Button

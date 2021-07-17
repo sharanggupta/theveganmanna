@@ -31,7 +31,6 @@ const IndexPage = () => {
 
   useEffect(() => {
     if (!loading && data) {
-      console.log("----------data:", data);
       setRecipes(data.items);
       setNextToken(data?.nextToken || null);
     }
