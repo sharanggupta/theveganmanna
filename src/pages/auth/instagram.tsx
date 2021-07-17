@@ -7,12 +7,11 @@ const instagram = () => {
   const router = useRouter();
   const code: any = router.query.code;
 
-  const redirectUri = "https://veganmanna.org/auth/instagram/";
-
   const exchangeCodeForToken = async () => {
-    const res = await API.post("instagram", "/auth/token", { code });
+    console.log("code:", code);
+    // const res = await API.post("instagram", "/auth/token", { code });
 
-    console.log("res:", res);
+    // console.log("res:", res);
   };
 
   useEffect(() => {
