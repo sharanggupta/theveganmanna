@@ -122,9 +122,8 @@ const Register = () => {
                   },
                 ]}
               >
-                <Input
+                <Input.Password
                   placeholder="Password"
-                  type="password"
                   prefix={<LockOutlined style={{ color: "rgba(0,0,0,.25)" }} />}
                 />
               </Form.Item>
@@ -138,9 +137,8 @@ const Register = () => {
                   },
                 ]}
               >
-                <Input
+                <Input.Password
                   placeholder="Password confirm"
-                  type="password"
                   prefix={<LockOutlined style={{ color: "rgba(0,0,0,.25)" }} />}
                 />
               </Form.Item>
