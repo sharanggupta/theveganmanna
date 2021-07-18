@@ -4,12 +4,10 @@ import Amplify from "aws-amplify";
 import { UserProvider } from "contexts";
 import React, { useEffect, useState } from "react";
 import Router, { NextRouter, useRouter } from "next/router";
-import Head from "next/head";
 import { Loader } from "components";
 import NProgress from "nprogress";
 import "nprogress/nprogress.css";
 import "styles/main.scss";
-import { useUser } from "contexts";
 import config from "aws-exports";
 
 Amplify.configure(config);
