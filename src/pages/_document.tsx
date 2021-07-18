@@ -13,6 +13,7 @@ class MyDocument extends Document {
           <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
         </Head>
         <body>
+          <script>0</script>
           <Main />
           <NextScript />
         </body>
