@@ -283,7 +283,7 @@ export const me = async () => {
 
       const user: User = getUserResponse?.data?.getUser;
 
-      return { ...user, isAdmin: false, externalProvider: null };
+      return { ...user, isAdmin: false, externalProvider: "instagram" };
     } catch (err) {
       return false;
     }
