@@ -115,6 +115,7 @@ export const createInstagramUser = async (data: { username: string }) => {
       id: username,
       sub: "instagram_user_sub",
       email: "instagram_user_email",
+      social: { instagram: username },
       isActive: 1,
     };
     await API.graphql(graphqlOperation(createUser, { input: user }));

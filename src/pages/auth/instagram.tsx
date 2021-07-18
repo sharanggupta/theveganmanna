@@ -1,12 +1,16 @@
 import React, { useEffect } from "react";
+import Head from "next/head";
 import { useRouter } from "next/router";
 import { LoadingOutlined } from "@ant-design/icons";
-import { createInstagramUser } from "api";
+import { createInstagramUser, me } from "api";
 import { Auth, API } from "aws-amplify";
 import { message } from "antd";
+import { useUser } from "contexts";
+import { User } from "interfaces";
 
 const instagram = () => {
   const router = useRouter();
+  const [_, dispatchUser] = useUser();
   const code: any = router.query.code;
 
   const exchangeCodeForToken = async () => {
@@ -52,6 +56,7 @@ const instagram = () => {
 
     await Auth.federatedSignIn(provider, federatedResponse, federatedUser);
 
+    dispatchUser({ type: "SIGN_IN", user: (await me()) as User });
     router.push("/");
   };
 
@@ -67,21 +72,26 @@ const instagram = () => {
   }, [router.isReady]);
 
   return (
-    <div
-      style={{
-        position: "absolute",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        height: "100%",
-        width: "100%",
-      }}
-    >
-      <LoadingOutlined style={{ fontSize: "1.2rem" }} />
-      <span style={{ marginLeft: 10, fontSize: "1.2rem" }}>
-        Authenticating via your instagram account
-      </span>
-    </div>
+    <>
+      <Head>
+        <title>Authenticating via Instagram</title>
+      </Head>
+      <div
+        style={{
+          position: "absolute",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          height: "100%",
+          width: "100%",
+        }}
+      >
+        <LoadingOutlined style={{ fontSize: "1.2rem" }} />
+        <span style={{ marginLeft: 10, fontSize: "1.2rem" }}>
+          Authenticating via your instagram account
+        </span>
+      </div>
+    </>
   );
 };
 
