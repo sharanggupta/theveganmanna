@@ -161,10 +161,6 @@ Parameters:
     Type: String
   
             
-  oAuthMetadata:
-    Type: String
-  
-            
         
   userPoolGroupList:
     Type: CommaDelimitedList
@@ -200,6 +196,11 @@ Parameters:
   hostedUIProviderCreds:
     Type: String
   
+            
+  oAuthMetadata:
+    Type: String
+  
+            
             
 Conditions:
   ShouldNotCreateEnvResources: !Equals [ !Ref env, NONE ]

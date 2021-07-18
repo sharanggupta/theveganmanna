@@ -79,7 +79,7 @@ const post = (code) => {
     form.append("client_id", "581301996194287");
     form.append("client_secret", "0ddcf245704d6fae9d77b2383b04dc4c");
     form.append("grant_type", "authorization_code");
-    form.append("redirect_uri", "https://veganmanna.org/auth/instagram/");
+    form.append("redirect_uri", "https://www.veganmanna.org/auth/instagram/");
     form.append("code", code);
 
     const options = {
@@ -110,6 +110,39 @@ const post = (code) => {
 app.post("/auth/token", async function (req, res) {
   const { code } = req.body;
   const data = await post(code);
+  res.json({ data });
+});
+
+const getUsername = (path) => {
+  return new Promise((resolve, reject) => {
+    const options = {
+      host: "graph.instagram.com",
+      path,
+      method: "GET",
+    };
+
+    //create the request object with the callback with the result
+    const req = https.request(options, (res) => {
+      res.setEncoding("utf8");
+      const body = [];
+      res.on("data", (chunk) => body.push(chunk));
+      res.on("end", () => resolve(body.join("")));
+    });
+
+    // handle the possible errors
+    req.on("error", (e) => {
+      reject(e.message);
+    });
+
+    //finish the request
+    req.end();
+  });
+};
+
+app.post("/auth/username", async function (req, res) {
+  const { access_token, user_id } = req.body;
+  const path = `/${user_id}?fields=id,username&access_token=${access_token}`;
+  const data = await getUsername(path);
   res.json({ data });
 });
 
