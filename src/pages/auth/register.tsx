@@ -70,10 +70,10 @@ const Register = () => {
               form={form}
               style={{ width: "100%" }}
               initialValues={{
-                email: "luckytuvshee@protonmail.com",
-                username: "lindsay",
-                password: "lindsay_@_example123",
-                password_confirm: "lindsay_@_example123",
+                email: "",
+                username: "",
+                password: "",
+                password_confirm: "",
               }}
               onFinish={(values) => {
                 message.loading({ content: "loading!", key });

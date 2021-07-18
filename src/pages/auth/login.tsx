@@ -70,10 +70,10 @@ const Login = () => {
               form={form}
               style={{ width: "100%" }}
               initialValues={{
-                username: "luckytuvshee@protonmail.com",
-                password: "lindsay_@_example123",
+                username: "",
+                password: "",
               }}
-              onFinish={(values) => {
+              onFinish={(values: any) => {
                 message.loading({ content: "loading!", key });
                 console.log(values);
                 run(values);
