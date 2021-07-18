@@ -1,7 +1,9 @@
 import React, { useEffect } from "react";
 import { useRouter } from "next/router";
-import { Spin } from "antd";
+import { LoadingOutlined } from "@ant-design/icons";
+import { createInstagramUser } from "api";
 import { Auth, API } from "aws-amplify";
+import { message } from "antd";
 
 const instagram = () => {
   const router = useRouter();
@@ -14,50 +16,73 @@ const instagram = () => {
       res.data
     );
 
-    // const data: { access_token: string; user_id: number } = {
-    //   access_token:
-    //     "IGQVJVRDdrZAzhXQzVzQTFLRjJSMFUtSklQcHRfdHBDVTEyVUxFd1UxMGh5RXRlWldpNXI1WVpKem9Kc3J1S1RGNDgyUXRlYkJiYXpQMXVxRTNGY3BPdVM2RnJjS3RaczZAHbDFBNzRNU3liUTQ5X2tSM3VOR09mbXRTNWZAr",
-    //   user_id: 17841400707366654,
-    // };
-
     const graphqlRes = await API.post("instagram", "/auth/username", {
       body: { ...data },
     });
 
-    const graphqlData: { id: string; username: number } = JSON.parse(
+    console.log("data:", data);
+
+    const graphqlData: { id: string; username: string } = JSON.parse(
       graphqlRes.data
     );
 
     // instagram username
     const username = graphqlData.username;
 
-    console.log("username:", username);
+    // get token
+    const openIdRes = await API.post("instagram", "/auth", {
+      body: { username },
+    });
+    const openIdData: { IdentityId: string; Token: string } = openIdRes.data;
 
-    // get username by user_id and access_token
+    console.log(openIdData.IdentityId);
+    console.log(openIdData.Token);
 
-    // create user on dynamodb
+    await createInstagramUser({ username });
 
-    // get open id token
+    const provider: string = "developer";
 
-    // const provider: string = "developer";
+    const federatedResponse: any = {
+      token: openIdData.Token,
+      identity_id: openIdData.IdentityId,
+      expires_at: new Date().getTime() + 6 * 60 * 60 * 1000,
+    };
 
-    // const federatedResponse: any = {
-    //   identity_token: "",
-    //   expires_at: Date.now() + 60 * 60 + 1000,
-    // };
+    const federatedUser: any = { username };
 
-    // const federatedUser: any = null;
+    await Auth.federatedSignIn(provider, federatedResponse, federatedUser);
 
-    // call federatedSignIn(provider, federatedResponse, federatedUser);
+    router.push("/");
   };
 
   useEffect(() => {
     if (router.isReady) {
-      exchangeCodeForToken();
+      if (router.query.code) {
+        exchangeCodeForToken();
+      } else {
+        message.error("Something went wrong, please try again");
+        router.push("/auth/login");
+      }
     }
   }, [router.isReady]);
 
-  return router.isReady ? <div>{code}</div> : <Spin />;
+  return (
+    <div
+      style={{
+        position: "absolute",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        height: "100%",
+        width: "100%",
+      }}
+    >
+      <LoadingOutlined style={{ fontSize: "1.2rem" }} />
+      <span style={{ marginLeft: 10, fontSize: "1.2rem" }}>
+        Authenticating via your instagram account
+      </span>
+    </div>
+  );
 };
 
 export default instagram;

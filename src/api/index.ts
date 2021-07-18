@@ -107,6 +107,24 @@ export const createUserApi = async (data: { username: string }) => {
   }
 };
 
+export const createInstagramUser = async (data: { username: string }) => {
+  const { username } = data;
+
+  try {
+    const user = {
+      id: username,
+      sub: "instagram_user_sub",
+      email: "instagram_user_email",
+      isActive: 1,
+    };
+    await API.graphql(graphqlOperation(createUser, { input: user }));
+    return true;
+  } catch (err) {
+    catchError(err);
+    return false;
+  }
+};
+
 export const updateUserStatus = async (data: {
   userID: string;
   isActive: number;
@@ -247,8 +265,27 @@ export const me = async () => {
         email: "",
       };
   } catch (err) {
-    // catchError(err);
-    return false;
+    // instagram
+    type InstaUser = { id: string; token: string; username: string };
+
+    try {
+      const instagramUser: InstaUser = await Auth.currentAuthenticatedUser();
+
+      console.log("current:", instagramUser);
+
+      const id = instagramUser.username;
+      localStorage.setItem("token", instagramUser.username);
+
+      const getUserResponse: any = await API.graphql(
+        graphqlOperation(getUser, { id })
+      );
+
+      const user: User = getUserResponse?.data?.getUser;
+
+      return { ...user, isAdmin: false, externalProvider: null };
+    } catch (err) {
+      return false;
+    }
   }
 };
 
