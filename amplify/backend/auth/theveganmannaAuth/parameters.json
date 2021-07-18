@@ -79,5 +79,5 @@
             ]
         }
     ],
-    "oAuthMetadata": "{\"AllowedOAuthFlows\":[\"code\"],\"AllowedOAuthScopes\":[\"phone\",\"email\",\"openid\",\"profile\",\"aws.cognito.signin.user.admin\"],\"CallbackURLs\":[\"https://www.veganmanna.org/\",\"https://www.veganmanna.org/\"],\"LogoutURLs\":[\"https://www.veganmanna.org/\",\"https://www.veganmanna.org/\"]}"
+    "oAuthMetadata": "{\"AllowedOAuthFlows\":[\"code\"],\"AllowedOAuthScopes\":[\"phone\",\"email\",\"openid\",\"profile\",\"aws.cognito.signin.user.admin\"],\"CallbackURLs\":[\"https://www.veganmanna.org/\"],\"LogoutURLs\":[\"https://www.veganmanna.org/\"]}"
 }

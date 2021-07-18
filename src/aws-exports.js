@@ -16,8 +16,8 @@ const awsmobile = {
             "profile",
             "aws.cognito.signin.user.admin"
         ],
-        "redirectSignIn": "https://www.veganmanna.org/,https://www.veganmanna.org/",
-        "redirectSignOut": "https://www.veganmanna.org/,https://www.veganmanna.org/",
+        "redirectSignIn": "https://www.veganmanna.org/",
+        "redirectSignOut": "https://www.veganmanna.org/",
         "responseType": "code"
     },
     "federationTarget": "COGNITO_USER_POOLS",
