@@ -89,10 +89,24 @@ const EditRecipe = () => {
     });
   };
 
-  const handleChange = async ({ fileList }: { fileList: any }) => {
+  const handleChange = async ({
+    fileList,
+    file: currentFile,
+  }: {
+    fileList: any;
+    file: any;
+  }) => {
     const file = fileList[fileList.length - 1];
 
     if (!file) {
+      setUploadState({
+        ...uploadState,
+        fileList,
+      });
+      return;
+    }
+
+    if (currentFile.status === "removed") {
       setUploadState({
         ...uploadState,
         fileList,
@@ -343,8 +357,8 @@ const EditRecipe = () => {
       owner: user.sub,
       userID: user.id,
       categoryID: values.categoryID,
-      images,
-      video: videoKey,
+      images: contentType === "images" ? images : [],
+      video: contentType === "video" ? videoKey : "",
       isArchived: 0,
     };
 
@@ -770,12 +784,12 @@ const EditRecipe = () => {
                   <Button
                     onClick={() => {
                       setContentType("");
-                      setUploadState({
-                        previewVisible: false,
-                        previewImage: "",
-                        previewTitle: "",
-                        fileList: [],
-                      });
+                      // setUploadState({
+                      //   previewVisible: false,
+                      //   previewImage: "",
+                      //   previewTitle: "",
+                      //   fileList: [],
+                      // });
                     }}
                     icon={<CloseOutlined />}
                   />
@@ -824,8 +838,8 @@ const EditRecipe = () => {
                   <Button
                     onClick={() => {
                       setContentType("");
-                      setVideoUrl("");
-                      setVideoKey("");
+                      // setVideoUrl("");
+                      // setVideoKey("");
                       if (request) {
                         message.error("Video upload cancelled");
                         setLoading(false);
@@ -835,7 +849,7 @@ const EditRecipe = () => {
                     icon={<CloseOutlined />}
                   />
                 </div>
-                <Form.Item>
+                <Form.Item style={{ maxHeight: 800 }}>
                   <Upload
                     name="avatar"
                     listType="picture-card"
@@ -850,9 +864,9 @@ const EditRecipe = () => {
                     <video
                       controls
                       style={{
-                        height: "100%",
-                        width: "100%",
-                        objectFit: "cover",
+                        minWidth: 250,
+                        maxWidth: "100%",
+                        maxHeight: 600,
                       }}
                     >
                       <source src={videoUrl} type="video/mp4" />

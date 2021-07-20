@@ -351,6 +351,7 @@ export const getRecentRecipes = async () => {
   try {
     const res: any = await API.graphql(
       graphqlOperation(recipesByDate, {
+        filter: { isArchived: { eq: 0 } },
         typename: "Recipe",
         limit: 3,
         sortDirection: "DESC",

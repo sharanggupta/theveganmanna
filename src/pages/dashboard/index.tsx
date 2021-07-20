@@ -203,7 +203,7 @@ const Dashboard = () => {
                         }}
                         key="show-reported-users"
                       >
-                        show reported users
+                        show reporting users
                       </a>
 
                       <a
@@ -266,7 +266,7 @@ const Dashboard = () => {
                               }}
                               key="show-reported-users"
                             >
-                              <a>show reported users</a>
+                              <a>show reporting users</a>
                             </Menu.Item>
                             <Menu.Item
                               onClick={() =>

@@ -88,10 +88,24 @@ const Recipes = () => {
     });
   };
 
-  const handleChange = async ({ fileList }: { fileList: any }) => {
+  const handleChange = async ({
+    fileList,
+    file: currentFile,
+  }: {
+    fileList: any;
+    file: any;
+  }) => {
     const file = fileList[fileList.length - 1];
 
     if (!file) {
+      setUploadState({
+        ...uploadState,
+        fileList,
+      });
+      return;
+    }
+
+    if (currentFile.status === "removed") {
       setUploadState({
         ...uploadState,
         fileList,
@@ -348,8 +362,8 @@ const Recipes = () => {
       owner: user.sub,
       userID: user.id,
       categoryID: values.categoryID,
-      images,
-      video: videoKey,
+      images: contentType === "images" ? images : [],
+      video: contentType === "video" ? videoKey : "",
       typename: "Recipe",
       isArchived: 0,
       // createdAt: new Date().toISOString(),
@@ -692,12 +706,12 @@ const Recipes = () => {
                 <Button
                   onClick={() => {
                     setContentType("");
-                    setUploadState({
-                      previewVisible: false,
-                      previewImage: "",
-                      previewTitle: "",
-                      fileList: [],
-                    });
+                    // setUploadState({
+                    //   previewVisible: false,
+                    //   previewImage: "",
+                    //   previewTitle: "",
+                    //   fileList: [],
+                    // });
                   }}
                   icon={<CloseOutlined />}
                 />
@@ -747,8 +761,8 @@ const Recipes = () => {
                 <Button
                   onClick={() => {
                     setContentType("");
-                    setVideoUrl("");
-                    setVideoKey("");
+                    // setVideoUrl("");
+                    // setVideoKey("");
                     if (request) {
                       message.error("Video upload cancelled");
                       setLoading(false);
@@ -758,7 +772,7 @@ const Recipes = () => {
                   icon={<CloseOutlined />}
                 />
               </div>
-              <Form.Item>
+              <Form.Item style={{ maxHeight: 800 }}>
                 <Upload
                   customRequest={customRequest}
                   name="avatar"
@@ -771,7 +785,10 @@ const Recipes = () => {
                   {!videoUrl && videoUploadButton}
                 </Upload>
                 {videoUrl && (
-                  <video controls style={{ minWidth: 250, maxWidth: "100%" }}>
+                  <video
+                    controls
+                    style={{ minWidth: 250, maxWidth: "100%", maxHeight: 600 }}
+                  >
                     <source src={videoUrl} type="video/mp4" />
                     <source src={videoUrl} type="video/webm" />
                     Sorry, your browser doesn't support embedded videos.
