@@ -299,7 +299,11 @@ const card: React.FC<Props> = ({ recipe, full, refresh }) => {
             </li>
           </ul>
         </header>
-        <p className="description">{recipe.description}</p>
+        <p className="description">
+          {recipe.description.length > 50
+            ? recipe.description.substring(0, 50) + "..."
+            : recipe.description}
+        </p>
         {!full && (
           <footer className="content__footer">
             {recipe.isArchived === 0 ? (

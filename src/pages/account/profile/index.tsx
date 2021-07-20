@@ -22,6 +22,7 @@ const { TextArea } = Input;
 const Profile = () => {
   const [user] = useUser();
   const [url, setUrl] = useState<any>(null);
+  const [image, setImage] = useState<any>(null);
   const uploadRef = useRef<any>(null);
   const [initialValues, setInitialValues] = useState<any>(null);
 
@@ -36,17 +37,37 @@ const Profile = () => {
         return;
       }
 
-      const input = {
-        id: user.id,
-        bio: values.bio,
-        social: {
-          instagram: values.instagram,
-          twitter: values.twitter,
-          facebook: values.facebook,
-        },
-      };
+      if (image) {
+        const fileName: string = `${Date.now()}-${image.name}`;
+        const res: any = await Storage.put(fileName, image, {
+          contentType: image.type,
+        });
 
-      await API.graphql(graphqlOperation(updateUser, { input }));
+        const input = {
+          id: user.id,
+          bio: values.bio,
+          image: res.key || user.image,
+          social: {
+            instagram: values.instagram,
+            twitter: values.twitter,
+            facebook: values.facebook,
+          },
+        };
+
+        await API.graphql(graphqlOperation(updateUser, { input }));
+      } else {
+        const input = {
+          id: user.id,
+          bio: values.bio,
+          social: {
+            instagram: values.instagram,
+            twitter: values.twitter,
+            facebook: values.facebook,
+          },
+        };
+
+        await API.graphql(graphqlOperation(updateUser, { input }));
+      }
 
       if (
         !user.externalProvider &&
@@ -63,7 +84,9 @@ const Profile = () => {
 
       message.success("Profile info updated");
 
-      window.location.reload();
+      setTimeout(() => {
+        window.location.reload();
+      }, 0);
     } catch (err) {
       console.log("profile info err:", err);
       if (err?.message) {
@@ -108,23 +131,7 @@ const Profile = () => {
     reader.onload = async () => {
       preview.src = reader.result + "";
       if (image.type === "image/jpeg" || image.type === "image/png") {
-        const fileName: string = `${Date.now()}-${image.name}`;
-        const res: any = await Storage.put(fileName, image, {
-          contentType: image.type,
-        });
-
-        try {
-          const input = {
-            id: user.id,
-            image: res.key,
-          };
-          console.log("input:", input);
-          await API.graphql(graphqlOperation(updateUser, { input }));
-          message.success("Profile image updated");
-        } catch (err) {
-          console.log("profile image err:", err);
-          message.error("Profile image not updated");
-        }
+        setImage(image);
       } else {
         message.success("Please upload jpeg or png");
       }
