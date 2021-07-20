@@ -48,12 +48,18 @@ const Profile = () => {
 
       await API.graphql(graphqlOperation(updateUser, { input }));
 
-      const currentAuth = await Auth.currentAuthenticatedUser();
-      await Auth.changePassword(
-        currentAuth,
-        values.currentPassword,
+      if (
+        !user.externalProvider &&
+        values.currentPassword &&
         values.newPassword
-      );
+      ) {
+        const currentAuth = await Auth.currentAuthenticatedUser();
+        await Auth.changePassword(
+          currentAuth,
+          values.currentPassword,
+          values.newPassword
+        );
+      }
 
       message.success("Profile info updated");
 
