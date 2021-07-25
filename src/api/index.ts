@@ -107,25 +107,6 @@ export const createUserApi = async (data: { username: string }) => {
   }
 };
 
-export const createInstagramUser = async (data: { username: string }) => {
-  const { username } = data;
-
-  try {
-    const user = {
-      id: username,
-      sub: "instagram_user_sub",
-      email: "instagram_user_email",
-      social: { instagram: username },
-      isActive: 1,
-    };
-    await API.graphql(graphqlOperation(createUser, { input: user }));
-    return true;
-  } catch (err) {
-    catchError(err);
-    return false;
-  }
-};
-
 export const updateUserStatus = async (data: {
   userID: string;
   isActive: number;
@@ -239,9 +220,11 @@ export const me = async () => {
     const accessToken = session.getAccessToken().getJwtToken();
     const refreshToken = session.getRefreshToken().getToken();
     const idToken = session.getIdToken().getJwtToken();
+
     localStorage.setItem("idToken", idToken);
     localStorage.setItem("token", accessToken);
     localStorage.setItem("refresh", refreshToken);
+
     const currentUser: any = jwt_decode(idToken);
     const cognitoUsername = currentUser["cognito:username"];
     const id = currentUser["custom:username"] || cognitoUsername;
@@ -266,27 +249,8 @@ export const me = async () => {
         email: "",
       };
   } catch (err) {
-    // instagram
-    type InstaUser = { id: string; token: string; username: string };
-
-    try {
-      const instagramUser: InstaUser = await Auth.currentAuthenticatedUser();
-
-      console.log("current:", instagramUser);
-
-      const id = instagramUser.username;
-      localStorage.setItem("token", instagramUser.username);
-
-      const getUserResponse: any = await API.graphql(
-        graphqlOperation(getUser, { id })
-      );
-
-      const user: User = getUserResponse?.data?.getUser;
-
-      return { ...user, isAdmin: false, externalProvider: "instagram" };
-    } catch (err) {
-      return false;
-    }
+    console.log("current user error:", err);
+    return false;
   }
 };
 
