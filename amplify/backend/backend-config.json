@@ -14,11 +14,6 @@
       "build": true,
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
-    },
-    "instagramLambda": {
-      "build": true,
-      "providerPlugin": "awscloudformation",
-      "service": "Lambda"
     }
   },
   "auth": {
@@ -87,20 +82,6 @@
         {
           "category": "function",
           "resourceName": "nutritionLambda",
-          "attributes": [
-            "Name",
-            "Arn"
-          ]
-        }
-      ]
-    },
-    "instagram": {
-      "service": "API Gateway",
-      "providerPlugin": "awscloudformation",
-      "dependsOn": [
-        {
-          "category": "function",
-          "resourceName": "instagramLambda",
           "attributes": [
             "Name",
             "Arn"

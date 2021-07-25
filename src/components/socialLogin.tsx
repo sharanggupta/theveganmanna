@@ -1,7 +1,7 @@
 import React from "react";
 import { Auth } from "aws-amplify";
 import { Button, Divider, message } from "antd";
-import { GoogleOutlined, InstagramOutlined } from "@ant-design/icons";
+import { GoogleOutlined, FacebookFilled } from "@ant-design/icons";
 
 const SocialLogin = () => {
   const googleLogin = () => {
@@ -9,12 +9,9 @@ const SocialLogin = () => {
     Auth.federatedSignIn(params);
   };
 
-  const instragramLogin = () => {
-    const appId = "581301996194287";
-    const redirectUri = "https://www.veganmanna.org/auth/instagram/";
-    const url = `https://api.instagram.com/oauth/authorize?client_id=${appId}&redirect_uri=${redirectUri}&scope=user_profile&response_type=code`;
-
-    window.location.href = url;
+  const facebookLogin = () => {
+    const params: any = { provider: "Facebook" };
+    Auth.federatedSignIn(params);
   };
 
   return (
@@ -31,12 +28,12 @@ const SocialLogin = () => {
         </Button>
 
         <Button
-          icon={<InstagramOutlined />}
-          onClick={() => instragramLogin()}
+          icon={<FacebookFilled />}
+          onClick={() => facebookLogin()}
           type="primary"
           htmlType="button"
         >
-          Continue with Instragram
+          Continue with Facebook
         </Button>
       </div>
     </>

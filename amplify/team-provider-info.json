@@ -29,10 +29,6 @@
         "nutritionLambda": {
           "deploymentBucketName": "amplify-theveganmanna-dev-121823-deployment",
           "s3Key": "amplify-builds/nutritionLambda-363862725576776e4875-build.zip"
-        },
-        "instagramLambda": {
-          "deploymentBucketName": "amplify-theveganmanna-dev-121823-deployment",
-          "s3Key": "amplify-builds/instagramLambda-577051415232524c2f58-build.zip"
         }
       }
     }
