@@ -3,6 +3,8 @@ import Stripe from "stripe";
 const stripe = new Stripe(process.env.SECRET_KEY);
 
 export default async (req, res) => {
+  console.log("secret key:", process.env.SECRET_KEY);
+
   if (req.method === "POST") {
     try {
       const { amount } = req.body;
