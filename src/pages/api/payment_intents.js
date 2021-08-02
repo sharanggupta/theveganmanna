@@ -6,6 +6,7 @@ export default async (req, res) => {
   if (req.method === "POST") {
     try {
       const { amount } = req.body;
+      console.log("amount: ", amount);
 
       const paymentIntent = await stripe.paymentIntents.create({
         amount,
@@ -14,9 +15,11 @@ export default async (req, res) => {
 
       res.status(200).send(paymentIntent.client_secret);
     } catch (err) {
+      console.log("err:", err);
       res.status(500).json({ statusCode: 500, message: err.message });
     }
   } else {
+    console.log("not post err:", err);
     res.setHeader("Allow", "POST");
     res.status(405).end("Method Not Allowed");
   }
