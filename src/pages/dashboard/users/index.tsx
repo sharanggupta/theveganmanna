@@ -6,8 +6,8 @@ import { useRequest } from "ahooks";
 import { List, Avatar, Skeleton, Spin, Popconfirm, message } from "antd";
 import { Row, Col, Form, Input, Button } from "antd";
 import { Switch } from "antd";
-import { SearchOutlined, CloseCircleOutlined } from "@ant-design/icons";
-import { getUsers, updateUserStatus } from "api";
+import { SearchOutlined, DeleteOutlined } from "@ant-design/icons";
+import { getUsers, deleteUsers, updateUserStatus } from "api";
 import { useUser } from "contexts";
 import { useWindow } from "hooks";
 
@@ -28,6 +28,17 @@ const Users = () => {
   const { data, loading, refresh, run } = useRequest<UsersProps>((value) =>
     getUsers(value || { nextToken, showBanned: false })
   );
+
+  const deleteAction = useRequest(deleteUsers, {
+    manual: true,
+    onSuccess: () => {
+      message.success("Users deleted");
+      refresh();
+    },
+    onError: () => {
+      message.error("Users not deleted");
+    },
+  });
 
   const fetchReports = useRequest<UsersProps>(getUsers, {
     manual: true,
@@ -128,6 +139,25 @@ const Users = () => {
             <Row justify="end" gutter={{ xs: 8, sm: 8, md: 16, lg: 16 }}>
               <Col>
                 <Form.Item style={{ textAlign: "right" }}>
+                  <Popconfirm
+                    title="Are you sure to delete all users?"
+                    onConfirm={() => deleteAction.run()}
+                    okText="Yes"
+                    cancelText="No"
+                    placement="topRight"
+                  >
+                    <Button
+                      loading={deleteAction.loading}
+                      icon={<DeleteOutlined />}
+                      type="primary"
+                      htmlType="button"
+                      className="ant-btn__danger"
+                      style={{ marginRight: 30 }}
+                    >
+                      Delete users
+                    </Button>
+                  </Popconfirm>
+
                   <Button
                     icon={<SearchOutlined />}
                     type="primary"
@@ -172,7 +202,7 @@ const Users = () => {
                         textAlign: "left",
                       }}
                     >
-                      {isActive ? "ban user" : "unban user"}
+                      {user.isAdmin ? "" : isActive ? "ban user" : "unban user"}
                     </a>
                   </Popconfirm>,
                 ]}

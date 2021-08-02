@@ -17,6 +17,7 @@ export const createUser = /* GraphQL */ `
         twitter
         facebook
       }
+      isAdmin
       isActive
       createdAt
       updatedAt
@@ -55,6 +56,7 @@ export const createUser = /* GraphQL */ `
               twitter
               facebook
             }
+            isAdmin
             isActive
             createdAt
             updatedAt
@@ -149,6 +151,7 @@ export const createUser = /* GraphQL */ `
                 email
                 image
                 bio
+                isAdmin
                 isActive
                 createdAt
                 updatedAt
@@ -190,6 +193,7 @@ export const createUser = /* GraphQL */ `
                 email
                 image
                 bio
+                isAdmin
                 isActive
                 createdAt
                 updatedAt
@@ -241,6 +245,7 @@ export const createUser = /* GraphQL */ `
               twitter
               facebook
             }
+            isAdmin
             isActive
             createdAt
             updatedAt
@@ -325,6 +330,7 @@ export const createUser = /* GraphQL */ `
                 twitter
                 facebook
               }
+              isAdmin
               isActive
               createdAt
               updatedAt
@@ -395,6 +401,7 @@ export const createUser = /* GraphQL */ `
               twitter
               facebook
             }
+            isAdmin
             isActive
             createdAt
             updatedAt
@@ -479,6 +486,7 @@ export const createUser = /* GraphQL */ `
                 twitter
                 facebook
               }
+              isAdmin
               isActive
               createdAt
               updatedAt
@@ -550,6 +558,7 @@ export const updateUser = /* GraphQL */ `
         twitter
         facebook
       }
+      isAdmin
       isActive
       createdAt
       updatedAt
@@ -588,6 +597,7 @@ export const updateUser = /* GraphQL */ `
               twitter
               facebook
             }
+            isAdmin
             isActive
             createdAt
             updatedAt
@@ -682,6 +692,7 @@ export const updateUser = /* GraphQL */ `
                 email
                 image
                 bio
+                isAdmin
                 isActive
                 createdAt
                 updatedAt
@@ -723,6 +734,7 @@ export const updateUser = /* GraphQL */ `
                 email
                 image
                 bio
+                isAdmin
                 isActive
                 createdAt
                 updatedAt
@@ -774,6 +786,7 @@ export const updateUser = /* GraphQL */ `
               twitter
               facebook
             }
+            isAdmin
             isActive
             createdAt
             updatedAt
@@ -858,6 +871,7 @@ export const updateUser = /* GraphQL */ `
                 twitter
                 facebook
               }
+              isAdmin
               isActive
               createdAt
               updatedAt
@@ -928,6 +942,7 @@ export const updateUser = /* GraphQL */ `
               twitter
               facebook
             }
+            isAdmin
             isActive
             createdAt
             updatedAt
@@ -1012,6 +1027,7 @@ export const updateUser = /* GraphQL */ `
                 twitter
                 facebook
               }
+              isAdmin
               isActive
               createdAt
               updatedAt
@@ -1083,6 +1099,7 @@ export const deleteUser = /* GraphQL */ `
         twitter
         facebook
       }
+      isAdmin
       isActive
       createdAt
       updatedAt
@@ -1121,6 +1138,7 @@ export const deleteUser = /* GraphQL */ `
               twitter
               facebook
             }
+            isAdmin
             isActive
             createdAt
             updatedAt
@@ -1215,6 +1233,7 @@ export const deleteUser = /* GraphQL */ `
                 email
                 image
                 bio
+                isAdmin
                 isActive
                 createdAt
                 updatedAt
@@ -1256,6 +1275,7 @@ export const deleteUser = /* GraphQL */ `
                 email
                 image
                 bio
+                isAdmin
                 isActive
                 createdAt
                 updatedAt
@@ -1307,6 +1327,7 @@ export const deleteUser = /* GraphQL */ `
               twitter
               facebook
             }
+            isAdmin
             isActive
             createdAt
             updatedAt
@@ -1391,6 +1412,7 @@ export const deleteUser = /* GraphQL */ `
                 twitter
                 facebook
               }
+              isAdmin
               isActive
               createdAt
               updatedAt
@@ -1461,6 +1483,7 @@ export const deleteUser = /* GraphQL */ `
               twitter
               facebook
             }
+            isAdmin
             isActive
             createdAt
             updatedAt
@@ -1545,6 +1568,7 @@ export const deleteUser = /* GraphQL */ `
                 twitter
                 facebook
               }
+              isAdmin
               isActive
               createdAt
               updatedAt
@@ -1638,6 +1662,7 @@ export const createRecipe = /* GraphQL */ `
           twitter
           facebook
         }
+        isAdmin
         isActive
         createdAt
         updatedAt
@@ -1676,6 +1701,7 @@ export const createRecipe = /* GraphQL */ `
                 twitter
                 facebook
               }
+              isAdmin
               isActive
               createdAt
               updatedAt
@@ -1746,6 +1772,7 @@ export const createRecipe = /* GraphQL */ `
                 twitter
                 facebook
               }
+              isAdmin
               isActive
               createdAt
               updatedAt
@@ -1788,6 +1815,7 @@ export const createRecipe = /* GraphQL */ `
                 email
                 image
                 bio
+                isAdmin
                 isActive
                 createdAt
                 updatedAt
@@ -1829,6 +1857,7 @@ export const createRecipe = /* GraphQL */ `
                 twitter
                 facebook
               }
+              isAdmin
               isActive
               createdAt
               updatedAt
@@ -1871,6 +1900,7 @@ export const createRecipe = /* GraphQL */ `
                 email
                 image
                 bio
+                isAdmin
                 isActive
                 createdAt
                 updatedAt
@@ -1934,6 +1964,7 @@ export const createRecipe = /* GraphQL */ `
                 twitter
                 facebook
               }
+              isAdmin
               isActive
               createdAt
               updatedAt
@@ -2005,6 +2036,7 @@ export const createRecipe = /* GraphQL */ `
               twitter
               facebook
             }
+            isAdmin
             isActive
             createdAt
             updatedAt
@@ -2089,6 +2121,7 @@ export const createRecipe = /* GraphQL */ `
                 twitter
                 facebook
               }
+              isAdmin
               isActive
               createdAt
               updatedAt
@@ -2159,6 +2192,7 @@ export const createRecipe = /* GraphQL */ `
               twitter
               facebook
             }
+            isAdmin
             isActive
             createdAt
             updatedAt
@@ -2243,6 +2277,7 @@ export const createRecipe = /* GraphQL */ `
                 twitter
                 facebook
               }
+              isAdmin
               isActive
               createdAt
               updatedAt
@@ -2336,6 +2371,7 @@ export const updateRecipe = /* GraphQL */ `
           twitter
           facebook
         }
+        isAdmin
         isActive
         createdAt
         updatedAt
@@ -2374,6 +2410,7 @@ export const updateRecipe = /* GraphQL */ `
                 twitter
                 facebook
               }
+              isAdmin
               isActive
               createdAt
               updatedAt
@@ -2444,6 +2481,7 @@ export const updateRecipe = /* GraphQL */ `
                 twitter
                 facebook
               }
+              isAdmin
               isActive
               createdAt
               updatedAt
@@ -2486,6 +2524,7 @@ export const updateRecipe = /* GraphQL */ `
                 email
                 image
                 bio
+                isAdmin
                 isActive
                 createdAt
                 updatedAt
@@ -2527,6 +2566,7 @@ export const updateRecipe = /* GraphQL */ `
                 twitter
                 facebook
               }
+              isAdmin
               isActive
               createdAt
               updatedAt
@@ -2569,6 +2609,7 @@ export const updateRecipe = /* GraphQL */ `
                 email
                 image
                 bio
+                isAdmin
                 isActive
                 createdAt
                 updatedAt
@@ -2632,6 +2673,7 @@ export const updateRecipe = /* GraphQL */ `
                 twitter
                 facebook
               }
+              isAdmin
               isActive
               createdAt
               updatedAt
@@ -2703,6 +2745,7 @@ export const updateRecipe = /* GraphQL */ `
               twitter
               facebook
             }
+            isAdmin
             isActive
             createdAt
             updatedAt
@@ -2787,6 +2830,7 @@ export const updateRecipe = /* GraphQL */ `
                 twitter
                 facebook
               }
+              isAdmin
               isActive
               createdAt
               updatedAt
@@ -2857,6 +2901,7 @@ export const updateRecipe = /* GraphQL */ `
               twitter
               facebook
             }
+            isAdmin
             isActive
             createdAt
             updatedAt
@@ -2941,6 +2986,7 @@ export const updateRecipe = /* GraphQL */ `
                 twitter
                 facebook
               }
+              isAdmin
               isActive
               createdAt
               updatedAt
@@ -3034,6 +3080,7 @@ export const deleteRecipe = /* GraphQL */ `
           twitter
           facebook
         }
+        isAdmin
         isActive
         createdAt
         updatedAt
@@ -3072,6 +3119,7 @@ export const deleteRecipe = /* GraphQL */ `
                 twitter
                 facebook
               }
+              isAdmin
               isActive
               createdAt
               updatedAt
@@ -3142,6 +3190,7 @@ export const deleteRecipe = /* GraphQL */ `
                 twitter
                 facebook
               }
+              isAdmin
               isActive
               createdAt
               updatedAt
@@ -3184,6 +3233,7 @@ export const deleteRecipe = /* GraphQL */ `
                 email
                 image
                 bio
+                isAdmin
                 isActive
                 createdAt
                 updatedAt
@@ -3225,6 +3275,7 @@ export const deleteRecipe = /* GraphQL */ `
                 twitter
                 facebook
               }
+              isAdmin
               isActive
               createdAt
               updatedAt
@@ -3267,6 +3318,7 @@ export const deleteRecipe = /* GraphQL */ `
                 email
                 image
                 bio
+                isAdmin
                 isActive
                 createdAt
                 updatedAt
@@ -3330,6 +3382,7 @@ export const deleteRecipe = /* GraphQL */ `
                 twitter
                 facebook
               }
+              isAdmin
               isActive
               createdAt
               updatedAt
@@ -3401,6 +3454,7 @@ export const deleteRecipe = /* GraphQL */ `
               twitter
               facebook
             }
+            isAdmin
             isActive
             createdAt
             updatedAt
@@ -3485,6 +3539,7 @@ export const deleteRecipe = /* GraphQL */ `
                 twitter
                 facebook
               }
+              isAdmin
               isActive
               createdAt
               updatedAt
@@ -3555,6 +3610,7 @@ export const deleteRecipe = /* GraphQL */ `
               twitter
               facebook
             }
+            isAdmin
             isActive
             createdAt
             updatedAt
@@ -3639,6 +3695,7 @@ export const deleteRecipe = /* GraphQL */ `
                 twitter
                 facebook
               }
+              isAdmin
               isActive
               createdAt
               updatedAt
@@ -3743,6 +3800,7 @@ export const createReport = /* GraphQL */ `
             twitter
             facebook
           }
+          isAdmin
           isActive
           createdAt
           updatedAt
@@ -3776,6 +3834,7 @@ export const createReport = /* GraphQL */ `
                 email
                 image
                 bio
+                isAdmin
                 isActive
                 createdAt
                 updatedAt
@@ -3812,6 +3871,7 @@ export const createReport = /* GraphQL */ `
                 email
                 image
                 bio
+                isAdmin
                 isActive
                 createdAt
                 updatedAt
@@ -3853,6 +3913,7 @@ export const createReport = /* GraphQL */ `
                 email
                 image
                 bio
+                isAdmin
                 isActive
                 createdAt
                 updatedAt
@@ -3916,6 +3977,7 @@ export const createReport = /* GraphQL */ `
                 email
                 image
                 bio
+                isAdmin
                 isActive
                 createdAt
                 updatedAt
@@ -3958,6 +4020,7 @@ export const createReport = /* GraphQL */ `
                 twitter
                 facebook
               }
+              isAdmin
               isActive
               createdAt
               updatedAt
@@ -4000,6 +4063,7 @@ export const createReport = /* GraphQL */ `
                 email
                 image
                 bio
+                isAdmin
                 isActive
                 createdAt
                 updatedAt
@@ -4041,6 +4105,7 @@ export const createReport = /* GraphQL */ `
                 twitter
                 facebook
               }
+              isAdmin
               isActive
               createdAt
               updatedAt
@@ -4083,6 +4148,7 @@ export const createReport = /* GraphQL */ `
                 email
                 image
                 bio
+                isAdmin
                 isActive
                 createdAt
                 updatedAt
@@ -4160,6 +4226,7 @@ export const updateReport = /* GraphQL */ `
             twitter
             facebook
           }
+          isAdmin
           isActive
           createdAt
           updatedAt
@@ -4193,6 +4260,7 @@ export const updateReport = /* GraphQL */ `
                 email
                 image
                 bio
+                isAdmin
                 isActive
                 createdAt
                 updatedAt
@@ -4229,6 +4297,7 @@ export const updateReport = /* GraphQL */ `
                 email
                 image
                 bio
+                isAdmin
                 isActive
                 createdAt
                 updatedAt
@@ -4270,6 +4339,7 @@ export const updateReport = /* GraphQL */ `
                 email
                 image
                 bio
+                isAdmin
                 isActive
                 createdAt
                 updatedAt
@@ -4333,6 +4403,7 @@ export const updateReport = /* GraphQL */ `
                 email
                 image
                 bio
+                isAdmin
                 isActive
                 createdAt
                 updatedAt
@@ -4375,6 +4446,7 @@ export const updateReport = /* GraphQL */ `
                 twitter
                 facebook
               }
+              isAdmin
               isActive
               createdAt
               updatedAt
@@ -4417,6 +4489,7 @@ export const updateReport = /* GraphQL */ `
                 email
                 image
                 bio
+                isAdmin
                 isActive
                 createdAt
                 updatedAt
@@ -4458,6 +4531,7 @@ export const updateReport = /* GraphQL */ `
                 twitter
                 facebook
               }
+              isAdmin
               isActive
               createdAt
               updatedAt
@@ -4500,6 +4574,7 @@ export const updateReport = /* GraphQL */ `
                 email
                 image
                 bio
+                isAdmin
                 isActive
                 createdAt
                 updatedAt
@@ -4577,6 +4652,7 @@ export const deleteReport = /* GraphQL */ `
             twitter
             facebook
           }
+          isAdmin
           isActive
           createdAt
           updatedAt
@@ -4610,6 +4686,7 @@ export const deleteReport = /* GraphQL */ `
                 email
                 image
                 bio
+                isAdmin
                 isActive
                 createdAt
                 updatedAt
@@ -4646,6 +4723,7 @@ export const deleteReport = /* GraphQL */ `
                 email
                 image
                 bio
+                isAdmin
                 isActive
                 createdAt
                 updatedAt
@@ -4687,6 +4765,7 @@ export const deleteReport = /* GraphQL */ `
                 email
                 image
                 bio
+                isAdmin
                 isActive
                 createdAt
                 updatedAt
@@ -4750,6 +4829,7 @@ export const deleteReport = /* GraphQL */ `
                 email
                 image
                 bio
+                isAdmin
                 isActive
                 createdAt
                 updatedAt
@@ -4792,6 +4872,7 @@ export const deleteReport = /* GraphQL */ `
                 twitter
                 facebook
               }
+              isAdmin
               isActive
               createdAt
               updatedAt
@@ -4834,6 +4915,7 @@ export const deleteReport = /* GraphQL */ `
                 email
                 image
                 bio
+                isAdmin
                 isActive
                 createdAt
                 updatedAt
@@ -4875,6 +4957,7 @@ export const deleteReport = /* GraphQL */ `
                 twitter
                 facebook
               }
+              isAdmin
               isActive
               createdAt
               updatedAt
@@ -4917,6 +5000,7 @@ export const deleteReport = /* GraphQL */ `
                 email
                 image
                 bio
+                isAdmin
                 isActive
                 createdAt
                 updatedAt
@@ -4969,6 +5053,7 @@ export const createMessage = /* GraphQL */ `
           twitter
           facebook
         }
+        isAdmin
         isActive
         createdAt
         updatedAt
@@ -5007,6 +5092,7 @@ export const createMessage = /* GraphQL */ `
                 twitter
                 facebook
               }
+              isAdmin
               isActive
               createdAt
               updatedAt
@@ -5077,6 +5163,7 @@ export const createMessage = /* GraphQL */ `
                 twitter
                 facebook
               }
+              isAdmin
               isActive
               createdAt
               updatedAt
@@ -5119,6 +5206,7 @@ export const createMessage = /* GraphQL */ `
                 email
                 image
                 bio
+                isAdmin
                 isActive
                 createdAt
                 updatedAt
@@ -5160,6 +5248,7 @@ export const createMessage = /* GraphQL */ `
                 twitter
                 facebook
               }
+              isAdmin
               isActive
               createdAt
               updatedAt
@@ -5202,6 +5291,7 @@ export const createMessage = /* GraphQL */ `
                 email
                 image
                 bio
+                isAdmin
                 isActive
                 createdAt
                 updatedAt
@@ -5259,6 +5349,7 @@ export const createMessage = /* GraphQL */ `
             twitter
             facebook
           }
+          isAdmin
           isActive
           createdAt
           updatedAt
@@ -5292,6 +5383,7 @@ export const createMessage = /* GraphQL */ `
                 email
                 image
                 bio
+                isAdmin
                 isActive
                 createdAt
                 updatedAt
@@ -5328,6 +5420,7 @@ export const createMessage = /* GraphQL */ `
                 email
                 image
                 bio
+                isAdmin
                 isActive
                 createdAt
                 updatedAt
@@ -5369,6 +5462,7 @@ export const createMessage = /* GraphQL */ `
                 email
                 image
                 bio
+                isAdmin
                 isActive
                 createdAt
                 updatedAt
@@ -5432,6 +5526,7 @@ export const createMessage = /* GraphQL */ `
                 email
                 image
                 bio
+                isAdmin
                 isActive
                 createdAt
                 updatedAt
@@ -5474,6 +5569,7 @@ export const createMessage = /* GraphQL */ `
                 twitter
                 facebook
               }
+              isAdmin
               isActive
               createdAt
               updatedAt
@@ -5516,6 +5612,7 @@ export const createMessage = /* GraphQL */ `
                 email
                 image
                 bio
+                isAdmin
                 isActive
                 createdAt
                 updatedAt
@@ -5557,6 +5654,7 @@ export const createMessage = /* GraphQL */ `
                 twitter
                 facebook
               }
+              isAdmin
               isActive
               createdAt
               updatedAt
@@ -5599,6 +5697,7 @@ export const createMessage = /* GraphQL */ `
                 email
                 image
                 bio
+                isAdmin
                 isActive
                 createdAt
                 updatedAt
@@ -5651,6 +5750,7 @@ export const updateMessage = /* GraphQL */ `
           twitter
           facebook
         }
+        isAdmin
         isActive
         createdAt
         updatedAt
@@ -5689,6 +5789,7 @@ export const updateMessage = /* GraphQL */ `
                 twitter
                 facebook
               }
+              isAdmin
               isActive
               createdAt
               updatedAt
@@ -5759,6 +5860,7 @@ export const updateMessage = /* GraphQL */ `
                 twitter
                 facebook
               }
+              isAdmin
               isActive
               createdAt
               updatedAt
@@ -5801,6 +5903,7 @@ export const updateMessage = /* GraphQL */ `
                 email
                 image
                 bio
+                isAdmin
                 isActive
                 createdAt
                 updatedAt
@@ -5842,6 +5945,7 @@ export const updateMessage = /* GraphQL */ `
                 twitter
                 facebook
               }
+              isAdmin
               isActive
               createdAt
               updatedAt
@@ -5884,6 +5988,7 @@ export const updateMessage = /* GraphQL */ `
                 email
                 image
                 bio
+                isAdmin
                 isActive
                 createdAt
                 updatedAt
@@ -5941,6 +6046,7 @@ export const updateMessage = /* GraphQL */ `
             twitter
             facebook
           }
+          isAdmin
           isActive
           createdAt
           updatedAt
@@ -5974,6 +6080,7 @@ export const updateMessage = /* GraphQL */ `
                 email
                 image
                 bio
+                isAdmin
                 isActive
                 createdAt
                 updatedAt
@@ -6010,6 +6117,7 @@ export const updateMessage = /* GraphQL */ `
                 email
                 image
                 bio
+                isAdmin
                 isActive
                 createdAt
                 updatedAt
@@ -6051,6 +6159,7 @@ export const updateMessage = /* GraphQL */ `
                 email
                 image
                 bio
+                isAdmin
                 isActive
                 createdAt
                 updatedAt
@@ -6114,6 +6223,7 @@ export const updateMessage = /* GraphQL */ `
                 email
                 image
                 bio
+                isAdmin
                 isActive
                 createdAt
                 updatedAt
@@ -6156,6 +6266,7 @@ export const updateMessage = /* GraphQL */ `
                 twitter
                 facebook
               }
+              isAdmin
               isActive
               createdAt
               updatedAt
@@ -6198,6 +6309,7 @@ export const updateMessage = /* GraphQL */ `
                 email
                 image
                 bio
+                isAdmin
                 isActive
                 createdAt
                 updatedAt
@@ -6239,6 +6351,7 @@ export const updateMessage = /* GraphQL */ `
                 twitter
                 facebook
               }
+              isAdmin
               isActive
               createdAt
               updatedAt
@@ -6281,6 +6394,7 @@ export const updateMessage = /* GraphQL */ `
                 email
                 image
                 bio
+                isAdmin
                 isActive
                 createdAt
                 updatedAt
@@ -6333,6 +6447,7 @@ export const deleteMessage = /* GraphQL */ `
           twitter
           facebook
         }
+        isAdmin
         isActive
         createdAt
         updatedAt
@@ -6371,6 +6486,7 @@ export const deleteMessage = /* GraphQL */ `
                 twitter
                 facebook
               }
+              isAdmin
               isActive
               createdAt
               updatedAt
@@ -6441,6 +6557,7 @@ export const deleteMessage = /* GraphQL */ `
                 twitter
                 facebook
               }
+              isAdmin
               isActive
               createdAt
               updatedAt
@@ -6483,6 +6600,7 @@ export const deleteMessage = /* GraphQL */ `
                 email
                 image
                 bio
+                isAdmin
                 isActive
                 createdAt
                 updatedAt
@@ -6524,6 +6642,7 @@ export const deleteMessage = /* GraphQL */ `
                 twitter
                 facebook
               }
+              isAdmin
               isActive
               createdAt
               updatedAt
@@ -6566,6 +6685,7 @@ export const deleteMessage = /* GraphQL */ `
                 email
                 image
                 bio
+                isAdmin
                 isActive
                 createdAt
                 updatedAt
@@ -6623,6 +6743,7 @@ export const deleteMessage = /* GraphQL */ `
             twitter
             facebook
           }
+          isAdmin
           isActive
           createdAt
           updatedAt
@@ -6656,6 +6777,7 @@ export const deleteMessage = /* GraphQL */ `
                 email
                 image
                 bio
+                isAdmin
                 isActive
                 createdAt
                 updatedAt
@@ -6692,6 +6814,7 @@ export const deleteMessage = /* GraphQL */ `
                 email
                 image
                 bio
+                isAdmin
                 isActive
                 createdAt
                 updatedAt
@@ -6733,6 +6856,7 @@ export const deleteMessage = /* GraphQL */ `
                 email
                 image
                 bio
+                isAdmin
                 isActive
                 createdAt
                 updatedAt
@@ -6796,6 +6920,7 @@ export const deleteMessage = /* GraphQL */ `
                 email
                 image
                 bio
+                isAdmin
                 isActive
                 createdAt
                 updatedAt
@@ -6838,6 +6963,7 @@ export const deleteMessage = /* GraphQL */ `
                 twitter
                 facebook
               }
+              isAdmin
               isActive
               createdAt
               updatedAt
@@ -6880,6 +7006,7 @@ export const deleteMessage = /* GraphQL */ `
                 email
                 image
                 bio
+                isAdmin
                 isActive
                 createdAt
                 updatedAt
@@ -6921,6 +7048,7 @@ export const deleteMessage = /* GraphQL */ `
                 twitter
                 facebook
               }
+              isAdmin
               isActive
               createdAt
               updatedAt
@@ -6963,6 +7091,7 @@ export const deleteMessage = /* GraphQL */ `
                 email
                 image
                 bio
+                isAdmin
                 isActive
                 createdAt
                 updatedAt
@@ -7035,6 +7164,7 @@ export const createCategory = /* GraphQL */ `
               twitter
               facebook
             }
+            isAdmin
             isActive
             createdAt
             updatedAt
@@ -7129,6 +7259,7 @@ export const createCategory = /* GraphQL */ `
                 email
                 image
                 bio
+                isAdmin
                 isActive
                 createdAt
                 updatedAt
@@ -7170,6 +7301,7 @@ export const createCategory = /* GraphQL */ `
                 email
                 image
                 bio
+                isAdmin
                 isActive
                 createdAt
                 updatedAt
@@ -7249,6 +7381,7 @@ export const updateCategory = /* GraphQL */ `
               twitter
               facebook
             }
+            isAdmin
             isActive
             createdAt
             updatedAt
@@ -7343,6 +7476,7 @@ export const updateCategory = /* GraphQL */ `
                 email
                 image
                 bio
+                isAdmin
                 isActive
                 createdAt
                 updatedAt
@@ -7384,6 +7518,7 @@ export const updateCategory = /* GraphQL */ `
                 email
                 image
                 bio
+                isAdmin
                 isActive
                 createdAt
                 updatedAt
@@ -7463,6 +7598,7 @@ export const deleteCategory = /* GraphQL */ `
               twitter
               facebook
             }
+            isAdmin
             isActive
             createdAt
             updatedAt
@@ -7557,6 +7693,7 @@ export const deleteCategory = /* GraphQL */ `
                 email
                 image
                 bio
+                isAdmin
                 isActive
                 createdAt
                 updatedAt
@@ -7598,6 +7735,7 @@ export const deleteCategory = /* GraphQL */ `
                 email
                 image
                 bio
+                isAdmin
                 isActive
                 createdAt
                 updatedAt
@@ -7656,6 +7794,7 @@ export const createComment = /* GraphQL */ `
           twitter
           facebook
         }
+        isAdmin
         isActive
         createdAt
         updatedAt
@@ -7694,6 +7833,7 @@ export const createComment = /* GraphQL */ `
                 twitter
                 facebook
               }
+              isAdmin
               isActive
               createdAt
               updatedAt
@@ -7764,6 +7904,7 @@ export const createComment = /* GraphQL */ `
                 twitter
                 facebook
               }
+              isAdmin
               isActive
               createdAt
               updatedAt
@@ -7806,6 +7947,7 @@ export const createComment = /* GraphQL */ `
                 email
                 image
                 bio
+                isAdmin
                 isActive
                 createdAt
                 updatedAt
@@ -7847,6 +7989,7 @@ export const createComment = /* GraphQL */ `
                 twitter
                 facebook
               }
+              isAdmin
               isActive
               createdAt
               updatedAt
@@ -7889,6 +8032,7 @@ export const createComment = /* GraphQL */ `
                 email
                 image
                 bio
+                isAdmin
                 isActive
                 createdAt
                 updatedAt
@@ -7946,6 +8090,7 @@ export const createComment = /* GraphQL */ `
             twitter
             facebook
           }
+          isAdmin
           isActive
           createdAt
           updatedAt
@@ -7979,6 +8124,7 @@ export const createComment = /* GraphQL */ `
                 email
                 image
                 bio
+                isAdmin
                 isActive
                 createdAt
                 updatedAt
@@ -8015,6 +8161,7 @@ export const createComment = /* GraphQL */ `
                 email
                 image
                 bio
+                isAdmin
                 isActive
                 createdAt
                 updatedAt
@@ -8056,6 +8203,7 @@ export const createComment = /* GraphQL */ `
                 email
                 image
                 bio
+                isAdmin
                 isActive
                 createdAt
                 updatedAt
@@ -8119,6 +8267,7 @@ export const createComment = /* GraphQL */ `
                 email
                 image
                 bio
+                isAdmin
                 isActive
                 createdAt
                 updatedAt
@@ -8161,6 +8310,7 @@ export const createComment = /* GraphQL */ `
                 twitter
                 facebook
               }
+              isAdmin
               isActive
               createdAt
               updatedAt
@@ -8203,6 +8353,7 @@ export const createComment = /* GraphQL */ `
                 email
                 image
                 bio
+                isAdmin
                 isActive
                 createdAt
                 updatedAt
@@ -8244,6 +8395,7 @@ export const createComment = /* GraphQL */ `
                 twitter
                 facebook
               }
+              isAdmin
               isActive
               createdAt
               updatedAt
@@ -8286,6 +8438,7 @@ export const createComment = /* GraphQL */ `
                 email
                 image
                 bio
+                isAdmin
                 isActive
                 createdAt
                 updatedAt
@@ -8337,6 +8490,7 @@ export const updateComment = /* GraphQL */ `
           twitter
           facebook
         }
+        isAdmin
         isActive
         createdAt
         updatedAt
@@ -8375,6 +8529,7 @@ export const updateComment = /* GraphQL */ `
                 twitter
                 facebook
               }
+              isAdmin
               isActive
               createdAt
               updatedAt
@@ -8445,6 +8600,7 @@ export const updateComment = /* GraphQL */ `
                 twitter
                 facebook
               }
+              isAdmin
               isActive
               createdAt
               updatedAt
@@ -8487,6 +8643,7 @@ export const updateComment = /* GraphQL */ `
                 email
                 image
                 bio
+                isAdmin
                 isActive
                 createdAt
                 updatedAt
@@ -8528,6 +8685,7 @@ export const updateComment = /* GraphQL */ `
                 twitter
                 facebook
               }
+              isAdmin
               isActive
               createdAt
               updatedAt
@@ -8570,6 +8728,7 @@ export const updateComment = /* GraphQL */ `
                 email
                 image
                 bio
+                isAdmin
                 isActive
                 createdAt
                 updatedAt
@@ -8627,6 +8786,7 @@ export const updateComment = /* GraphQL */ `
             twitter
             facebook
           }
+          isAdmin
           isActive
           createdAt
           updatedAt
@@ -8660,6 +8820,7 @@ export const updateComment = /* GraphQL */ `
                 email
                 image
                 bio
+                isAdmin
                 isActive
                 createdAt
                 updatedAt
@@ -8696,6 +8857,7 @@ export const updateComment = /* GraphQL */ `
                 email
                 image
                 bio
+                isAdmin
                 isActive
                 createdAt
                 updatedAt
@@ -8737,6 +8899,7 @@ export const updateComment = /* GraphQL */ `
                 email
                 image
                 bio
+                isAdmin
                 isActive
                 createdAt
                 updatedAt
@@ -8800,6 +8963,7 @@ export const updateComment = /* GraphQL */ `
                 email
                 image
                 bio
+                isAdmin
                 isActive
                 createdAt
                 updatedAt
@@ -8842,6 +9006,7 @@ export const updateComment = /* GraphQL */ `
                 twitter
                 facebook
               }
+              isAdmin
               isActive
               createdAt
               updatedAt
@@ -8884,6 +9049,7 @@ export const updateComment = /* GraphQL */ `
                 email
                 image
                 bio
+                isAdmin
                 isActive
                 createdAt
                 updatedAt
@@ -8925,6 +9091,7 @@ export const updateComment = /* GraphQL */ `
                 twitter
                 facebook
               }
+              isAdmin
               isActive
               createdAt
               updatedAt
@@ -8967,6 +9134,7 @@ export const updateComment = /* GraphQL */ `
                 email
                 image
                 bio
+                isAdmin
                 isActive
                 createdAt
                 updatedAt
@@ -9018,6 +9186,7 @@ export const deleteComment = /* GraphQL */ `
           twitter
           facebook
         }
+        isAdmin
         isActive
         createdAt
         updatedAt
@@ -9056,6 +9225,7 @@ export const deleteComment = /* GraphQL */ `
                 twitter
                 facebook
               }
+              isAdmin
               isActive
               createdAt
               updatedAt
@@ -9126,6 +9296,7 @@ export const deleteComment = /* GraphQL */ `
                 twitter
                 facebook
               }
+              isAdmin
               isActive
               createdAt
               updatedAt
@@ -9168,6 +9339,7 @@ export const deleteComment = /* GraphQL */ `
                 email
                 image
                 bio
+                isAdmin
                 isActive
                 createdAt
                 updatedAt
@@ -9209,6 +9381,7 @@ export const deleteComment = /* GraphQL */ `
                 twitter
                 facebook
               }
+              isAdmin
               isActive
               createdAt
               updatedAt
@@ -9251,6 +9424,7 @@ export const deleteComment = /* GraphQL */ `
                 email
                 image
                 bio
+                isAdmin
                 isActive
                 createdAt
                 updatedAt
@@ -9308,6 +9482,7 @@ export const deleteComment = /* GraphQL */ `
             twitter
             facebook
           }
+          isAdmin
           isActive
           createdAt
           updatedAt
@@ -9341,6 +9516,7 @@ export const deleteComment = /* GraphQL */ `
                 email
                 image
                 bio
+                isAdmin
                 isActive
                 createdAt
                 updatedAt
@@ -9377,6 +9553,7 @@ export const deleteComment = /* GraphQL */ `
                 email
                 image
                 bio
+                isAdmin
                 isActive
                 createdAt
                 updatedAt
@@ -9418,6 +9595,7 @@ export const deleteComment = /* GraphQL */ `
                 email
                 image
                 bio
+                isAdmin
                 isActive
                 createdAt
                 updatedAt
@@ -9481,6 +9659,7 @@ export const deleteComment = /* GraphQL */ `
                 email
                 image
                 bio
+                isAdmin
                 isActive
                 createdAt
                 updatedAt
@@ -9523,6 +9702,7 @@ export const deleteComment = /* GraphQL */ `
                 twitter
                 facebook
               }
+              isAdmin
               isActive
               createdAt
               updatedAt
@@ -9565,6 +9745,7 @@ export const deleteComment = /* GraphQL */ `
                 email
                 image
                 bio
+                isAdmin
                 isActive
                 createdAt
                 updatedAt
@@ -9606,6 +9787,7 @@ export const deleteComment = /* GraphQL */ `
                 twitter
                 facebook
               }
+              isAdmin
               isActive
               createdAt
               updatedAt
@@ -9648,6 +9830,7 @@ export const deleteComment = /* GraphQL */ `
                 email
                 image
                 bio
+                isAdmin
                 isActive
                 createdAt
                 updatedAt
@@ -9698,6 +9881,7 @@ export const createLike = /* GraphQL */ `
           twitter
           facebook
         }
+        isAdmin
         isActive
         createdAt
         updatedAt
@@ -9736,6 +9920,7 @@ export const createLike = /* GraphQL */ `
                 twitter
                 facebook
               }
+              isAdmin
               isActive
               createdAt
               updatedAt
@@ -9806,6 +9991,7 @@ export const createLike = /* GraphQL */ `
                 twitter
                 facebook
               }
+              isAdmin
               isActive
               createdAt
               updatedAt
@@ -9848,6 +10034,7 @@ export const createLike = /* GraphQL */ `
                 email
                 image
                 bio
+                isAdmin
                 isActive
                 createdAt
                 updatedAt
@@ -9889,6 +10076,7 @@ export const createLike = /* GraphQL */ `
                 twitter
                 facebook
               }
+              isAdmin
               isActive
               createdAt
               updatedAt
@@ -9931,6 +10119,7 @@ export const createLike = /* GraphQL */ `
                 email
                 image
                 bio
+                isAdmin
                 isActive
                 createdAt
                 updatedAt
@@ -9988,6 +10177,7 @@ export const createLike = /* GraphQL */ `
             twitter
             facebook
           }
+          isAdmin
           isActive
           createdAt
           updatedAt
@@ -10021,6 +10211,7 @@ export const createLike = /* GraphQL */ `
                 email
                 image
                 bio
+                isAdmin
                 isActive
                 createdAt
                 updatedAt
@@ -10057,6 +10248,7 @@ export const createLike = /* GraphQL */ `
                 email
                 image
                 bio
+                isAdmin
                 isActive
                 createdAt
                 updatedAt
@@ -10098,6 +10290,7 @@ export const createLike = /* GraphQL */ `
                 email
                 image
                 bio
+                isAdmin
                 isActive
                 createdAt
                 updatedAt
@@ -10161,6 +10354,7 @@ export const createLike = /* GraphQL */ `
                 email
                 image
                 bio
+                isAdmin
                 isActive
                 createdAt
                 updatedAt
@@ -10203,6 +10397,7 @@ export const createLike = /* GraphQL */ `
                 twitter
                 facebook
               }
+              isAdmin
               isActive
               createdAt
               updatedAt
@@ -10245,6 +10440,7 @@ export const createLike = /* GraphQL */ `
                 email
                 image
                 bio
+                isAdmin
                 isActive
                 createdAt
                 updatedAt
@@ -10286,6 +10482,7 @@ export const createLike = /* GraphQL */ `
                 twitter
                 facebook
               }
+              isAdmin
               isActive
               createdAt
               updatedAt
@@ -10328,6 +10525,7 @@ export const createLike = /* GraphQL */ `
                 email
                 image
                 bio
+                isAdmin
                 isActive
                 createdAt
                 updatedAt
@@ -10378,6 +10576,7 @@ export const updateLike = /* GraphQL */ `
           twitter
           facebook
         }
+        isAdmin
         isActive
         createdAt
         updatedAt
@@ -10416,6 +10615,7 @@ export const updateLike = /* GraphQL */ `
                 twitter
                 facebook
               }
+              isAdmin
               isActive
               createdAt
               updatedAt
@@ -10486,6 +10686,7 @@ export const updateLike = /* GraphQL */ `
                 twitter
                 facebook
               }
+              isAdmin
               isActive
               createdAt
               updatedAt
@@ -10528,6 +10729,7 @@ export const updateLike = /* GraphQL */ `
                 email
                 image
                 bio
+                isAdmin
                 isActive
                 createdAt
                 updatedAt
@@ -10569,6 +10771,7 @@ export const updateLike = /* GraphQL */ `
                 twitter
                 facebook
               }
+              isAdmin
               isActive
               createdAt
               updatedAt
@@ -10611,6 +10814,7 @@ export const updateLike = /* GraphQL */ `
                 email
                 image
                 bio
+                isAdmin
                 isActive
                 createdAt
                 updatedAt
@@ -10668,6 +10872,7 @@ export const updateLike = /* GraphQL */ `
             twitter
             facebook
           }
+          isAdmin
           isActive
           createdAt
           updatedAt
@@ -10701,6 +10906,7 @@ export const updateLike = /* GraphQL */ `
                 email
                 image
                 bio
+                isAdmin
                 isActive
                 createdAt
                 updatedAt
@@ -10737,6 +10943,7 @@ export const updateLike = /* GraphQL */ `
                 email
                 image
                 bio
+                isAdmin
                 isActive
                 createdAt
                 updatedAt
@@ -10778,6 +10985,7 @@ export const updateLike = /* GraphQL */ `
                 email
                 image
                 bio
+                isAdmin
                 isActive
                 createdAt
                 updatedAt
@@ -10841,6 +11049,7 @@ export const updateLike = /* GraphQL */ `
                 email
                 image
                 bio
+                isAdmin
                 isActive
                 createdAt
                 updatedAt
@@ -10883,6 +11092,7 @@ export const updateLike = /* GraphQL */ `
                 twitter
                 facebook
               }
+              isAdmin
               isActive
               createdAt
               updatedAt
@@ -10925,6 +11135,7 @@ export const updateLike = /* GraphQL */ `
                 email
                 image
                 bio
+                isAdmin
                 isActive
                 createdAt
                 updatedAt
@@ -10966,6 +11177,7 @@ export const updateLike = /* GraphQL */ `
                 twitter
                 facebook
               }
+              isAdmin
               isActive
               createdAt
               updatedAt
@@ -11008,6 +11220,7 @@ export const updateLike = /* GraphQL */ `
                 email
                 image
                 bio
+                isAdmin
                 isActive
                 createdAt
                 updatedAt
@@ -11058,6 +11271,7 @@ export const deleteLike = /* GraphQL */ `
           twitter
           facebook
         }
+        isAdmin
         isActive
         createdAt
         updatedAt
@@ -11096,6 +11310,7 @@ export const deleteLike = /* GraphQL */ `
                 twitter
                 facebook
               }
+              isAdmin
               isActive
               createdAt
               updatedAt
@@ -11166,6 +11381,7 @@ export const deleteLike = /* GraphQL */ `
                 twitter
                 facebook
               }
+              isAdmin
               isActive
               createdAt
               updatedAt
@@ -11208,6 +11424,7 @@ export const deleteLike = /* GraphQL */ `
                 email
                 image
                 bio
+                isAdmin
                 isActive
                 createdAt
                 updatedAt
@@ -11249,6 +11466,7 @@ export const deleteLike = /* GraphQL */ `
                 twitter
                 facebook
               }
+              isAdmin
               isActive
               createdAt
               updatedAt
@@ -11291,6 +11509,7 @@ export const deleteLike = /* GraphQL */ `
                 email
                 image
                 bio
+                isAdmin
                 isActive
                 createdAt
                 updatedAt
@@ -11348,6 +11567,7 @@ export const deleteLike = /* GraphQL */ `
             twitter
             facebook
           }
+          isAdmin
           isActive
           createdAt
           updatedAt
@@ -11381,6 +11601,7 @@ export const deleteLike = /* GraphQL */ `
                 email
                 image
                 bio
+                isAdmin
                 isActive
                 createdAt
                 updatedAt
@@ -11417,6 +11638,7 @@ export const deleteLike = /* GraphQL */ `
                 email
                 image
                 bio
+                isAdmin
                 isActive
                 createdAt
                 updatedAt
@@ -11458,6 +11680,7 @@ export const deleteLike = /* GraphQL */ `
                 email
                 image
                 bio
+                isAdmin
                 isActive
                 createdAt
                 updatedAt
@@ -11521,6 +11744,7 @@ export const deleteLike = /* GraphQL */ `
                 email
                 image
                 bio
+                isAdmin
                 isActive
                 createdAt
                 updatedAt
@@ -11563,6 +11787,7 @@ export const deleteLike = /* GraphQL */ `
                 twitter
                 facebook
               }
+              isAdmin
               isActive
               createdAt
               updatedAt
@@ -11605,6 +11830,7 @@ export const deleteLike = /* GraphQL */ `
                 email
                 image
                 bio
+                isAdmin
                 isActive
                 createdAt
                 updatedAt
@@ -11646,6 +11872,7 @@ export const deleteLike = /* GraphQL */ `
                 twitter
                 facebook
               }
+              isAdmin
               isActive
               createdAt
               updatedAt
@@ -11688,6 +11915,7 @@ export const deleteLike = /* GraphQL */ `
                 email
                 image
                 bio
+                isAdmin
                 isActive
                 createdAt
                 updatedAt

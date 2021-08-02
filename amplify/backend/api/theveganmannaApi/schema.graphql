@@ -6,7 +6,8 @@ type User
       { allow: owner, operations: [read], provider: userPools }
     ]
   )
-  @key(name: "byActive", fields: ["isActive"], queryField: "usersByActive") {
+  @key(name: "byActive", fields: ["isActive"], queryField: "usersByActive")
+  @key(name: "byAdmin", fields: ["isAdmin"], queryField: "usersByAdmin") {
   id: ID!
   sub: String!
   email: String!
@@ -16,6 +17,7 @@ type User
   recipes: [Recipe] @connection(keyName: "byUser", fields: ["id"])
   messages: [Message] @connection(keyName: "byUser", fields: ["id"])
   likes: [Like] @connection(keyName: "byUser", fields: ["id"])
+  isAdmin: Int!
   isActive: Int!
 }
 

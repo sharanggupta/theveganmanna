@@ -20,6 +20,7 @@ import {
   getReport,
   reportsByCount,
   usersByActive,
+  usersByAdmin,
   listUsers,
 } from "graphql/queries";
 import { recipesByUser } from "graphql/queries";
@@ -88,18 +89,52 @@ export const createUserApi = async (data: { username: string }) => {
   const { username } = data;
 
   try {
+    const currentAuth = await Auth.currentAuthenticatedUser();
+
+    const isAdmin: boolean =
+      currentAuth["cognito:groups"] &&
+      currentAuth["cognito:groups"][0] === "admin";
+
     const user = {
       id: username,
       sub: currentUser.sub,
       email: currentUser.email,
       isActive: 1,
+      isAdmin: isAdmin ? 1 : 0,
     };
+
     await API.graphql(graphqlOperation(createUser, { input: user }));
 
-    const currentAuth = await Auth.currentAuthenticatedUser();
     await Auth.updateUserAttributes(currentAuth, {
       "custom:username": username,
     });
+    return true;
+  } catch (err) {
+    catchError(err);
+    return false;
+  }
+};
+
+export const deleteUsers = async () => {
+  try {
+    const res: any = await API.graphql(
+      graphqlOperation(usersByAdmin, { isAdmin: 0 })
+    );
+    const users = res?.data?.usersByAdmin.items;
+
+    if (users.length === 0) return;
+
+    const userMutations: any = users?.map((user: User, i: number) => {
+      return `mutation${i}: deleteUser(input: {id: "${user.id}"}) { id }`;
+    });
+
+    await API.graphql(
+      graphqlOperation(`
+      mutation deleteAllUsers {
+        ${userMutations}
+      }
+    `)
+    );
     return true;
   } catch (err) {
     catchError(err);
@@ -228,9 +263,6 @@ export const me = async () => {
     const currentUser: any = jwt_decode(idToken);
     const cognitoUsername = currentUser["cognito:username"];
     const id = currentUser["custom:username"] || cognitoUsername;
-    const isAdmin: boolean =
-      currentUser["cognito:groups"] &&
-      currentUser["cognito:groups"][0] === "admin";
 
     const getUserResponse: any = await API.graphql(
       graphqlOperation(getUser, { id })
@@ -241,7 +273,7 @@ export const me = async () => {
 
     const user: User = getUserResponse?.data?.getUser;
 
-    if (user) return { ...user, isAdmin, externalProvider };
+    if (user) return { ...user, externalProvider };
     else
       return {
         id: "not_found",

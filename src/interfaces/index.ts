@@ -25,10 +25,10 @@ export interface User {
     items: Message[];
     nextToken?: string;
   };
+  isAdmin: boolean;
   isActive: number;
   createdAt: string;
   updatedAt: string;
-  isAdmin?: boolean;
   externalProvider?: boolean;
 }
 

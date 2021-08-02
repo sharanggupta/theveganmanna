@@ -110,6 +110,10 @@
   .ft-recipe__content {
     flex: 1;
     padding: 0 2em 2em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
     .content__header {
       .row-wrapper {
         display: flex;
