@@ -30,7 +30,7 @@ const reducer = (state: any, action: Action) => {
       return action.user;
     case "SIGN_OUT":
       logout();
-      return defaultUser;
+      return { ...defaultUser, id: "guest" };
     case "SET_GUEST":
       return { ...defaultUser, id: "guest" };
     default:
