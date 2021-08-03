@@ -28,7 +28,9 @@ const Register = () => {
     onSuccess: async (result) => {
       if (result) {
         message.success({ content: "success!", key });
-        router.push("/auth/login");
+        setTimeout(() => {
+          router.push("/auth/login");
+        }, 0);
       }
     },
     onError: () => {
@@ -77,7 +79,6 @@ const Register = () => {
               }}
               onFinish={(values) => {
                 message.loading({ content: "loading!", key });
-                console.log(values);
                 run(values);
               }}
             >

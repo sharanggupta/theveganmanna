@@ -210,6 +210,10 @@ const Dashboard = () => {
                         onClick={() =>
                           archiveRecipe({ recipeID: report.id, isArchived })
                         }
+                        style={{
+                          width: 100,
+                          textAlign: "left",
+                        }}
                         className="text-danger"
                         key="send-warning"
                       >

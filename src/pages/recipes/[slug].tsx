@@ -139,58 +139,72 @@ const RecipeComponent = () => {
         <MainLayout title={data.recipeName} heading={data.recipeName}>
           <div className="recipe">
             <Card recipe={data} full={true} />
-            <div className="author">
-              {url ? <img src={url} /> : <img src="/author.png" />}
-              <div className="author__info">
-                <p className="author__name">Hi! I'm {data.user?.id}</p>
-                <p className="author__bio">{data.user?.bio}</p>
-                <a
-                  onClick={() => router.push(`/profile/${data.user?.id}`)}
-                  className="custom-btn custom-btn--small custom-btn--green"
-                >
-                  View Profile
-                </a>
+            {data.user?.isDeleted === 1 ? (
+              <div className="author">
+                <img src="/author.png" />
+                <div className="author__info">
+                  <p className="author__name">Account is deleted</p>
+                </div>
               </div>
-            </div>
+            ) : (
+              <div className="author">
+                {url ? <img src={url} /> : <img src="/author.png" />}
+                <div className="author__info">
+                  <p className="author__name">Hi! I'm {data.user?.id}</p>
+                  <p className="author__bio">{data.user?.bio}</p>
+                  <a
+                    onClick={() => router.push(`/profile/${data.user?.id}`)}
+                    className="custom-btn custom-btn--small custom-btn--green"
+                  >
+                    View Profile
+                  </a>
+                </div>
+              </div>
+            )}
             <div className="comment">
               <h3 className="heading-tertiary">Comment</h3>
-              {user && user?.sub !== "" && (
-                <Form
-                  initialValues={{
-                    content: "",
-                  }}
-                  onFinish={onFinish}
-                  onFinishFailed={onFinishFailed}
-                  className="comment__box"
-                >
-                  <div style={{ width: "100%" }}>
-                    <Form.Item
-                      name="content"
-                      rules={[
-                        {
-                          required: true,
-                          message: "Required",
-                        },
-                      ]}
-                    >
-                      <TextArea
-                        placeholder="Enter comment here"
-                        required
-                        rows={4}
-                      />
-                    </Form.Item>
-                    <Form.Item style={{ marginTop: 10, textAlign: "right" }}>
-                      <Button
-                        icon={<PlusCircleOutlined />}
-                        loading={createAction.loading}
-                        type="primary"
-                        htmlType="submit"
+              {data.user?.isDeleted === 1 ? (
+                <p>Recipe is archived</p>
+              ) : (
+                user &&
+                user?.sub !== "" && (
+                  <Form
+                    initialValues={{
+                      content: "",
+                    }}
+                    onFinish={onFinish}
+                    onFinishFailed={onFinishFailed}
+                    className="comment__box"
+                  >
+                    <div style={{ width: "100%" }}>
+                      <Form.Item
+                        name="content"
+                        rules={[
+                          {
+                            required: true,
+                            message: "Required",
+                          },
+                        ]}
                       >
-                        Post comment
-                      </Button>
-                    </Form.Item>
-                  </div>
-                </Form>
+                        <TextArea
+                          placeholder="Enter comment here"
+                          required
+                          rows={4}
+                        />
+                      </Form.Item>
+                      <Form.Item style={{ marginTop: 10, textAlign: "right" }}>
+                        <Button
+                          icon={<PlusCircleOutlined />}
+                          loading={createAction.loading}
+                          type="primary"
+                          htmlType="submit"
+                        >
+                          Post comment
+                        </Button>
+                      </Form.Item>
+                    </div>
+                  </Form>
+                )
               )}
               {data?.comments?.items?.map((comment: Comment) => {
                 return (

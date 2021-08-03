@@ -24,12 +24,12 @@ const AdminLayout: React.FC<Props> = ({
   const router = useRouter();
   const [user] = useUser();
 
-  if (user.sub && !user.isAdmin) {
+  if (user.id !== "" && user.isAdmin === 0) {
     router.push("/");
   }
 
   return (
-    <Loader loading={!user || user.id === "" || !user.isAdmin}>
+    <Loader loading={!user || user.id === "" || user.isAdmin === 0}>
       <Head>
         <title>{title}</title>
       </Head>

@@ -35,6 +35,11 @@ const awsmobile = {
             "name": "nutrition",
             "endpoint": "https://kgtfhaibnj.execute-api.eu-west-2.amazonaws.com/dev",
             "region": "eu-west-2"
+        },
+        {
+            "name": "cognitoApi",
+            "endpoint": "https://qrtb0ou0d9.execute-api.eu-west-2.amazonaws.com/dev",
+            "region": "eu-west-2"
         }
     ],
     "aws_user_files_s3_bucket": "theveganmanna-recipecontent121823-dev",

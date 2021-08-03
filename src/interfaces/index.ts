@@ -25,8 +25,9 @@ export interface User {
     items: Message[];
     nextToken?: string;
   };
-  isAdmin: boolean;
+  isAdmin: number;
   isActive: number;
+  isDeleted: number;
   createdAt: string;
   updatedAt: string;
   externalProvider?: boolean;

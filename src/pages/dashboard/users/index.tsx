@@ -7,7 +7,7 @@ import { List, Avatar, Skeleton, Spin, Popconfirm, message } from "antd";
 import { Row, Col, Form, Input, Button } from "antd";
 import { Switch } from "antd";
 import { SearchOutlined, DeleteOutlined } from "@ant-design/icons";
-import { getUsers, deleteUsers, updateUserStatus } from "api";
+import { getUsers, deleteUsers, deleteUserApi, updateUserStatus } from "api";
 import { useUser } from "contexts";
 import { useWindow } from "hooks";
 
@@ -28,6 +28,17 @@ const Users = () => {
   const { data, loading, refresh, run } = useRequest<UsersProps>((value) =>
     getUsers(value || { nextToken, showBanned: false })
   );
+
+  const deleteUserAction = useRequest(deleteUserApi, {
+    manual: true,
+    onSuccess: () => {
+      message.success("User deleted");
+      refresh();
+    },
+    onError: () => {
+      message.error("User not deleted");
+    },
+  });
 
   const deleteAction = useRequest(deleteUsers, {
     manual: true,
@@ -203,6 +214,30 @@ const Users = () => {
                       }}
                     >
                       {user.isAdmin ? "" : isActive ? "ban user" : "unban user"}
+                    </a>
+                  </Popconfirm>,
+                  <Popconfirm
+                    title="Are you sure to delete this user?"
+                    onConfirm={() =>
+                      deleteUserAction.run({
+                        userID: user.id,
+                        username: user.sub,
+                      })
+                    }
+                    okText="Yes"
+                    cancelText="No"
+                    placement="topRight"
+                  >
+                    <a
+                      className="text-danger"
+                      key="ban-user"
+                      style={{
+                        width: 80,
+                        display: "inline-block",
+                        textAlign: "left",
+                      }}
+                    >
+                      {user.isAdmin === 0 && "delete user"}
                     </a>
                   </Popconfirm>,
                 ]}

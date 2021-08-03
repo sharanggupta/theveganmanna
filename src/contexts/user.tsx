@@ -18,6 +18,8 @@ export const defaultUser = {
   createdAt: "",
   updatedAt: "",
   isActive: 0,
+  isAdmin: 0,
+  isDeleted: 0,
 };
 
 const reducer = (state: any, action: Action) => {

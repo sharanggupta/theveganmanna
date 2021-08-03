@@ -75,7 +75,6 @@ const Login = () => {
               }}
               onFinish={(values: any) => {
                 message.loading({ content: "loading!", key });
-                console.log(values);
                 run(values);
               }}
             >

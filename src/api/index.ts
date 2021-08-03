@@ -24,6 +24,7 @@ import {
   listUsers,
 } from "graphql/queries";
 import { recipesByUser } from "graphql/queries";
+import config from "aws-exports";
 import jwt_decode from "jwt-decode";
 
 // #region [Response]
@@ -60,8 +61,13 @@ const catchError = (err: any) => {
   } else {
     if (err === "No current user") return;
 
-    if (err.message) message.error({ content: err.message });
-    else {
+    if (err.message) {
+      if (err.message.includes("User is disabled")) {
+        message.error("User does not exist.");
+      } else {
+        message.error({ content: err.message });
+      }
+    } else {
       if (typeof err === "string") {
         message.error({ content: err });
       }
@@ -91,16 +97,13 @@ export const createUserApi = async (data: { username: string }) => {
   try {
     const currentAuth = await Auth.currentAuthenticatedUser();
 
-    const isAdmin: boolean =
-      currentAuth["cognito:groups"] &&
-      currentAuth["cognito:groups"][0] === "admin";
-
     const user = {
       id: username,
       sub: currentUser.sub,
       email: currentUser.email,
       isActive: 1,
-      isAdmin: isAdmin ? 1 : 0,
+      isAdmin: 0,
+      isDeleted: 0,
     };
 
     await API.graphql(graphqlOperation(createUser, { input: user }));
@@ -122,10 +125,17 @@ export const deleteUsers = async () => {
     );
     const users = res?.data?.usersByAdmin.items;
 
-    if (users.length === 0) return;
+    if (!users || users.length === 0) return;
 
-    const userMutations: any = users?.map((user: User, i: number) => {
+    const userMutations: any = users.map((user: User, i: number) => {
       return `mutation${i}: deleteUser(input: {id: "${user.id}"}) { id }`;
+    });
+
+    await API.post("cognitoApi", "/", {
+      body: {
+        usernames: users.map((user: User) => user.sub),
+        userPoolId: config.aws_user_pools_id,
+      },
     });
 
     await API.graphql(
@@ -135,6 +145,36 @@ export const deleteUsers = async () => {
       }
     `)
     );
+    return true;
+  } catch (err) {
+    catchError(err);
+    return false;
+  }
+};
+
+export const deleteUserApi = async ({
+  userID,
+  username,
+}: {
+  userID: string;
+  username: string;
+}) => {
+  try {
+    console.log("userid:", userID);
+    const res = await API.put("cognitoApi", "/", {
+      body: {
+        username,
+        userPoolId: config.aws_user_pools_id,
+      },
+    });
+
+    const user = {
+      id: userID,
+      isActive: 0,
+      isDeleted: 1,
+    };
+    await API.graphql(graphqlOperation(updateUser, { input: user }));
+
     return true;
   } catch (err) {
     catchError(err);
@@ -238,6 +278,8 @@ export const register = async (data: {
       sub: signUpResponse.userSub,
       email,
       isActive: 1,
+      isAdmin: 0,
+      isDeleted: 0,
     };
 
     await API.graphql(graphqlOperation(createUser, { input: user }));
@@ -272,6 +314,8 @@ export const me = async () => {
       currentUser.identities && currentUser.identities.length > 0;
 
     const user: User = getUserResponse?.data?.getUser;
+
+    console.log("user:", user);
 
     if (user) return { ...user, externalProvider };
     else

@@ -361,7 +361,7 @@ const Topbar: React.FC<Props> = ({ home, heading, headingButton }) => {
         className="nav__dropdown"
         style={{ visibility: open ? "visible" : "hidden" }}
       >
-        {user.isAdmin && (
+        {user?.isAdmin === 1 && (
           <a
             onClick={() => {
               router.push("/dashboard");
