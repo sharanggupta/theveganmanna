@@ -27,7 +27,6 @@ export interface User {
   };
   isAdmin: number;
   isActive: number;
-  isDeleted: number;
   createdAt: string;
   updatedAt: string;
   externalProvider?: boolean;

@@ -60,11 +60,6 @@ const card: React.FC<Props> = ({ recipe, full, refresh }) => {
   };
 
   const likeAction = async () => {
-    if (recipe.user?.isDeleted === 1) {
-      message.error("Recipe is archived");
-      return;
-    }
-
     setLike({ action: "loading" });
 
     const input = {
@@ -93,11 +88,6 @@ const card: React.FC<Props> = ({ recipe, full, refresh }) => {
   };
 
   const unlikeAction = async () => {
-    if (recipe.user?.isDeleted === 1) {
-      message.error("Recipe is archived");
-      return;
-    }
-
     const likeObj =
       recipe.likes?.items.find((like: Like) => like.userID === user.id) || like;
 
@@ -380,11 +370,7 @@ const card: React.FC<Props> = ({ recipe, full, refresh }) => {
                   return;
                 }
 
-                if (recipe.user?.isDeleted === 1) {
-                  message.error("Recipe is archived");
-                } else {
-                  setIsReportModalVisible(true);
-                }
+                setIsReportModalVisible(true);
               }}
               icon={<ExclamationCircleOutlined />}
               type="primary"

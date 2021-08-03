@@ -19,7 +19,6 @@ type User
   likes: [Like] @connection(keyName: "byUser", fields: ["id"])
   isAdmin: Int!
   isActive: Int!
-  isDeleted: Int!
 }
 
 type Recipe

@@ -61,57 +61,53 @@ const Setup = () => {
   };
 
   return (
-    <>
-      <NotFoundLayout title="Getting Started" heading="Getting Started">
-        <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }} justify="center">
-          <Col
-            className="gutter-row"
-            span={inputCount}
-            style={{
-              display: "flex",
-              flexDirection: "row",
-              justifyContent: "center",
-              marginTop: 30,
+    <NotFoundLayout title="Getting Started" heading="Getting Started">
+      <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }} justify="center">
+        <Col
+          className="gutter-row"
+          span={inputCount}
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "center",
+            marginTop: 30,
+          }}
+        >
+          <Form
+            form={form}
+            style={{ width: "100%" }}
+            initialValues={{
+              username: "",
+            }}
+            onFinish={(values) => {
+              message.loading({ content: "loading!", key });
+              console.log(values);
+              run(values);
             }}
           >
-            <Form
-              form={form}
-              style={{ width: "100%" }}
-              initialValues={{
-                username: "",
-              }}
-              onFinish={(values) => {
-                message.loading({ content: "loading!", key });
-                console.log(values);
-                run(values);
-              }}
+            <Form.Item
+              name="username"
+              rules={[
+                {
+                  required: true,
+                  message: "Required",
+                },
+              ]}
             >
-              <Form.Item
-                name="username"
-                rules={[
-                  {
-                    required: true,
-                    message: "Required",
-                  },
-                ]}
-              >
-                <Input
-                  placeholder="username"
-                  prefix={<UserOutlined style={{ color: "rgba(0,0,0,.25)" }} />}
-                />
-              </Form.Item>
-              <Form.Item
-                style={{ display: "flex", justifyContent: "flex-end" }}
-              >
-                <Button type="primary" htmlType="submit">
-                  Continue
-                </Button>
-              </Form.Item>
-            </Form>
-          </Col>
-        </Row>
-      </NotFoundLayout>
-    </>
+              <Input
+                placeholder="username"
+                prefix={<UserOutlined style={{ color: "rgba(0,0,0,.25)" }} />}
+              />
+            </Form.Item>
+            <Form.Item style={{ display: "flex", justifyContent: "flex-end" }}>
+              <Button type="primary" htmlType="submit">
+                Continue
+              </Button>
+            </Form.Item>
+          </Form>
+        </Col>
+      </Row>
+    </NotFoundLayout>
   );
 };
 

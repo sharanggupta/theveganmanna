@@ -1,10 +1,19 @@
 import { message } from "antd";
 import { Auth, API, graphqlOperation } from "aws-amplify";
-import { User, Recipe, Category, Comment, Like, Report } from "interfaces";
+import {
+  User,
+  Recipe,
+  Category,
+  Comment,
+  Like,
+  Report,
+  Message,
+} from "interfaces";
 import {
   createMessage,
   createReport,
   createUser,
+  deleteUser,
   updateRecipe,
   updateReport,
   updateUser,
@@ -61,13 +70,8 @@ const catchError = (err: any) => {
   } else {
     if (err === "No current user") return;
 
-    if (err.message) {
-      if (err.message.includes("User is disabled")) {
-        message.error("User does not exist.");
-      } else {
-        message.error({ content: err.message });
-      }
-    } else {
+    if (err.message) message.error({ content: err.message });
+    else {
       if (typeof err === "string") {
         message.error({ content: err });
       }
@@ -103,7 +107,6 @@ export const createUserApi = async (data: { username: string }) => {
       email: currentUser.email,
       isActive: 1,
       isAdmin: 0,
-      isDeleted: 0,
     };
 
     await API.graphql(graphqlOperation(createUser, { input: user }));
@@ -128,7 +131,90 @@ export const deleteUsers = async () => {
     if (!users || users.length === 0) return;
 
     const userMutations: any = users.map((user: User, i: number) => {
-      return `mutation${i}: deleteUser(input: {id: "${user.id}"}) { id }`;
+      // delete user recipes
+      const recipeMutations: any = user.recipes?.items.map(
+        (recipe: Recipe, index: number) => {
+          const commentMutations: any = recipe.comments?.items.map(
+            (comment: Comment, idx: number) => {
+              return `mutationcomment${idx}: deleteComment(input: {id: "${comment.id}"}) { id }`;
+            }
+          );
+
+          if (commentMutations.length > 0) {
+            API.graphql(
+              graphqlOperation(`
+              mutation deleteRecipeComments {
+                ${commentMutations}
+              }
+            `)
+            );
+          }
+
+          const likeMutations: any = recipe.likes?.items.map(
+            (like: Like, idx: number) => {
+              return `mutationlike${idx}: deleteLike(input: {id: "${like.id}"}) { id }`;
+            }
+          );
+
+          if (likeMutations.length > 0) {
+            API.graphql(
+              graphqlOperation(`
+              mutation deleteRecipeLikes {
+                ${likeMutations}
+              }
+            `)
+            );
+          }
+
+          return `mutationrecipe${index}: deleteRecipe(input: {id: "${recipe.id}"}) { id }`;
+        }
+      );
+
+      if (recipeMutations.length > 0) {
+        API.graphql(
+          graphqlOperation(`
+          mutation deleteUserRecipes {
+            ${recipeMutations}
+          }
+        `)
+        );
+      }
+
+      // delete user messages
+      const messageMutations: any = user.messages?.items.map(
+        (message: Message, index: number) => {
+          return `mutationmessage${index}: deleteMessage(input: {id: "${message.id}"}) { id }`;
+        }
+      );
+
+      if (messageMutations.length > 0) {
+        API.graphql(
+          graphqlOperation(`
+          mutation deleteUserMessages {
+            ${messageMutations}
+          }
+        `)
+        );
+      }
+
+      // delete recipe reports
+      const reportMutations: any = user.recipes?.items.map(
+        (recipe: Recipe, index: number) => {
+          return `mutationreport${index}: deleteReport(input: {id: "${recipe.id}"}) { id }`;
+        }
+      );
+
+      if (reportMutations.length > 0) {
+        API.graphql(
+          graphqlOperation(`
+          mutation deleteRecipeReports {
+            ${reportMutations}
+          }
+        `)
+        );
+      }
+
+      return `mutationuser${i}: deleteUser(input: {id: "${user.id}"}) { id }`;
     });
 
     await API.post("cognitoApi", "/", {
@@ -160,20 +246,101 @@ export const deleteUserApi = async ({
   username: string;
 }) => {
   try {
-    console.log("userid:", userID);
-    const res = await API.put("cognitoApi", "/", {
+    await API.put("cognitoApi", "/", {
       body: {
         username,
         userPoolId: config.aws_user_pools_id,
       },
     });
 
-    const user = {
-      id: userID,
-      isActive: 0,
-      isDeleted: 1,
-    };
-    await API.graphql(graphqlOperation(updateUser, { input: user }));
+    const user = await getUserApi(userID);
+
+    if (!user) return false;
+
+    // delete user recipes
+    const recipeMutations: any = user.recipes?.items.map(
+      (recipe: Recipe, index: number) => {
+        const commentMutations: any = recipe.comments?.items.map(
+          (comment: Comment, idx: number) => {
+            return `mutationcomment${idx}: deleteComment(input: {id: "${comment.id}"}) { id }`;
+          }
+        );
+
+        if (commentMutations.length > 0) {
+          API.graphql(
+            graphqlOperation(`
+            mutation deleteRecipeComments {
+              ${commentMutations}
+            }
+          `)
+          );
+        }
+
+        const likeMutations: any = recipe.likes?.items.map(
+          (like: Like, idx: number) => {
+            return `mutationlike${idx}: deleteLike(input: {id: "${like.id}"}) { id }`;
+          }
+        );
+
+        if (likeMutations.length > 0) {
+          API.graphql(
+            graphqlOperation(`
+            mutation deleteRecipeLikes {
+              ${likeMutations}
+            }
+          `)
+          );
+        }
+
+        return `mutationrecipe${index}: deleteRecipe(input: {id: "${recipe.id}"}) { id }`;
+      }
+    );
+
+    if (recipeMutations.length > 0) {
+      API.graphql(
+        graphqlOperation(`
+        mutation deleteUserRecipes {
+          ${recipeMutations}
+        }
+      `)
+      );
+    }
+
+    // delete user messages
+    const messageMutations: any = user.messages?.items.map(
+      (message: Message, index: number) => {
+        return `mutationmessage${index}: deleteMessage(input: {id: "${message.id}"}) { id }`;
+      }
+    );
+
+    if (messageMutations.length > 0) {
+      API.graphql(
+        graphqlOperation(`
+        mutation deleteUserMessages {
+          ${messageMutations}
+        }
+      `)
+      );
+    }
+
+    // delete recipe reports
+    const reportMutations: any = user.recipes?.items.map(
+      (recipe: Recipe, index: number) => {
+        return `mutationreport${index}: deleteReport(input: {id: "${recipe.id}"}) { id }`;
+      }
+    );
+
+    if (reportMutations.length > 0) {
+      API.graphql(
+        graphqlOperation(`
+        mutation deleteRecipeReports {
+          ${reportMutations}
+        }
+      `)
+      );
+    }
+
+    await API.graphql(graphqlOperation(deleteUser, { input: { id: userID } }));
 
     return true;
   } catch (err) {
@@ -279,7 +446,6 @@ export const register = async (data: {
       email,
       isActive: 1,
       isAdmin: 0,
-      isDeleted: 0,
     };
 
     await API.graphql(graphqlOperation(createUser, { input: user }));
@@ -659,7 +825,6 @@ export const getPopularCategories = async () => {
 
 // #region [Response]
 export const getUserApi = async (id: string) => {
-  console.log("getUserApi:", id);
   try {
     const res: any = await API.graphql(graphqlOperation(getUser, { id }));
     const user: User = res?.data?.getUser;

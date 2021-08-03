@@ -16,7 +16,6 @@ export const getUser = /* GraphQL */ `
       }
       isAdmin
       isActive
-      isDeleted
       createdAt
       updatedAt
       owner
@@ -56,7 +55,6 @@ export const getUser = /* GraphQL */ `
             }
             isAdmin
             isActive
-            isDeleted
             createdAt
             updatedAt
             owner
@@ -152,7 +150,6 @@ export const getUser = /* GraphQL */ `
                 bio
                 isAdmin
                 isActive
-                isDeleted
                 createdAt
                 updatedAt
                 owner
@@ -195,7 +192,6 @@ export const getUser = /* GraphQL */ `
                 bio
                 isAdmin
                 isActive
-                isDeleted
                 createdAt
                 updatedAt
                 owner
@@ -248,7 +244,6 @@ export const getUser = /* GraphQL */ `
             }
             isAdmin
             isActive
-            isDeleted
             createdAt
             updatedAt
             owner
@@ -334,7 +329,6 @@ export const getUser = /* GraphQL */ `
               }
               isAdmin
               isActive
-              isDeleted
               createdAt
               updatedAt
               owner
@@ -406,7 +400,6 @@ export const getUser = /* GraphQL */ `
             }
             isAdmin
             isActive
-            isDeleted
             createdAt
             updatedAt
             owner
@@ -492,7 +485,6 @@ export const getUser = /* GraphQL */ `
               }
               isAdmin
               isActive
-              isDeleted
               createdAt
               updatedAt
               owner
@@ -567,7 +559,6 @@ export const listUsers = /* GraphQL */ `
         }
         isAdmin
         isActive
-        isDeleted
         createdAt
         updatedAt
         owner
@@ -607,7 +598,6 @@ export const listUsers = /* GraphQL */ `
               }
               isAdmin
               isActive
-              isDeleted
               createdAt
               updatedAt
               owner
@@ -679,7 +669,6 @@ export const listUsers = /* GraphQL */ `
               }
               isAdmin
               isActive
-              isDeleted
               createdAt
               updatedAt
               owner
@@ -723,7 +712,6 @@ export const listUsers = /* GraphQL */ `
                 bio
                 isAdmin
                 isActive
-                isDeleted
                 createdAt
                 updatedAt
                 owner
@@ -766,7 +754,6 @@ export const listUsers = /* GraphQL */ `
               }
               isAdmin
               isActive
-              isDeleted
               createdAt
               updatedAt
               owner
@@ -810,7 +797,6 @@ export const listUsers = /* GraphQL */ `
                 bio
                 isAdmin
                 isActive
-                isDeleted
                 createdAt
                 updatedAt
                 owner
@@ -866,7 +852,6 @@ export const usersByActive = /* GraphQL */ `
         }
         isAdmin
         isActive
-        isDeleted
         createdAt
         updatedAt
         owner
@@ -906,7 +891,6 @@ export const usersByActive = /* GraphQL */ `
               }
               isAdmin
               isActive
-              isDeleted
               createdAt
               updatedAt
               owner
@@ -978,7 +962,6 @@ export const usersByActive = /* GraphQL */ `
               }
               isAdmin
               isActive
-              isDeleted
               createdAt
               updatedAt
               owner
@@ -1022,7 +1005,6 @@ export const usersByActive = /* GraphQL */ `
                 bio
                 isAdmin
                 isActive
-                isDeleted
                 createdAt
                 updatedAt
                 owner
@@ -1065,7 +1047,6 @@ export const usersByActive = /* GraphQL */ `
               }
               isAdmin
               isActive
-              isDeleted
               createdAt
               updatedAt
               owner
@@ -1109,7 +1090,6 @@ export const usersByActive = /* GraphQL */ `
                 bio
                 isAdmin
                 isActive
-                isDeleted
                 createdAt
                 updatedAt
                 owner
@@ -1165,7 +1145,6 @@ export const usersByAdmin = /* GraphQL */ `
         }
         isAdmin
         isActive
-        isDeleted
         createdAt
         updatedAt
         owner
@@ -1205,7 +1184,6 @@ export const usersByAdmin = /* GraphQL */ `
               }
               isAdmin
               isActive
-              isDeleted
               createdAt
               updatedAt
               owner
@@ -1277,7 +1255,6 @@ export const usersByAdmin = /* GraphQL */ `
               }
               isAdmin
               isActive
-              isDeleted
               createdAt
               updatedAt
               owner
@@ -1321,7 +1298,6 @@ export const usersByAdmin = /* GraphQL */ `
                 bio
                 isAdmin
                 isActive
-                isDeleted
                 createdAt
                 updatedAt
                 owner
@@ -1364,7 +1340,6 @@ export const usersByAdmin = /* GraphQL */ `
               }
               isAdmin
               isActive
-              isDeleted
               createdAt
               updatedAt
               owner
@@ -1408,7 +1383,6 @@ export const usersByAdmin = /* GraphQL */ `
                 bio
                 isAdmin
                 isActive
-                isDeleted
                 createdAt
                 updatedAt
                 owner
@@ -1473,7 +1447,6 @@ export const getRecipe = /* GraphQL */ `
         }
         isAdmin
         isActive
-        isDeleted
         createdAt
         updatedAt
         owner
@@ -1513,7 +1486,6 @@ export const getRecipe = /* GraphQL */ `
               }
               isAdmin
               isActive
-              isDeleted
               createdAt
               updatedAt
               owner
@@ -1585,7 +1557,6 @@ export const getRecipe = /* GraphQL */ `
               }
               isAdmin
               isActive
-              isDeleted
               createdAt
               updatedAt
               owner
@@ -1629,7 +1600,6 @@ export const getRecipe = /* GraphQL */ `
                 bio
                 isAdmin
                 isActive
-                isDeleted
                 createdAt
                 updatedAt
                 owner
@@ -1672,7 +1642,6 @@ export const getRecipe = /* GraphQL */ `
               }
               isAdmin
               isActive
-              isDeleted
               createdAt
               updatedAt
               owner
@@ -1716,7 +1685,6 @@ export const getRecipe = /* GraphQL */ `
                 bio
                 isAdmin
                 isActive
-                isDeleted
                 createdAt
                 updatedAt
                 owner
@@ -1781,7 +1749,6 @@ export const getRecipe = /* GraphQL */ `
               }
               isAdmin
               isActive
-              isDeleted
               createdAt
               updatedAt
               owner
@@ -1854,7 +1821,6 @@ export const getRecipe = /* GraphQL */ `
             }
             isAdmin
             isActive
-            isDeleted
             createdAt
             updatedAt
             owner
@@ -1940,7 +1906,6 @@ export const getRecipe = /* GraphQL */ `
               }
               isAdmin
               isActive
-              isDeleted
               createdAt
               updatedAt
               owner
@@ -2012,7 +1977,6 @@ export const getRecipe = /* GraphQL */ `
             }
             isAdmin
             isActive
-            isDeleted
             createdAt
             updatedAt
             owner
@@ -2098,7 +2062,6 @@ export const getRecipe = /* GraphQL */ `
               }
               isAdmin
               isActive
-              isDeleted
               createdAt
               updatedAt
               owner
@@ -2195,7 +2158,6 @@ export const listRecipes = /* GraphQL */ `
           }
           isAdmin
           isActive
-          isDeleted
           createdAt
           updatedAt
           owner
@@ -2230,7 +2192,6 @@ export const listRecipes = /* GraphQL */ `
                 bio
                 isAdmin
                 isActive
-                isDeleted
                 createdAt
                 updatedAt
                 owner
@@ -2268,7 +2229,6 @@ export const listRecipes = /* GraphQL */ `
                 bio
                 isAdmin
                 isActive
-                isDeleted
                 createdAt
                 updatedAt
                 owner
@@ -2311,7 +2271,6 @@ export const listRecipes = /* GraphQL */ `
                 bio
                 isAdmin
                 isActive
-                isDeleted
                 createdAt
                 updatedAt
                 owner
@@ -2376,7 +2335,6 @@ export const listRecipes = /* GraphQL */ `
                 bio
                 isAdmin
                 isActive
-                isDeleted
                 createdAt
                 updatedAt
                 owner
@@ -2420,7 +2378,6 @@ export const listRecipes = /* GraphQL */ `
               }
               isAdmin
               isActive
-              isDeleted
               createdAt
               updatedAt
               owner
@@ -2464,7 +2421,6 @@ export const listRecipes = /* GraphQL */ `
                 bio
                 isAdmin
                 isActive
-                isDeleted
                 createdAt
                 updatedAt
                 owner
@@ -2507,7 +2463,6 @@ export const listRecipes = /* GraphQL */ `
               }
               isAdmin
               isActive
-              isDeleted
               createdAt
               updatedAt
               owner
@@ -2551,7 +2506,6 @@ export const listRecipes = /* GraphQL */ `
                 bio
                 isAdmin
                 isActive
-                isDeleted
                 createdAt
                 updatedAt
                 owner
@@ -2631,7 +2585,6 @@ export const recipesByUser = /* GraphQL */ `
           }
           isAdmin
           isActive
-          isDeleted
           createdAt
           updatedAt
           owner
@@ -2666,7 +2619,6 @@ export const recipesByUser = /* GraphQL */ `
                 bio
                 isAdmin
                 isActive
-                isDeleted
                 createdAt
                 updatedAt
                 owner
@@ -2704,7 +2656,6 @@ export const recipesByUser = /* GraphQL */ `
                 bio
                 isAdmin
                 isActive
-                isDeleted
                 createdAt
                 updatedAt
                 owner
@@ -2747,7 +2698,6 @@ export const recipesByUser = /* GraphQL */ `
                 bio
                 isAdmin
                 isActive
-                isDeleted
                 createdAt
                 updatedAt
                 owner
@@ -2812,7 +2762,6 @@ export const recipesByUser = /* GraphQL */ `
                 bio
                 isAdmin
                 isActive
-                isDeleted
                 createdAt
                 updatedAt
                 owner
@@ -2856,7 +2805,6 @@ export const recipesByUser = /* GraphQL */ `
               }
               isAdmin
               isActive
-              isDeleted
               createdAt
               updatedAt
               owner
@@ -2900,7 +2848,6 @@ export const recipesByUser = /* GraphQL */ `
                 bio
                 isAdmin
                 isActive
-                isDeleted
                 createdAt
                 updatedAt
                 owner
@@ -2943,7 +2890,6 @@ export const recipesByUser = /* GraphQL */ `
               }
               isAdmin
               isActive
-              isDeleted
               createdAt
               updatedAt
               owner
@@ -2987,7 +2933,6 @@ export const recipesByUser = /* GraphQL */ `
                 bio
                 isAdmin
                 isActive
-                isDeleted
                 createdAt
                 updatedAt
                 owner
@@ -3065,7 +3010,6 @@ export const recipesByCategory = /* GraphQL */ `
           }
           isAdmin
           isActive
-          isDeleted
           createdAt
           updatedAt
           owner
@@ -3100,7 +3044,6 @@ export const recipesByCategory = /* GraphQL */ `
                 bio
                 isAdmin
                 isActive
-                isDeleted
                 createdAt
                 updatedAt
                 owner
@@ -3138,7 +3081,6 @@ export const recipesByCategory = /* GraphQL */ `
                 bio
                 isAdmin
                 isActive
-                isDeleted
                 createdAt
                 updatedAt
                 owner
@@ -3181,7 +3123,6 @@ export const recipesByCategory = /* GraphQL */ `
                 bio
                 isAdmin
                 isActive
-                isDeleted
                 createdAt
                 updatedAt
                 owner
@@ -3246,7 +3187,6 @@ export const recipesByCategory = /* GraphQL */ `
                 bio
                 isAdmin
                 isActive
-                isDeleted
                 createdAt
                 updatedAt
                 owner
@@ -3290,7 +3230,6 @@ export const recipesByCategory = /* GraphQL */ `
               }
               isAdmin
               isActive
-              isDeleted
               createdAt
               updatedAt
               owner
@@ -3334,7 +3273,6 @@ export const recipesByCategory = /* GraphQL */ `
                 bio
                 isAdmin
                 isActive
-                isDeleted
                 createdAt
                 updatedAt
                 owner
@@ -3377,7 +3315,6 @@ export const recipesByCategory = /* GraphQL */ `
               }
               isAdmin
               isActive
-              isDeleted
               createdAt
               updatedAt
               owner
@@ -3421,7 +3358,6 @@ export const recipesByCategory = /* GraphQL */ `
                 bio
                 isAdmin
                 isActive
-                isDeleted
                 createdAt
                 updatedAt
                 owner
@@ -3501,7 +3437,6 @@ export const recipesByDate = /* GraphQL */ `
           }
           isAdmin
           isActive
-          isDeleted
           createdAt
           updatedAt
           owner
@@ -3536,7 +3471,6 @@ export const recipesByDate = /* GraphQL */ `
                 bio
                 isAdmin
                 isActive
-                isDeleted
                 createdAt
                 updatedAt
                 owner
@@ -3574,7 +3508,6 @@ export const recipesByDate = /* GraphQL */ `
                 bio
                 isAdmin
                 isActive
-                isDeleted
                 createdAt
                 updatedAt
                 owner
@@ -3617,7 +3550,6 @@ export const recipesByDate = /* GraphQL */ `
                 bio
                 isAdmin
                 isActive
-                isDeleted
                 createdAt
                 updatedAt
                 owner
@@ -3682,7 +3614,6 @@ export const recipesByDate = /* GraphQL */ `
                 bio
                 isAdmin
                 isActive
-                isDeleted
                 createdAt
                 updatedAt
                 owner
@@ -3726,7 +3657,6 @@ export const recipesByDate = /* GraphQL */ `
               }
               isAdmin
               isActive
-              isDeleted
               createdAt
               updatedAt
               owner
@@ -3770,7 +3700,6 @@ export const recipesByDate = /* GraphQL */ `
                 bio
                 isAdmin
                 isActive
-                isDeleted
                 createdAt
                 updatedAt
                 owner
@@ -3813,7 +3742,6 @@ export const recipesByDate = /* GraphQL */ `
               }
               isAdmin
               isActive
-              isDeleted
               createdAt
               updatedAt
               owner
@@ -3857,7 +3785,6 @@ export const recipesByDate = /* GraphQL */ `
                 bio
                 isAdmin
                 isActive
-                isDeleted
                 createdAt
                 updatedAt
                 owner
@@ -3933,7 +3860,6 @@ export const getReport = /* GraphQL */ `
           }
           isAdmin
           isActive
-          isDeleted
           createdAt
           updatedAt
           owner
@@ -3968,7 +3894,6 @@ export const getReport = /* GraphQL */ `
                 bio
                 isAdmin
                 isActive
-                isDeleted
                 createdAt
                 updatedAt
                 owner
@@ -4006,7 +3931,6 @@ export const getReport = /* GraphQL */ `
                 bio
                 isAdmin
                 isActive
-                isDeleted
                 createdAt
                 updatedAt
                 owner
@@ -4049,7 +3973,6 @@ export const getReport = /* GraphQL */ `
                 bio
                 isAdmin
                 isActive
-                isDeleted
                 createdAt
                 updatedAt
                 owner
@@ -4114,7 +4037,6 @@ export const getReport = /* GraphQL */ `
                 bio
                 isAdmin
                 isActive
-                isDeleted
                 createdAt
                 updatedAt
                 owner
@@ -4158,7 +4080,6 @@ export const getReport = /* GraphQL */ `
               }
               isAdmin
               isActive
-              isDeleted
               createdAt
               updatedAt
               owner
@@ -4202,7 +4123,6 @@ export const getReport = /* GraphQL */ `
                 bio
                 isAdmin
                 isActive
-                isDeleted
                 createdAt
                 updatedAt
                 owner
@@ -4245,7 +4165,6 @@ export const getReport = /* GraphQL */ `
               }
               isAdmin
               isActive
-              isDeleted
               createdAt
               updatedAt
               owner
@@ -4289,7 +4208,6 @@ export const getReport = /* GraphQL */ `
                 bio
                 isAdmin
                 isActive
-                isDeleted
                 createdAt
                 updatedAt
                 owner
@@ -4370,7 +4288,6 @@ export const listReports = /* GraphQL */ `
             }
             isAdmin
             isActive
-            isDeleted
             createdAt
             updatedAt
             owner
@@ -4466,7 +4383,6 @@ export const listReports = /* GraphQL */ `
                 bio
                 isAdmin
                 isActive
-                isDeleted
                 createdAt
                 updatedAt
                 owner
@@ -4509,7 +4425,6 @@ export const listReports = /* GraphQL */ `
                 bio
                 isAdmin
                 isActive
-                isDeleted
                 createdAt
                 updatedAt
                 owner
@@ -4607,7 +4522,6 @@ export const reportsByCount = /* GraphQL */ `
             }
             isAdmin
             isActive
-            isDeleted
             createdAt
             updatedAt
             owner
@@ -4703,7 +4617,6 @@ export const reportsByCount = /* GraphQL */ `
                 bio
                 isAdmin
                 isActive
-                isDeleted
                 createdAt
                 updatedAt
                 owner
@@ -4746,7 +4659,6 @@ export const reportsByCount = /* GraphQL */ `
                 bio
                 isAdmin
                 isActive
-                isDeleted
                 createdAt
                 updatedAt
                 owner
@@ -4804,7 +4716,6 @@ export const getMessage = /* GraphQL */ `
         }
         isAdmin
         isActive
-        isDeleted
         createdAt
         updatedAt
         owner
@@ -4844,7 +4755,6 @@ export const getMessage = /* GraphQL */ `
               }
               isAdmin
               isActive
-              isDeleted
               createdAt
               updatedAt
               owner
@@ -4916,7 +4826,6 @@ export const getMessage = /* GraphQL */ `
               }
               isAdmin
               isActive
-              isDeleted
               createdAt
               updatedAt
               owner
@@ -4960,7 +4869,6 @@ export const getMessage = /* GraphQL */ `
                 bio
                 isAdmin
                 isActive
-                isDeleted
                 createdAt
                 updatedAt
                 owner
@@ -5003,7 +4911,6 @@ export const getMessage = /* GraphQL */ `
               }
               isAdmin
               isActive
-              isDeleted
               createdAt
               updatedAt
               owner
@@ -5047,7 +4954,6 @@ export const getMessage = /* GraphQL */ `
                 bio
                 isAdmin
                 isActive
-                isDeleted
                 createdAt
                 updatedAt
                 owner
@@ -5106,7 +5012,6 @@ export const getMessage = /* GraphQL */ `
           }
           isAdmin
           isActive
-          isDeleted
           createdAt
           updatedAt
           owner
@@ -5141,7 +5046,6 @@ export const getMessage = /* GraphQL */ `
                 bio
                 isAdmin
                 isActive
-                isDeleted
                 createdAt
                 updatedAt
                 owner
@@ -5179,7 +5083,6 @@ export const getMessage = /* GraphQL */ `
                 bio
                 isAdmin
                 isActive
-                isDeleted
                 createdAt
                 updatedAt
                 owner
@@ -5222,7 +5125,6 @@ export const getMessage = /* GraphQL */ `
                 bio
                 isAdmin
                 isActive
-                isDeleted
                 createdAt
                 updatedAt
                 owner
@@ -5287,7 +5189,6 @@ export const getMessage = /* GraphQL */ `
                 bio
                 isAdmin
                 isActive
-                isDeleted
                 createdAt
                 updatedAt
                 owner
@@ -5331,7 +5232,6 @@ export const getMessage = /* GraphQL */ `
               }
               isAdmin
               isActive
-              isDeleted
               createdAt
               updatedAt
               owner
@@ -5375,7 +5275,6 @@ export const getMessage = /* GraphQL */ `
                 bio
                 isAdmin
                 isActive
-                isDeleted
                 createdAt
                 updatedAt
                 owner
@@ -5418,7 +5317,6 @@ export const getMessage = /* GraphQL */ `
               }
               isAdmin
               isActive
-              isDeleted
               createdAt
               updatedAt
               owner
@@ -5462,7 +5360,6 @@ export const getMessage = /* GraphQL */ `
                 bio
                 isAdmin
                 isActive
-                isDeleted
                 createdAt
                 updatedAt
                 owner
@@ -5518,7 +5415,6 @@ export const listMessages = /* GraphQL */ `
           }
           isAdmin
           isActive
-          isDeleted
           createdAt
           updatedAt
           owner
@@ -5553,7 +5449,6 @@ export const listMessages = /* GraphQL */ `
                 bio
                 isAdmin
                 isActive
-                isDeleted
                 createdAt
                 updatedAt
                 owner
@@ -5591,7 +5486,6 @@ export const listMessages = /* GraphQL */ `
                 bio
                 isAdmin
                 isActive
-                isDeleted
                 createdAt
                 updatedAt
                 owner
@@ -5634,7 +5528,6 @@ export const listMessages = /* GraphQL */ `
                 bio
                 isAdmin
                 isActive
-                isDeleted
                 createdAt
                 updatedAt
                 owner
@@ -5698,7 +5591,6 @@ export const listMessages = /* GraphQL */ `
             }
             isAdmin
             isActive
-            isDeleted
             createdAt
             updatedAt
             owner
@@ -5794,7 +5686,6 @@ export const listMessages = /* GraphQL */ `
                 bio
                 isAdmin
                 isActive
-                isDeleted
                 createdAt
                 updatedAt
                 owner
@@ -5837,7 +5728,6 @@ export const listMessages = /* GraphQL */ `
                 bio
                 isAdmin
                 isActive
-                isDeleted
                 createdAt
                 updatedAt
                 owner
@@ -5910,7 +5800,6 @@ export const messagesByDate = /* GraphQL */ `
           }
           isAdmin
           isActive
-          isDeleted
           createdAt
           updatedAt
           owner
@@ -5945,7 +5834,6 @@ export const messagesByDate = /* GraphQL */ `
                 bio
                 isAdmin
                 isActive
-                isDeleted
                 createdAt
                 updatedAt
                 owner
@@ -5983,7 +5871,6 @@ export const messagesByDate = /* GraphQL */ `
                 bio
                 isAdmin
                 isActive
-                isDeleted
                 createdAt
                 updatedAt
                 owner
@@ -6026,7 +5913,6 @@ export const messagesByDate = /* GraphQL */ `
                 bio
                 isAdmin
                 isActive
-                isDeleted
                 createdAt
                 updatedAt
                 owner
@@ -6090,7 +5976,6 @@ export const messagesByDate = /* GraphQL */ `
             }
             isAdmin
             isActive
-            isDeleted
             createdAt
             updatedAt
             owner
@@ -6186,7 +6071,6 @@ export const messagesByDate = /* GraphQL */ `
                 bio
                 isAdmin
                 isActive
-                isDeleted
                 createdAt
                 updatedAt
                 owner
@@ -6229,7 +6113,6 @@ export const messagesByDate = /* GraphQL */ `
                 bio
                 isAdmin
                 isActive
-                isDeleted
                 createdAt
                 updatedAt
                 owner
@@ -6307,7 +6190,6 @@ export const getCategory = /* GraphQL */ `
             }
             isAdmin
             isActive
-            isDeleted
             createdAt
             updatedAt
             owner
@@ -6403,7 +6285,6 @@ export const getCategory = /* GraphQL */ `
                 bio
                 isAdmin
                 isActive
-                isDeleted
                 createdAt
                 updatedAt
                 owner
@@ -6446,7 +6327,6 @@ export const getCategory = /* GraphQL */ `
                 bio
                 isAdmin
                 isActive
-                isDeleted
                 createdAt
                 updatedAt
                 owner
@@ -6529,7 +6409,6 @@ export const listCategorys = /* GraphQL */ `
               }
               isAdmin
               isActive
-              isDeleted
               createdAt
               updatedAt
               owner
@@ -6607,7 +6486,6 @@ export const getComment = /* GraphQL */ `
         }
         isAdmin
         isActive
-        isDeleted
         createdAt
         updatedAt
         owner
@@ -6647,7 +6525,6 @@ export const getComment = /* GraphQL */ `
               }
               isAdmin
               isActive
-              isDeleted
               createdAt
               updatedAt
               owner
@@ -6719,7 +6596,6 @@ export const getComment = /* GraphQL */ `
               }
               isAdmin
               isActive
-              isDeleted
               createdAt
               updatedAt
               owner
@@ -6763,7 +6639,6 @@ export const getComment = /* GraphQL */ `
                 bio
                 isAdmin
                 isActive
-                isDeleted
                 createdAt
                 updatedAt
                 owner
@@ -6806,7 +6681,6 @@ export const getComment = /* GraphQL */ `
               }
               isAdmin
               isActive
-              isDeleted
               createdAt
               updatedAt
               owner
@@ -6850,7 +6724,6 @@ export const getComment = /* GraphQL */ `
                 bio
                 isAdmin
                 isActive
-                isDeleted
                 createdAt
                 updatedAt
                 owner
@@ -6909,7 +6782,6 @@ export const getComment = /* GraphQL */ `
           }
           isAdmin
           isActive
-          isDeleted
           createdAt
           updatedAt
           owner
@@ -6944,7 +6816,6 @@ export const getComment = /* GraphQL */ `
                 bio
                 isAdmin
                 isActive
-                isDeleted
                 createdAt
                 updatedAt
                 owner
@@ -6982,7 +6853,6 @@ export const getComment = /* GraphQL */ `
                 bio
                 isAdmin
                 isActive
-                isDeleted
                 createdAt
                 updatedAt
                 owner
@@ -7025,7 +6895,6 @@ export const getComment = /* GraphQL */ `
                 bio
                 isAdmin
                 isActive
-                isDeleted
                 createdAt
                 updatedAt
                 owner
@@ -7090,7 +6959,6 @@ export const getComment = /* GraphQL */ `
                 bio
                 isAdmin
                 isActive
-                isDeleted
                 createdAt
                 updatedAt
                 owner
@@ -7134,7 +7002,6 @@ export const getComment = /* GraphQL */ `
               }
               isAdmin
               isActive
-              isDeleted
               createdAt
               updatedAt
               owner
@@ -7178,7 +7045,6 @@ export const getComment = /* GraphQL */ `
                 bio
                 isAdmin
                 isActive
-                isDeleted
                 createdAt
                 updatedAt
                 owner
@@ -7221,7 +7087,6 @@ export const getComment = /* GraphQL */ `
               }
               isAdmin
               isActive
-              isDeleted
               createdAt
               updatedAt
               owner
@@ -7265,7 +7130,6 @@ export const getComment = /* GraphQL */ `
                 bio
                 isAdmin
                 isActive
-                isDeleted
                 createdAt
                 updatedAt
                 owner
@@ -7320,7 +7184,6 @@ export const listComments = /* GraphQL */ `
           }
           isAdmin
           isActive
-          isDeleted
           createdAt
           updatedAt
           owner
@@ -7355,7 +7218,6 @@ export const listComments = /* GraphQL */ `
                 bio
                 isAdmin
                 isActive
-                isDeleted
                 createdAt
                 updatedAt
                 owner
@@ -7393,7 +7255,6 @@ export const listComments = /* GraphQL */ `
                 bio
                 isAdmin
                 isActive
-                isDeleted
                 createdAt
                 updatedAt
                 owner
@@ -7436,7 +7297,6 @@ export const listComments = /* GraphQL */ `
                 bio
                 isAdmin
                 isActive
-                isDeleted
                 createdAt
                 updatedAt
                 owner
@@ -7500,7 +7360,6 @@ export const listComments = /* GraphQL */ `
             }
             isAdmin
             isActive
-            isDeleted
             createdAt
             updatedAt
             owner
@@ -7596,7 +7455,6 @@ export const listComments = /* GraphQL */ `
                 bio
                 isAdmin
                 isActive
-                isDeleted
                 createdAt
                 updatedAt
                 owner
@@ -7639,7 +7497,6 @@ export const listComments = /* GraphQL */ `
                 bio
                 isAdmin
                 isActive
-                isDeleted
                 createdAt
                 updatedAt
                 owner
@@ -7711,7 +7568,6 @@ export const commentsByDate = /* GraphQL */ `
           }
           isAdmin
           isActive
-          isDeleted
           createdAt
           updatedAt
           owner
@@ -7746,7 +7602,6 @@ export const commentsByDate = /* GraphQL */ `
                 bio
                 isAdmin
                 isActive
-                isDeleted
                 createdAt
                 updatedAt
                 owner
@@ -7784,7 +7639,6 @@ export const commentsByDate = /* GraphQL */ `
                 bio
                 isAdmin
                 isActive
-                isDeleted
                 createdAt
                 updatedAt
                 owner
@@ -7827,7 +7681,6 @@ export const commentsByDate = /* GraphQL */ `
                 bio
                 isAdmin
                 isActive
-                isDeleted
                 createdAt
                 updatedAt
                 owner
@@ -7891,7 +7744,6 @@ export const commentsByDate = /* GraphQL */ `
             }
             isAdmin
             isActive
-            isDeleted
             createdAt
             updatedAt
             owner
@@ -7987,7 +7839,6 @@ export const commentsByDate = /* GraphQL */ `
                 bio
                 isAdmin
                 isActive
-                isDeleted
                 createdAt
                 updatedAt
                 owner
@@ -8030,7 +7881,6 @@ export const commentsByDate = /* GraphQL */ `
                 bio
                 isAdmin
                 isActive
-                isDeleted
                 createdAt
                 updatedAt
                 owner
@@ -8086,7 +7936,6 @@ export const getLike = /* GraphQL */ `
         }
         isAdmin
         isActive
-        isDeleted
         createdAt
         updatedAt
         owner
@@ -8126,7 +7975,6 @@ export const getLike = /* GraphQL */ `
               }
               isAdmin
               isActive
-              isDeleted
               createdAt
               updatedAt
               owner
@@ -8198,7 +8046,6 @@ export const getLike = /* GraphQL */ `
               }
               isAdmin
               isActive
-              isDeleted
               createdAt
               updatedAt
               owner
@@ -8242,7 +8089,6 @@ export const getLike = /* GraphQL */ `
                 bio
                 isAdmin
                 isActive
-                isDeleted
                 createdAt
                 updatedAt
                 owner
@@ -8285,7 +8131,6 @@ export const getLike = /* GraphQL */ `
               }
               isAdmin
               isActive
-              isDeleted
               createdAt
               updatedAt
               owner
@@ -8329,7 +8174,6 @@ export const getLike = /* GraphQL */ `
                 bio
                 isAdmin
                 isActive
-                isDeleted
                 createdAt
                 updatedAt
                 owner
@@ -8388,7 +8232,6 @@ export const getLike = /* GraphQL */ `
           }
           isAdmin
           isActive
-          isDeleted
           createdAt
           updatedAt
           owner
@@ -8423,7 +8266,6 @@ export const getLike = /* GraphQL */ `
                 bio
                 isAdmin
                 isActive
-                isDeleted
                 createdAt
                 updatedAt
                 owner
@@ -8461,7 +8303,6 @@ export const getLike = /* GraphQL */ `
                 bio
                 isAdmin
                 isActive
-                isDeleted
                 createdAt
                 updatedAt
                 owner
@@ -8504,7 +8345,6 @@ export const getLike = /* GraphQL */ `
                 bio
                 isAdmin
                 isActive
-                isDeleted
                 createdAt
                 updatedAt
                 owner
@@ -8569,7 +8409,6 @@ export const getLike = /* GraphQL */ `
                 bio
                 isAdmin
                 isActive
-                isDeleted
                 createdAt
                 updatedAt
                 owner
@@ -8613,7 +8452,6 @@ export const getLike = /* GraphQL */ `
               }
               isAdmin
               isActive
-              isDeleted
               createdAt
               updatedAt
               owner
@@ -8657,7 +8495,6 @@ export const getLike = /* GraphQL */ `
                 bio
                 isAdmin
                 isActive
-                isDeleted
                 createdAt
                 updatedAt
                 owner
@@ -8700,7 +8537,6 @@ export const getLike = /* GraphQL */ `
               }
               isAdmin
               isActive
-              isDeleted
               createdAt
               updatedAt
               owner
@@ -8744,7 +8580,6 @@ export const getLike = /* GraphQL */ `
                 bio
                 isAdmin
                 isActive
-                isDeleted
                 createdAt
                 updatedAt
                 owner
@@ -8798,7 +8633,6 @@ export const listLikes = /* GraphQL */ `
           }
           isAdmin
           isActive
-          isDeleted
           createdAt
           updatedAt
           owner
@@ -8833,7 +8667,6 @@ export const listLikes = /* GraphQL */ `
                 bio
                 isAdmin
                 isActive
-                isDeleted
                 createdAt
                 updatedAt
                 owner
@@ -8871,7 +8704,6 @@ export const listLikes = /* GraphQL */ `
                 bio
                 isAdmin
                 isActive
-                isDeleted
                 createdAt
                 updatedAt
                 owner
@@ -8914,7 +8746,6 @@ export const listLikes = /* GraphQL */ `
                 bio
                 isAdmin
                 isActive
-                isDeleted
                 createdAt
                 updatedAt
                 owner
@@ -8978,7 +8809,6 @@ export const listLikes = /* GraphQL */ `
             }
             isAdmin
             isActive
-            isDeleted
             createdAt
             updatedAt
             owner
@@ -9074,7 +8904,6 @@ export const listLikes = /* GraphQL */ `
                 bio
                 isAdmin
                 isActive
-                isDeleted
                 createdAt
                 updatedAt
                 owner
@@ -9117,7 +8946,6 @@ export const listLikes = /* GraphQL */ `
                 bio
                 isAdmin
                 isActive
-                isDeleted
                 createdAt
                 updatedAt
                 owner
