@@ -191,7 +191,7 @@ const card: React.FC<Props> = ({ recipe, full, refresh }) => {
   return (
     <div className={`ft-recipe ${!full && "animated"}`}>
       <div className="ft-recipe__calories">
-        <p>{recipe.calories}</p>
+        <p>{parseFloat(recipe.calories).toFixed(2)}</p>
         <p>CALORIES</p>
       </div>
       <div className="ft-recipe__header" style={{ height: full ? 400 : 281 }}>

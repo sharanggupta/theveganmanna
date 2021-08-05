@@ -340,7 +340,12 @@ const EditRecipe = () => {
     message.loading("calculating calories");
 
     const calories = await getCalories(
-      ingredients.map((x: Ingredient) => `${x.count} ${x.name}`).join(", ")
+      ingredients
+        .map(
+          (x: Ingredient) =>
+            `${x.count.replace(/(\d+)([a-z]+)/g, "$1 $2")} ${x.name}`
+        )
+        .join(", ")
     );
 
     const input: Recipe = {
@@ -689,7 +694,7 @@ const EditRecipe = () => {
                         },
                       ]}
                     >
-                      <Input type="number" placeholder="count" />
+                      <Input type="text" placeholder="count" />
                     </Form.Item>
                   </Col>
                   <Col className="gutter-row" span={15}>
