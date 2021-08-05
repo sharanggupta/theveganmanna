@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 import axios from "axios";
-
 import Row from "./prebuilt/Row";
 import BillingDetailsFields from "./prebuilt/BillingDetailsFields";
 import SubmitButton from "./prebuilt/SubmitButton";
@@ -14,6 +13,7 @@ const CheckoutForm: React.FC<Props> = ({ onSuccessfulCheckout }) => {
   const [isProcessing, setProcessingTo] = useState(false);
   const [checkoutError, setCheckoutError] = useState<any>(null);
   const [amount, setAmount] = useState<any>("");
+  const [currency, setCurrency] = useState<string>("");
 
   const stripe: any = useStripe();
   const elements: any = useElements();
@@ -24,6 +24,8 @@ const CheckoutForm: React.FC<Props> = ({ onSuccessfulCheckout }) => {
 
   const handleFormSubmit = async (e: any) => {
     e.preventDefault();
+
+    console.log("currency:", e.target.currency.value);
 
     const billingDetails = {
       name: e.target.name.value,
@@ -36,6 +38,7 @@ const CheckoutForm: React.FC<Props> = ({ onSuccessfulCheckout }) => {
     try {
       const { data: clientSecret } = await axios.post("/api/payment_intents", {
         amount: amount * 100,
+        currency: e.target.currency.value,
       });
 
       const paymentMethodReq = await stripe.createPaymentMethod({
@@ -91,6 +94,12 @@ const CheckoutForm: React.FC<Props> = ({ onSuccessfulCheckout }) => {
     hidePostalCode: true,
   };
 
+  const getCurrency = () => {
+    if (currency === "usd") return "$";
+    else if (currency === "inr") return "₹";
+    else return "";
+  };
+
   return (
     <form onSubmit={handleFormSubmit}>
       <Row>
@@ -106,9 +115,18 @@ const CheckoutForm: React.FC<Props> = ({ onSuccessfulCheckout }) => {
       </Row>
       <Row>
         <div className="form-field-container">
-          <label className="stripe-label" htmlFor="amount">
-            Amount
-          </label>
+          <select
+            onChange={(e) => setCurrency(e.target.value)}
+            name="currency"
+            placeholder="currency"
+            required
+          >
+            <option value="" selected disabled>
+              select currency
+            </option>
+            <option value="usd">USD $</option>
+            <option value="inr">INR ₹</option>
+          </select>
           <input
             className="stripe-input"
             name="amount"
@@ -125,7 +143,7 @@ const CheckoutForm: React.FC<Props> = ({ onSuccessfulCheckout }) => {
       {checkoutError && <CheckoutError>{checkoutError}</CheckoutError>}
       <Row>
         <SubmitButton disabled={amount <= 0 || isProcessing || !stripe}>
-          {isProcessing ? "Processing..." : `Donate $${amount}`}
+          {isProcessing ? "Processing..." : `Donate ${getCurrency()}${amount}`}
         </SubmitButton>
       </Row>
     </form>
