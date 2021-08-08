@@ -1,0 +1,11 @@
+.donation-create {
+  width: 50%;
+
+  @media screen and (max-width: $tab-land) {
+    width: 80%;
+  }
+
+  @media screen and (max-width: $tab-port) {
+    width: 100%;
+  }
+}

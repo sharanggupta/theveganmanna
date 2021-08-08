@@ -1,11 +1,16 @@
+.slick-slider {
+  max-width: $tab-land;
+  margin: auto;
+}
+
 .item-container {
   padding: 6px 7px;
+  margin-bottom: 30px;
 
   .item {
     position: relative;
-    height: 300px;
     width: 100%;
-    cursor: pointer;
+    cursor: default;
     transition: 0.3s;
 
     &:hover {
@@ -14,7 +19,7 @@
 
     .image {
       position: relative;
-      height: 180px;
+      height: 200px;
       width: 100%;
 
       img {
@@ -40,47 +45,18 @@
     }
 
     .info {
-      flex-direction: column;
-      display: flex;
-      height: 120px;
-
-      .restaurant-name {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: flex-start;
-        margin-top: 5px;
-
-        .name {
-          color: rgb(153, 153, 153);
-          font-weight: bold;
-          font-size: 16px;
-          margin-right: 10px;
-        }
-
-        .status {
-          background-color: lightgreen;
-          width: 10px;
-          height: 10px;
-          border-radius: 50px;
-          align-self: center;
-        }
-      }
-
-      .tags {
-        color: rgb(154, 154, 154);
-      }
-
-      .delivery-price {
-        color: rgb(191, 122, 133);
-      }
+      font-weight: bold;
+      font-size: 16px;
+      margin-top: 4px;
+      margin-right: 10px;
+      color: #55c57a;
     }
   }
 }
 
 .carousel-arrow {
   position: absolute;
-  top: calc(50% + 30px);
+  top: calc(50% + 10px);
   z-index: 99;
   background: #fff none repeat scroll 0 0 !important;
   border-radius: 30px !important;

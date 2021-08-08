@@ -125,3 +125,11 @@ export interface Like {
   recipe?: Recipe;
   createdAt?: string;
 }
+
+export interface Donation {
+  id: string;
+  image: string;
+  caption: string;
+  typename: string;
+  createdAt: string;
+}

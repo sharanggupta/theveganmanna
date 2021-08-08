@@ -18,6 +18,12 @@ const Footer: React.FC<Props> = () => {
       <div className="footer__about">
         <img src="/leaf.png" style={{ width: 100 }} />
         <h2 className="footer__heading">The Vegan Manna</h2>
+        <a
+          onClick={() => router.push("/donate")}
+          className="custom-btn custom-btn--small custom-btn--green"
+        >
+          Donate
+        </a>
       </div>
       <div className="footer__recent-recipes">
         <h2 className="footer__heading">Recent Recipes</h2>

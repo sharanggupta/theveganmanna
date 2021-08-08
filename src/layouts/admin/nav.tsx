@@ -219,6 +219,11 @@ const Topbar: React.FC<Props> = ({ home, heading, headingButton }) => {
                 </Link>
               </li>
               <li className="navigation__item">
+                <Link href="/dashboard/donations">
+                  <span className="navigation__link">Donations</span>
+                </Link>
+              </li>
+              <li className="navigation__item">
                 <Link href="/account/profile">
                   <span className="navigation__link">{user.id}</span>
                 </Link>
@@ -253,6 +258,15 @@ const Topbar: React.FC<Props> = ({ home, heading, headingButton }) => {
           className="nav__dropdown__item"
         >
           Users
+        </a>
+        <a
+          onClick={() => {
+            router.push("/dashboard/donations");
+            setOpen(false);
+          }}
+          className="nav__dropdown__item"
+        >
+          Donations
         </a>
         <a
           onClick={() => {

@@ -164,6 +164,26 @@ type Like
   user: User @connection(fields: ["userID"])
 }
 
+type Donation
+  @model
+  @auth(
+    rules: [
+      { allow: public, operations: [read] }
+      { allow: owner, operations: [read], provider: userPools }
+    ]
+  )
+  @key(
+    name: "byDate"
+    fields: ["typename", "createdAt"]
+    queryField: "donationsByDate"
+  ) {
+  id: ID!
+  image: String!
+  caption: String!
+  typename: String!
+  createdAt: AWSDateTime
+}
+
 type Ingredient {
   name: String!
   count: String!

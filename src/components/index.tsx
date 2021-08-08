@@ -3,3 +3,4 @@ export { default as Loader } from "./loader";
 export { default as Card } from "./card";
 export { default as SocialLogin } from "./socialLogin";
 export { default as CheckoutForm } from "./checkoutForm";
+export { default as ListImage } from "./listImage";

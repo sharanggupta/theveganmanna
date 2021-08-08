@@ -11881,3 +11881,42 @@ export const onDeleteLike = /* GraphQL */ `
     }
   }
 `;
+export const onCreateDonation = /* GraphQL */ `
+  subscription OnCreateDonation($owner: String) {
+    onCreateDonation(owner: $owner) {
+      id
+      image
+      caption
+      typename
+      createdAt
+      updatedAt
+      owner
+    }
+  }
+`;
+export const onUpdateDonation = /* GraphQL */ `
+  subscription OnUpdateDonation($owner: String) {
+    onUpdateDonation(owner: $owner) {
+      id
+      image
+      caption
+      typename
+      createdAt
+      updatedAt
+      owner
+    }
+  }
+`;
+export const onDeleteDonation = /* GraphQL */ `
+  subscription OnDeleteDonation($owner: String) {
+    onDeleteDonation(owner: $owner) {
+      id
+      image
+      caption
+      typename
+      createdAt
+      updatedAt
+      owner
+    }
+  }
+`;

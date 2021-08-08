@@ -4,16 +4,20 @@ import {
   User,
   Recipe,
   Category,
+  Donation,
   Comment,
   Like,
   Report,
   Message,
 } from "interfaces";
 import {
+  createDonation,
   createMessage,
   createReport,
   createUser,
+  deleteDonation,
   deleteUser,
+  updateDonation,
   updateRecipe,
   updateReport,
   updateUser,
@@ -31,6 +35,8 @@ import {
   usersByActive,
   usersByAdmin,
   listUsers,
+  donationsByDate,
+  getDonation,
 } from "graphql/queries";
 import { recipesByUser } from "graphql/queries";
 import config from "aws-exports";
@@ -851,6 +857,91 @@ export const deleteCommentApi = async (id: string) => {
   try {
     await API.graphql(graphqlOperation(deleteComment, { input: { id } }));
     return true;
+  } catch (err) {
+    catchError(err);
+    return false;
+  }
+};
+
+// #endregion
+
+// #region [Response]
+type getDonationsProps = {
+  nextToken: string | null;
+};
+
+export const getDonations = async (prop: getDonationsProps) => {
+  try {
+    const { nextToken } = prop;
+
+    const res: any = await API.graphql(
+      graphqlOperation(donationsByDate, {
+        typename: "Donation",
+        limit: 10,
+        sortDirection: "DESC",
+        nextToken,
+      })
+    );
+    const donations = res?.data?.donationsByDate;
+    return donations;
+  } catch (err) {
+    catchError(err);
+    return false;
+  }
+};
+
+export const listDonationsApi = async () => {
+  try {
+    const res: any = await API.graphql(
+      graphqlOperation(donationsByDate, {
+        typename: "Donation",
+        sortDirection: "DESC",
+      })
+    );
+    const donations = res?.data?.donationsByDate.items;
+    return donations;
+  } catch (err) {
+    catchError(err);
+    return false;
+  }
+};
+
+export const deleteDonationApi = async (id: string) => {
+  try {
+    await API.graphql(graphqlOperation(deleteDonation, { input: { id } }));
+    return true;
+  } catch (err) {
+    catchError(err);
+    return false;
+  }
+};
+
+export const createDonationApi = async (input: Donation) => {
+  try {
+    await API.graphql(graphqlOperation(createDonation, { input }));
+    return true;
+  } catch (err) {
+    console.log("create donation error:", err);
+    catchError(err);
+    return false;
+  }
+};
+
+export const updateDonationApi = async (input: Donation) => {
+  try {
+    await API.graphql(graphqlOperation(updateDonation, { input }));
+    return true;
+  } catch (err) {
+    catchError(err);
+    return false;
+  }
+};
+
+export const getDonationApi = async (id: string) => {
+  try {
+    const res: any = await API.graphql(graphqlOperation(getDonation, { id }));
+    const donation: Donation = res?.data?.getDonation;
+    return donation;
   } catch (err) {
     catchError(err);
     return false;

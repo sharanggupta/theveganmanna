@@ -8980,3 +8980,66 @@ export const listLikes = /* GraphQL */ `
     }
   }
 `;
+export const getDonation = /* GraphQL */ `
+  query GetDonation($id: ID!) {
+    getDonation(id: $id) {
+      id
+      image
+      caption
+      typename
+      createdAt
+      updatedAt
+      owner
+    }
+  }
+`;
+export const listDonations = /* GraphQL */ `
+  query ListDonations(
+    $filter: ModelDonationFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listDonations(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        image
+        caption
+        typename
+        createdAt
+        updatedAt
+        owner
+      }
+      nextToken
+    }
+  }
+`;
+export const donationsByDate = /* GraphQL */ `
+  query DonationsByDate(
+    $typename: String
+    $createdAt: ModelStringKeyConditionInput
+    $sortDirection: ModelSortDirection
+    $filter: ModelDonationFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    donationsByDate(
+      typename: $typename
+      createdAt: $createdAt
+      sortDirection: $sortDirection
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+    ) {
+      items {
+        id
+        image
+        caption
+        typename
+        createdAt
+        updatedAt
+        owner
+      }
+      nextToken
+    }
+  }
+`;

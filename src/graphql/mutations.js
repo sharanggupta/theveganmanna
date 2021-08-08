@@ -11944,3 +11944,51 @@ export const deleteLike = /* GraphQL */ `
     }
   }
 `;
+export const createDonation = /* GraphQL */ `
+  mutation CreateDonation(
+    $input: CreateDonationInput!
+    $condition: ModelDonationConditionInput
+  ) {
+    createDonation(input: $input, condition: $condition) {
+      id
+      image
+      caption
+      typename
+      createdAt
+      updatedAt
+      owner
+    }
+  }
+`;
+export const updateDonation = /* GraphQL */ `
+  mutation UpdateDonation(
+    $input: UpdateDonationInput!
+    $condition: ModelDonationConditionInput
+  ) {
+    updateDonation(input: $input, condition: $condition) {
+      id
+      image
+      caption
+      typename
+      createdAt
+      updatedAt
+      owner
+    }
+  }
+`;
+export const deleteDonation = /* GraphQL */ `
+  mutation DeleteDonation(
+    $input: DeleteDonationInput!
+    $condition: ModelDonationConditionInput
+  ) {
+    deleteDonation(input: $input, condition: $condition) {
+      id
+      image
+      caption
+      typename
+      createdAt
+      updatedAt
+      owner
+    }
+  }
+`;
