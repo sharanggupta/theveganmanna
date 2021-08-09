@@ -13,7 +13,7 @@ const CheckoutForm: React.FC<Props> = ({ onSuccessfulCheckout }) => {
   const [isProcessing, setProcessingTo] = useState(false);
   const [checkoutError, setCheckoutError] = useState<any>(null);
   const [amount, setAmount] = useState<any>("");
-  const [rate, setRate] = useState<number>(74.21);
+  const [currency, setCurrency] = useState<string>("usd");
 
   const stripe: any = useStripe();
   const elements: any = useElements();
@@ -34,6 +34,12 @@ const CheckoutForm: React.FC<Props> = ({ onSuccessfulCheckout }) => {
     const cardElement = elements.getElement("card");
 
     try {
+      const res = await axios.get(
+        `https://free.currconv.com/api/v7/convert?q=${currency}_INR&compact=ultra&apiKey=37626aeb5f3d9d707f6d`
+      );
+
+      const rate = res.data[`${currency.toUpperCase()}_INR`];
+
       const { data: clientSecret } = await axios.post("/api/payment_intents", {
         amount: Math.round(amount * rate) * 100,
         currency: "inr",
@@ -92,13 +98,14 @@ const CheckoutForm: React.FC<Props> = ({ onSuccessfulCheckout }) => {
     hidePostalCode: true,
   };
 
-  useEffect(() => {
-    axios
-      .get(
-        "https://free.currconv.com/api/v7/convert?q=USD_INR&compact=ultra&apiKey=37626aeb5f3d9d707f6d"
-      )
-      .then((res) => setRate(res.data.USD_INR));
-  }, []);
+  const getCurrency = () => {
+    if (currency === "usd") return "$";
+    else if (currency === "jpy") return "¥";
+    else if (currency === "eur") return "€";
+    else if (currency === "gbp") return "£";
+    else if (currency === "inr") return "₹";
+    else return "";
+  };
 
   return (
     <form onSubmit={handleFormSubmit}>
@@ -115,9 +122,20 @@ const CheckoutForm: React.FC<Props> = ({ onSuccessfulCheckout }) => {
       </Row>
       <Row>
         <div className="form-field-container">
-          <label className="stripe-label" htmlFor="amount">
-            Amount $
-          </label>
+          <select
+            onChange={(e) => setCurrency(e.target.value)}
+            name="currency"
+            placeholder="currency"
+            required
+          >
+            <option selected value="usd">
+              USD $
+            </option>
+            <option value="jpy">JPY ¥</option>
+            <option value="eur">EUR €</option>
+            <option value="gbp">GBP £</option>
+            <option value="inr">INR ₹</option>
+          </select>
           <input
             className="stripe-input"
             name="amount"
@@ -134,7 +152,7 @@ const CheckoutForm: React.FC<Props> = ({ onSuccessfulCheckout }) => {
       {checkoutError && <CheckoutError>{checkoutError}</CheckoutError>}
       <Row>
         <SubmitButton disabled={amount <= 0 || isProcessing || !stripe}>
-          {isProcessing ? "Processing..." : `Donate $${amount}`}
+          {isProcessing ? "Processing..." : `Donate ${getCurrency()}${amount}`}
         </SubmitButton>
       </Row>
     </form>

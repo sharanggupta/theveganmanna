@@ -16,6 +16,7 @@ import { Category, Recipe } from "interfaces";
 import { getCategories, searchRecipes } from "api";
 import { useUser } from "contexts";
 import { useRouter } from "next/router";
+import { cuisines } from "../../cuisines";
 
 const { Option } = Select;
 
@@ -142,7 +143,7 @@ const Search = () => {
                           .indexOf(input.toLowerCase()) >= 0
                       }
                     >
-                      {["japanese", "american"].map((c: string) => (
+                      {cuisines.map((c: string) => (
                         <Option
                           style={{ textTransform: "capitalize" }}
                           value={c}
