@@ -25,6 +25,7 @@ import { MainLayout } from "layouts";
 import { useWindow } from "hooks";
 import { Category, Ingredient, Recipe } from "interfaces";
 import { nanoid } from "nanoid";
+import { cuisines } from "cuisines";
 
 import { API, graphqlOperation, Storage } from "aws-amplify";
 import { createRecipe, updateRecipe } from "graphql/mutations";
@@ -580,7 +581,7 @@ const EditRecipe = () => {
                           .indexOf(input.toLowerCase()) >= 0
                       }
                     >
-                      {["japanese", "american"].map((c: string) => (
+                      {cuisines.map((c: string) => (
                         <Option
                           style={{ textTransform: "capitalize" }}
                           value={c}

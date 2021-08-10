@@ -16,6 +16,7 @@ import {
   createReport,
   createUser,
   deleteDonation,
+  deleteReport,
   deleteUser,
   updateDonation,
   updateRecipe,
@@ -779,6 +780,16 @@ export const getReports = async (prop: getReportsProps) => {
     );
     const reports = res?.data?.reportsByCount;
     return reports;
+  } catch (err) {
+    catchError(err);
+    return false;
+  }
+};
+
+export const deleteReportApi = async (id: string) => {
+  try {
+    await API.graphql(graphqlOperation(deleteReport, { input: { id } }));
+    return true;
   } catch (err) {
     catchError(err);
     return false;

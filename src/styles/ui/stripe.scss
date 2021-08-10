@@ -7,6 +7,13 @@
   background-color: $color-primary;
   position: relative;
 
+  &.text {
+    background: #f7f7f7;
+    box-shadow: none;
+    text-align: right;
+    margin-top: -10px;
+  }
+
   select {
     height: 40px;
     background: #f7f7f7;

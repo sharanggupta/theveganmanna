@@ -13,6 +13,7 @@ const CheckoutForm: React.FC<Props> = ({ onSuccessfulCheckout }) => {
   const [isProcessing, setProcessingTo] = useState(false);
   const [checkoutError, setCheckoutError] = useState<any>(null);
   const [amount, setAmount] = useState<any>("");
+  const [rate, setRate] = useState<number>(-1);
   const [currency, setCurrency] = useState<string>("usd");
 
   const stripe: any = useStripe();
@@ -34,12 +35,6 @@ const CheckoutForm: React.FC<Props> = ({ onSuccessfulCheckout }) => {
     const cardElement = elements.getElement("card");
 
     try {
-      const res = await axios.get(
-        `https://free.currconv.com/api/v7/convert?q=${currency}_INR&compact=ultra&apiKey=37626aeb5f3d9d707f6d`
-      );
-
-      const rate = res.data[`${currency.toUpperCase()}_INR`];
-
       const { data: clientSecret } = await axios.post("/api/payment_intents", {
         amount: Math.round(amount * rate) * 100,
         currency: "inr",
@@ -107,6 +102,14 @@ const CheckoutForm: React.FC<Props> = ({ onSuccessfulCheckout }) => {
     else return "";
   };
 
+  useEffect(() => {
+    axios
+      .get(
+        `https://free.currconv.com/api/v7/convert?q=${currency}_INR&compact=ultra&apiKey=37626aeb5f3d9d707f6d`
+      )
+      .then((res) => setRate(res.data[`${currency.toUpperCase()}_INR`]));
+  }, []);
+
   return (
     <form onSubmit={handleFormSubmit}>
       <Row>
@@ -123,7 +126,16 @@ const CheckoutForm: React.FC<Props> = ({ onSuccessfulCheckout }) => {
       <Row>
         <div className="form-field-container">
           <select
-            onChange={(e) => setCurrency(e.target.value)}
+            onChange={(e) => {
+              setCurrency(e.target.value);
+              axios
+                .get(
+                  `https://free.currconv.com/api/v7/convert?q=${e.target.value}_INR&compact=ultra&apiKey=37626aeb5f3d9d707f6d`
+                )
+                .then((res) =>
+                  setRate(res.data[`${e.target.value.toUpperCase()}_INR`])
+                );
+            }}
             name="currency"
             placeholder="currency"
             required
@@ -154,6 +166,15 @@ const CheckoutForm: React.FC<Props> = ({ onSuccessfulCheckout }) => {
         <SubmitButton disabled={amount <= 0 || isProcessing || !stripe}>
           {isProcessing ? "Processing..." : `Donate ${getCurrency()}${amount}`}
         </SubmitButton>
+      </Row>
+      <Row text>
+        <p>
+          {rate
+            ? `${getCurrency()}${amount} x ${rate.toFixed(2)} = ₹${
+                (amount * rate).toFixed(2) || ""
+              }`
+            : ""}
+        </p>
       </Row>
     </form>
   );

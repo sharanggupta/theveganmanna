@@ -6,7 +6,12 @@ import { useRequest } from "ahooks";
 import { Button, Spin, List, Modal, Popconfirm } from "antd";
 import { message, Skeleton, Menu, Dropdown } from "antd";
 import { Row, Col, Form, Input, Select } from "antd";
-import { getReports, sendMessage, updateUserStatus } from "api";
+import {
+  getReports,
+  sendMessage,
+  updateUserStatus,
+  deleteReportApi,
+} from "api";
 import { changeRecipeStatus } from "api";
 import { EllipsisOutlined, SearchOutlined } from "@ant-design/icons";
 import { useUser } from "contexts";
@@ -56,6 +61,12 @@ const Dashboard = () => {
 
   const loadRecipes = async () => {
     await fetchReports.run({ nextToken });
+  };
+
+  const dismissAction = async (id: string) => {
+    await deleteReportApi(id);
+    message.success("Report dismissed");
+    refresh();
   };
 
   const banAction = async (data: { userID: string; isActive: boolean }) => {
@@ -205,7 +216,6 @@ const Dashboard = () => {
                       >
                         show reporting users
                       </a>
-
                       <a
                         onClick={() =>
                           archiveRecipe({ recipeID: report.id, isArchived })
@@ -219,7 +229,6 @@ const Dashboard = () => {
                       >
                         {isArchived ? "unarchive recipe" : "archive recipe"}
                       </a>
-
                       <a
                         onClick={() =>
                           sendWarningMessage({
@@ -233,7 +242,6 @@ const Dashboard = () => {
                       >
                         send warning
                       </a>
-
                       <Popconfirm
                         title={
                           isActive
@@ -256,6 +264,17 @@ const Dashboard = () => {
                           {isActive ? "ban user" : "unban user"}
                         </a>
                       </Popconfirm>
+                      <a
+                        className="text-danger"
+                        key="remove report"
+                        onClick={() => dismissAction(report.id)}
+                        style={{
+                          width: 80,
+                          textAlign: "left",
+                        }}
+                      >
+                        dismiss report
+                      </a>
                     </div>
 
                     <div className="report-actions-mobile">
@@ -316,6 +335,21 @@ const Dashboard = () => {
                                 }}
                               >
                                 {isActive ? "ban user" : "unban user"}
+                              </a>
+                            </Menu.Item>
+                            <Menu.Item
+                              onClick={() => dismissAction(report.id)}
+                              key="ban-user"
+                            >
+                              <a
+                                className="text-danger"
+                                key="remove report"
+                                style={{
+                                  width: 80,
+                                  textAlign: "left",
+                                }}
+                              >
+                                dismiss report
                               </a>
                             </Menu.Item>
                           </Menu>
