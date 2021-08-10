@@ -55,7 +55,7 @@ const Recipes = () => {
       message.success("Recipe created");
     },
     onError: () => {
-      message.error("Recipe name already took, choose another name");
+      message.error("Recipe name already taken, choose another name");
     },
   });
 

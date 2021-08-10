@@ -24,7 +24,7 @@ const AdminLayout: React.FC<Props> = ({
   const router = useRouter();
   const [user] = useUser();
 
-  if (user.id !== "" && user.isAdmin === 0) {
+  if (!user || (user.id !== "" && user.isAdmin === 0)) {
     router.push("/");
   }
 

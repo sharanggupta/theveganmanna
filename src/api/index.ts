@@ -505,10 +505,10 @@ export const me = async () => {
 
 export const logout = async () => {
   try {
+    await Auth.signOut();
     localStorage.removeItem("token");
     localStorage.removeItem("refresh");
     localStorage.removeItem("idToken");
-    await Auth.signOut();
     return true;
   } catch (err) {
     catchError(err);

@@ -34,7 +34,7 @@ const Setup = () => {
         }, 0);
       } else {
         message.error({
-          content: "username is already took, please choose another one",
+          content: "This username is already taken, please choose another one",
           key,
         });
       }
