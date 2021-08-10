@@ -238,7 +238,7 @@ const Donations = () => {
         >
           <Form
             initialValues={{
-              caption: "Strawberry Waffle",
+              caption: "",
             }}
             onFinish={onFinish}
             onFinishFailed={onFinishFailed}

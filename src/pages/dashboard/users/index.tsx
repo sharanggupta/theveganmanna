@@ -142,6 +142,7 @@ const Users = () => {
                   <Switch
                     checkedChildren="banned"
                     unCheckedChildren="not banned"
+                    onChange={() => form.submit()}
                   />
                 </Form.Item>
               </Col>
@@ -151,7 +152,7 @@ const Users = () => {
               <Col>
                 <Form.Item style={{ textAlign: "right" }}>
                   <Popconfirm
-                    title="Are you sure to delete all users?"
+                    title="Are you sure you want to delete all users?"
                     onConfirm={() => deleteAction.run()}
                     okText="Yes"
                     cancelText="No"
@@ -169,13 +170,13 @@ const Users = () => {
                     </Button>
                   </Popconfirm>
 
-                  <Button
+                  {/* <Button
                     icon={<SearchOutlined />}
                     type="primary"
                     htmlType="submit"
                   >
                     Filter
-                  </Button>
+                  </Button> */}
                 </Form.Item>
               </Col>
             </Row>
@@ -196,8 +197,8 @@ const Users = () => {
                   <Popconfirm
                     title={
                       user.isActive
-                        ? "Are you sure to remove ban?"
-                        : "Are you sure to ban user?"
+                        ? "Are you sure you want to remove ban?"
+                        : "Are you sure you want to ban user?"
                     }
                     onConfirm={() => banAction({ userID: user.id, isActive })}
                     okText="Yes"
@@ -213,11 +214,11 @@ const Users = () => {
                         textAlign: "left",
                       }}
                     >
-                      {user.isAdmin ? "" : isActive ? "ban user" : "unban user"}
+                      {user.isAdmin ? "" : isActive ? "ban user" : "remove ban"}
                     </a>
                   </Popconfirm>,
                   <Popconfirm
-                    title="Are you sure to delete this user?"
+                    title="Are you sure you want to delete this user?"
                     onConfirm={() =>
                       deleteUserAction.run({
                         userID: user.id,

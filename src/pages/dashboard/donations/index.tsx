@@ -106,7 +106,7 @@ const Donations = () => {
                     edit
                   </Link>,
                   <Popconfirm
-                    title="Are you sure to delete this donation?"
+                    title="Are you sure you want to delete this donation?"
                     onConfirm={() => deleteDonationAction.run(donation.id)}
                     okText="Yes"
                     cancelText="No"

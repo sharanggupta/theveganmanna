@@ -110,10 +110,10 @@ const Donate = () => {
   const slidesCount = () => {
     if (width < 481) {
       return 1;
-    } else if (width < 769) {
+    } else if (width < 968) {
       if (data && data.length < 2) return data.length;
       return 2;
-    } else if (width < 1140) {
+    } else if (width < 1200) {
       if (data && data.length < 3) return data.length;
       return 3;
     } else {

@@ -245,8 +245,8 @@ const Dashboard = () => {
                       <Popconfirm
                         title={
                           isActive
-                            ? "Are you sure to remove ban?"
-                            : "Are you sure to ban user?"
+                            ? "Are you sure want to remove ban?"
+                            : "Are you sure want to ban user?"
                         }
                         onConfirm={() => banAction({ userID, isActive })}
                         okText="Yes"
@@ -261,7 +261,7 @@ const Dashboard = () => {
                             textAlign: "left",
                           }}
                         >
-                          {isActive ? "ban user" : "unban user"}
+                          {isActive ? "ban user" : "remove ban"}
                         </a>
                       </Popconfirm>
                       <a
@@ -334,7 +334,7 @@ const Dashboard = () => {
                                   textAlign: "left",
                                 }}
                               >
-                                {isActive ? "ban user" : "unban user"}
+                                {isActive ? "ban user" : "remove ban"}
                               </a>
                             </Menu.Item>
                             <Menu.Item
@@ -445,7 +445,7 @@ const Dashboard = () => {
           title={
             currentReport?.recipe?.user?.isActive === 1
               ? "Ban user"
-              : "Unban user"
+              : "Remove ban"
           }
           centered
           visible={banModalVisible}

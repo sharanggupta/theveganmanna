@@ -437,11 +437,11 @@ const Recipes = () => {
         <Form
           className="recipe-form"
           initialValues={{
-            recipeName: "Strawberry Waffle",
-            cuisine: "japanese",
-            prepTime: 20,
-            serving: "4-5",
-            categoryID: "desserts",
+            recipeName: "",
+            cuisine: "",
+            prepTime: 0,
+            serving: "",
+            categoryID: "",
           }}
           onFinish={onFinish}
           onFinishFailed={onFinishFailed}

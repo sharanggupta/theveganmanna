@@ -196,13 +196,13 @@ const Donations = () => {
       >
         <Form
           initialValues={{
-            caption: "Strawberry Waffle",
+            caption: "",
           }}
           onFinish={onFinish}
           onFinishFailed={onFinishFailed}
         >
           <div className="donation-create">
-            <p>Caption</p>
+            <p>Donation name</p>
             <Form.Item
               name="caption"
               rules={[
@@ -212,7 +212,7 @@ const Donations = () => {
                 },
               ]}
             >
-              <Input placeholder="Caption" />
+              <Input placeholder="Donation name" />
             </Form.Item>
 
             <div
