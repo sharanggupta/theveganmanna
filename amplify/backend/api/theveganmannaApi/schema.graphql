@@ -51,7 +51,7 @@ type Recipe
   serving: String!
   description: String!
   images: [String]
-  video: String
+  videos: [String]
   ingredients: [Ingredient]!
   instructions: [String]!
   calories: String!

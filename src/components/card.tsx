@@ -16,6 +16,7 @@ import { API, graphqlOperation, Storage } from "aws-amplify";
 import { createLike, deleteLike } from "graphql/mutations";
 import { useUser } from "contexts";
 import { deleteRecipeApi, me, reportRecipeApi } from "api";
+import ImageGallery from "react-image-gallery";
 
 type Props = {
   recipe: Recipe;
@@ -26,7 +27,7 @@ type Props = {
 const card: React.FC<Props> = ({ recipe, full, refresh }) => {
   const [like, setLike] = useState<any>(null);
   const [signedUrls, setSignedUrls] = useState<string[]>([]);
-  const [videoUrl, setVideoUrl] = useState<any>(null);
+  const [videoSignedUrls, setVideoSignedUrls] = useState<string[]>([]);
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [isReportModalVisible, setIsReportModalVisible] = useState(false);
   const [user, dispatchUser] = useUser();
@@ -159,17 +160,20 @@ const card: React.FC<Props> = ({ recipe, full, refresh }) => {
   }
 
   const fetchData = async () => {
-    if (recipe?.video) {
-      const url: any = await Storage.get(recipe.video);
-      setVideoUrl(url);
-    }
-
     const urls: string[] = [];
     await asyncForEach(recipe?.images, async (imgKey: string) => {
       const url: any = await Storage.get(imgKey);
       urls.push(url);
     });
     setSignedUrls(urls);
+
+    const videoUrls: string[] = [];
+    await asyncForEach(recipe?.videos, async (videoKey: string) => {
+      const videoUrl: any = await Storage.get(videoKey);
+      videoUrls.push(videoUrl);
+    });
+
+    setVideoSignedUrls(videoUrls);
 
     const isLiked = user.likes?.items.find(
       (like: Like) => like.recipeID === recipe.id
@@ -195,35 +199,40 @@ const card: React.FC<Props> = ({ recipe, full, refresh }) => {
         <p>CALORIES</p>
       </div>
       <div className="ft-recipe__header" style={{ height: full ? 400 : 281 }}>
-        {signedUrls && signedUrls.length > 0 ? (
-          <Image.PreviewGroup>
-            <Image
-              src={signedUrls[0]}
-              placeholder={
-                <Image
-                  preview={false}
-                  src="/leaf_placeholder.png"
-                  alt="Placeholder"
-                />
-              }
-            />
-            <div style={{ display: "none" }}>
-              {signedUrls.slice(1).map((url: string) => (
-                <Image src={url} alt="Recipe" />
-              ))}
-            </div>
-          </Image.PreviewGroup>
-        ) : videoUrl ? (
-          <div style={{ height: "100%", textAlign: "center" }}>
-            <video
-              controls
-              style={{ height: "100%", width: "100%", objectFit: "cover" }}
-            >
-              <source src={videoUrl} type="video/mp4" />
-              <source src={videoUrl} type="video/webm" />
-              Sorry, your browser doesn't support embedded videos.
-            </video>
-          </div>
+        {(signedUrls && signedUrls.length > 0) ||
+        (videoSignedUrls && videoSignedUrls.length > 0) ? (
+          <ImageGallery
+            lazyLoad={true}
+            showThumbnails={false}
+            showIndex={true}
+            showPlayButton={false}
+            items={[
+              ...signedUrls.map((url) => {
+                return { original: url };
+              }),
+              ...videoSignedUrls.map((url) => {
+                return {
+                  original: url,
+                  renderItem: () => (
+                    <div style={{ height: "100%", textAlign: "center" }}>
+                      <video
+                        controls
+                        style={{
+                          height: "100%",
+                          width: "100%",
+                          objectFit: "cover",
+                        }}
+                      >
+                        <source src={url} type="video/mp4" />
+                        <source src={url} type="video/webm" />
+                        Sorry, your browser doesn't support embedded videos.
+                      </video>
+                    </div>
+                  ),
+                };
+              }),
+            ]}
+          />
         ) : (
           <div
             style={{
@@ -341,6 +350,11 @@ const card: React.FC<Props> = ({ recipe, full, refresh }) => {
                 </div>
               ))}
             </div>
+
+            <span>
+              {Math.round(parseFloat(recipe.calories) / 20)}% of daily
+              requirements based on a 2000 calorie diet
+            </span>
 
             {user.id === recipe.userID && (
               <div className="actions">

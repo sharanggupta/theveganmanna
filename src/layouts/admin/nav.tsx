@@ -36,7 +36,6 @@ const Topbar: React.FC<Props> = ({ home, heading, headingButton }) => {
     }
 
     if (e.target.classList.contains("navigation__link")) {
-      console.log("yes");
       const el: any = document.querySelector("#navi-toggle");
       el.checked = !el.checked;
     }

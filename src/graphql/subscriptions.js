@@ -28,7 +28,7 @@ export const onCreateUser = /* GraphQL */ `
           serving
           description
           images
-          video
+          videos
           ingredients {
             name
             count
@@ -67,7 +67,7 @@ export const onCreateUser = /* GraphQL */ `
                 serving
                 description
                 images
-                video
+                videos
                 instructions
                 calories
                 owner
@@ -119,7 +119,7 @@ export const onCreateUser = /* GraphQL */ `
                 serving
                 description
                 images
-                video
+                videos
                 instructions
                 calories
                 owner
@@ -162,7 +162,7 @@ export const onCreateUser = /* GraphQL */ `
                 serving
                 description
                 images
-                video
+                videos
                 instructions
                 calories
                 owner
@@ -204,7 +204,7 @@ export const onCreateUser = /* GraphQL */ `
                 serving
                 description
                 images
-                video
+                videos
                 instructions
                 calories
                 owner
@@ -256,7 +256,7 @@ export const onCreateUser = /* GraphQL */ `
                 serving
                 description
                 images
-                video
+                videos
                 instructions
                 calories
                 owner
@@ -302,7 +302,7 @@ export const onCreateUser = /* GraphQL */ `
             serving
             description
             images
-            video
+            videos
             ingredients {
               name
               count
@@ -412,7 +412,7 @@ export const onCreateUser = /* GraphQL */ `
                 serving
                 description
                 images
-                video
+                videos
                 instructions
                 calories
                 owner
@@ -458,7 +458,7 @@ export const onCreateUser = /* GraphQL */ `
             serving
             description
             images
-            video
+            videos
             ingredients {
               name
               count
@@ -566,7 +566,7 @@ export const onUpdateUser = /* GraphQL */ `
           serving
           description
           images
-          video
+          videos
           ingredients {
             name
             count
@@ -605,7 +605,7 @@ export const onUpdateUser = /* GraphQL */ `
                 serving
                 description
                 images
-                video
+                videos
                 instructions
                 calories
                 owner
@@ -657,7 +657,7 @@ export const onUpdateUser = /* GraphQL */ `
                 serving
                 description
                 images
-                video
+                videos
                 instructions
                 calories
                 owner
@@ -700,7 +700,7 @@ export const onUpdateUser = /* GraphQL */ `
                 serving
                 description
                 images
-                video
+                videos
                 instructions
                 calories
                 owner
@@ -742,7 +742,7 @@ export const onUpdateUser = /* GraphQL */ `
                 serving
                 description
                 images
-                video
+                videos
                 instructions
                 calories
                 owner
@@ -794,7 +794,7 @@ export const onUpdateUser = /* GraphQL */ `
                 serving
                 description
                 images
-                video
+                videos
                 instructions
                 calories
                 owner
@@ -840,7 +840,7 @@ export const onUpdateUser = /* GraphQL */ `
             serving
             description
             images
-            video
+            videos
             ingredients {
               name
               count
@@ -950,7 +950,7 @@ export const onUpdateUser = /* GraphQL */ `
                 serving
                 description
                 images
-                video
+                videos
                 instructions
                 calories
                 owner
@@ -996,7 +996,7 @@ export const onUpdateUser = /* GraphQL */ `
             serving
             description
             images
-            video
+            videos
             ingredients {
               name
               count
@@ -1104,7 +1104,7 @@ export const onDeleteUser = /* GraphQL */ `
           serving
           description
           images
-          video
+          videos
           ingredients {
             name
             count
@@ -1143,7 +1143,7 @@ export const onDeleteUser = /* GraphQL */ `
                 serving
                 description
                 images
-                video
+                videos
                 instructions
                 calories
                 owner
@@ -1195,7 +1195,7 @@ export const onDeleteUser = /* GraphQL */ `
                 serving
                 description
                 images
-                video
+                videos
                 instructions
                 calories
                 owner
@@ -1238,7 +1238,7 @@ export const onDeleteUser = /* GraphQL */ `
                 serving
                 description
                 images
-                video
+                videos
                 instructions
                 calories
                 owner
@@ -1280,7 +1280,7 @@ export const onDeleteUser = /* GraphQL */ `
                 serving
                 description
                 images
-                video
+                videos
                 instructions
                 calories
                 owner
@@ -1332,7 +1332,7 @@ export const onDeleteUser = /* GraphQL */ `
                 serving
                 description
                 images
-                video
+                videos
                 instructions
                 calories
                 owner
@@ -1378,7 +1378,7 @@ export const onDeleteUser = /* GraphQL */ `
             serving
             description
             images
-            video
+            videos
             ingredients {
               name
               count
@@ -1488,7 +1488,7 @@ export const onDeleteUser = /* GraphQL */ `
                 serving
                 description
                 images
-                video
+                videos
                 instructions
                 calories
                 owner
@@ -1534,7 +1534,7 @@ export const onDeleteUser = /* GraphQL */ `
             serving
             description
             images
-            video
+            videos
             ingredients {
               name
               count
@@ -1625,7 +1625,7 @@ export const onCreateRecipe = /* GraphQL */ `
       serving
       description
       images
-      video
+      videos
       ingredients {
         name
         count
@@ -1664,7 +1664,7 @@ export const onCreateRecipe = /* GraphQL */ `
             serving
             description
             images
-            video
+            videos
             ingredients {
               name
               count
@@ -1783,7 +1783,7 @@ export const onCreateRecipe = /* GraphQL */ `
               serving
               description
               images
-              video
+              videos
               ingredients {
                 name
                 count
@@ -1868,7 +1868,7 @@ export const onCreateRecipe = /* GraphQL */ `
               serving
               description
               images
-              video
+              videos
               ingredients {
                 name
                 count
@@ -1927,7 +1927,7 @@ export const onCreateRecipe = /* GraphQL */ `
             serving
             description
             images
-            video
+            videos
             ingredients {
               name
               count
@@ -2038,7 +2038,7 @@ export const onCreateRecipe = /* GraphQL */ `
                 serving
                 description
                 images
-                video
+                videos
                 instructions
                 calories
                 owner
@@ -2084,7 +2084,7 @@ export const onCreateRecipe = /* GraphQL */ `
             serving
             description
             images
-            video
+            videos
             ingredients {
               name
               count
@@ -2194,7 +2194,7 @@ export const onCreateRecipe = /* GraphQL */ `
                 serving
                 description
                 images
-                video
+                videos
                 instructions
                 calories
                 owner
@@ -2240,7 +2240,7 @@ export const onCreateRecipe = /* GraphQL */ `
             serving
             description
             images
-            video
+            videos
             ingredients {
               name
               count
@@ -2331,7 +2331,7 @@ export const onUpdateRecipe = /* GraphQL */ `
       serving
       description
       images
-      video
+      videos
       ingredients {
         name
         count
@@ -2370,7 +2370,7 @@ export const onUpdateRecipe = /* GraphQL */ `
             serving
             description
             images
-            video
+            videos
             ingredients {
               name
               count
@@ -2489,7 +2489,7 @@ export const onUpdateRecipe = /* GraphQL */ `
               serving
               description
               images
-              video
+              videos
               ingredients {
                 name
                 count
@@ -2574,7 +2574,7 @@ export const onUpdateRecipe = /* GraphQL */ `
               serving
               description
               images
-              video
+              videos
               ingredients {
                 name
                 count
@@ -2633,7 +2633,7 @@ export const onUpdateRecipe = /* GraphQL */ `
             serving
             description
             images
-            video
+            videos
             ingredients {
               name
               count
@@ -2744,7 +2744,7 @@ export const onUpdateRecipe = /* GraphQL */ `
                 serving
                 description
                 images
-                video
+                videos
                 instructions
                 calories
                 owner
@@ -2790,7 +2790,7 @@ export const onUpdateRecipe = /* GraphQL */ `
             serving
             description
             images
-            video
+            videos
             ingredients {
               name
               count
@@ -2900,7 +2900,7 @@ export const onUpdateRecipe = /* GraphQL */ `
                 serving
                 description
                 images
-                video
+                videos
                 instructions
                 calories
                 owner
@@ -2946,7 +2946,7 @@ export const onUpdateRecipe = /* GraphQL */ `
             serving
             description
             images
-            video
+            videos
             ingredients {
               name
               count
@@ -3037,7 +3037,7 @@ export const onDeleteRecipe = /* GraphQL */ `
       serving
       description
       images
-      video
+      videos
       ingredients {
         name
         count
@@ -3076,7 +3076,7 @@ export const onDeleteRecipe = /* GraphQL */ `
             serving
             description
             images
-            video
+            videos
             ingredients {
               name
               count
@@ -3195,7 +3195,7 @@ export const onDeleteRecipe = /* GraphQL */ `
               serving
               description
               images
-              video
+              videos
               ingredients {
                 name
                 count
@@ -3280,7 +3280,7 @@ export const onDeleteRecipe = /* GraphQL */ `
               serving
               description
               images
-              video
+              videos
               ingredients {
                 name
                 count
@@ -3339,7 +3339,7 @@ export const onDeleteRecipe = /* GraphQL */ `
             serving
             description
             images
-            video
+            videos
             ingredients {
               name
               count
@@ -3450,7 +3450,7 @@ export const onDeleteRecipe = /* GraphQL */ `
                 serving
                 description
                 images
-                video
+                videos
                 instructions
                 calories
                 owner
@@ -3496,7 +3496,7 @@ export const onDeleteRecipe = /* GraphQL */ `
             serving
             description
             images
-            video
+            videos
             ingredients {
               name
               count
@@ -3606,7 +3606,7 @@ export const onDeleteRecipe = /* GraphQL */ `
                 serving
                 description
                 images
-                video
+                videos
                 instructions
                 calories
                 owner
@@ -3652,7 +3652,7 @@ export const onDeleteRecipe = /* GraphQL */ `
             serving
             description
             images
-            video
+            videos
             ingredients {
               name
               count
@@ -3754,7 +3754,7 @@ export const onCreateReport = /* GraphQL */ `
         serving
         description
         images
-        video
+        videos
         ingredients {
           name
           count
@@ -3793,7 +3793,7 @@ export const onCreateReport = /* GraphQL */ `
               serving
               description
               images
-              video
+              videos
               ingredients {
                 name
                 count
@@ -3864,7 +3864,7 @@ export const onCreateReport = /* GraphQL */ `
                 serving
                 description
                 images
-                video
+                videos
                 instructions
                 calories
                 owner
@@ -3906,7 +3906,7 @@ export const onCreateReport = /* GraphQL */ `
                 serving
                 description
                 images
-                video
+                videos
                 instructions
                 calories
                 owner
@@ -3936,7 +3936,7 @@ export const onCreateReport = /* GraphQL */ `
               serving
               description
               images
-              video
+              videos
               ingredients {
                 name
                 count
@@ -4022,7 +4022,7 @@ export const onCreateReport = /* GraphQL */ `
               serving
               description
               images
-              video
+              videos
               ingredients {
                 name
                 count
@@ -4107,7 +4107,7 @@ export const onCreateReport = /* GraphQL */ `
               serving
               description
               images
-              video
+              videos
               ingredients {
                 name
                 count
@@ -4177,7 +4177,7 @@ export const onUpdateReport = /* GraphQL */ `
         serving
         description
         images
-        video
+        videos
         ingredients {
           name
           count
@@ -4216,7 +4216,7 @@ export const onUpdateReport = /* GraphQL */ `
               serving
               description
               images
-              video
+              videos
               ingredients {
                 name
                 count
@@ -4287,7 +4287,7 @@ export const onUpdateReport = /* GraphQL */ `
                 serving
                 description
                 images
-                video
+                videos
                 instructions
                 calories
                 owner
@@ -4329,7 +4329,7 @@ export const onUpdateReport = /* GraphQL */ `
                 serving
                 description
                 images
-                video
+                videos
                 instructions
                 calories
                 owner
@@ -4359,7 +4359,7 @@ export const onUpdateReport = /* GraphQL */ `
               serving
               description
               images
-              video
+              videos
               ingredients {
                 name
                 count
@@ -4445,7 +4445,7 @@ export const onUpdateReport = /* GraphQL */ `
               serving
               description
               images
-              video
+              videos
               ingredients {
                 name
                 count
@@ -4530,7 +4530,7 @@ export const onUpdateReport = /* GraphQL */ `
               serving
               description
               images
-              video
+              videos
               ingredients {
                 name
                 count
@@ -4600,7 +4600,7 @@ export const onDeleteReport = /* GraphQL */ `
         serving
         description
         images
-        video
+        videos
         ingredients {
           name
           count
@@ -4639,7 +4639,7 @@ export const onDeleteReport = /* GraphQL */ `
               serving
               description
               images
-              video
+              videos
               ingredients {
                 name
                 count
@@ -4710,7 +4710,7 @@ export const onDeleteReport = /* GraphQL */ `
                 serving
                 description
                 images
-                video
+                videos
                 instructions
                 calories
                 owner
@@ -4752,7 +4752,7 @@ export const onDeleteReport = /* GraphQL */ `
                 serving
                 description
                 images
-                video
+                videos
                 instructions
                 calories
                 owner
@@ -4782,7 +4782,7 @@ export const onDeleteReport = /* GraphQL */ `
               serving
               description
               images
-              video
+              videos
               ingredients {
                 name
                 count
@@ -4868,7 +4868,7 @@ export const onDeleteReport = /* GraphQL */ `
               serving
               description
               images
-              video
+              videos
               ingredients {
                 name
                 count
@@ -4953,7 +4953,7 @@ export const onDeleteReport = /* GraphQL */ `
               serving
               description
               images
-              video
+              videos
               ingredients {
                 name
                 count
@@ -5037,7 +5037,7 @@ export const onCreateMessage = /* GraphQL */ `
             serving
             description
             images
-            video
+            videos
             ingredients {
               name
               count
@@ -5156,7 +5156,7 @@ export const onCreateMessage = /* GraphQL */ `
               serving
               description
               images
-              video
+              videos
               ingredients {
                 name
                 count
@@ -5241,7 +5241,7 @@ export const onCreateMessage = /* GraphQL */ `
               serving
               description
               images
-              video
+              videos
               ingredients {
                 name
                 count
@@ -5294,7 +5294,7 @@ export const onCreateMessage = /* GraphQL */ `
         serving
         description
         images
-        video
+        videos
         ingredients {
           name
           count
@@ -5333,7 +5333,7 @@ export const onCreateMessage = /* GraphQL */ `
               serving
               description
               images
-              video
+              videos
               ingredients {
                 name
                 count
@@ -5404,7 +5404,7 @@ export const onCreateMessage = /* GraphQL */ `
                 serving
                 description
                 images
-                video
+                videos
                 instructions
                 calories
                 owner
@@ -5446,7 +5446,7 @@ export const onCreateMessage = /* GraphQL */ `
                 serving
                 description
                 images
-                video
+                videos
                 instructions
                 calories
                 owner
@@ -5476,7 +5476,7 @@ export const onCreateMessage = /* GraphQL */ `
               serving
               description
               images
-              video
+              videos
               ingredients {
                 name
                 count
@@ -5562,7 +5562,7 @@ export const onCreateMessage = /* GraphQL */ `
               serving
               description
               images
-              video
+              videos
               ingredients {
                 name
                 count
@@ -5647,7 +5647,7 @@ export const onCreateMessage = /* GraphQL */ `
               serving
               description
               images
-              video
+              videos
               ingredients {
                 name
                 count
@@ -5731,7 +5731,7 @@ export const onUpdateMessage = /* GraphQL */ `
             serving
             description
             images
-            video
+            videos
             ingredients {
               name
               count
@@ -5850,7 +5850,7 @@ export const onUpdateMessage = /* GraphQL */ `
               serving
               description
               images
-              video
+              videos
               ingredients {
                 name
                 count
@@ -5935,7 +5935,7 @@ export const onUpdateMessage = /* GraphQL */ `
               serving
               description
               images
-              video
+              videos
               ingredients {
                 name
                 count
@@ -5988,7 +5988,7 @@ export const onUpdateMessage = /* GraphQL */ `
         serving
         description
         images
-        video
+        videos
         ingredients {
           name
           count
@@ -6027,7 +6027,7 @@ export const onUpdateMessage = /* GraphQL */ `
               serving
               description
               images
-              video
+              videos
               ingredients {
                 name
                 count
@@ -6098,7 +6098,7 @@ export const onUpdateMessage = /* GraphQL */ `
                 serving
                 description
                 images
-                video
+                videos
                 instructions
                 calories
                 owner
@@ -6140,7 +6140,7 @@ export const onUpdateMessage = /* GraphQL */ `
                 serving
                 description
                 images
-                video
+                videos
                 instructions
                 calories
                 owner
@@ -6170,7 +6170,7 @@ export const onUpdateMessage = /* GraphQL */ `
               serving
               description
               images
-              video
+              videos
               ingredients {
                 name
                 count
@@ -6256,7 +6256,7 @@ export const onUpdateMessage = /* GraphQL */ `
               serving
               description
               images
-              video
+              videos
               ingredients {
                 name
                 count
@@ -6341,7 +6341,7 @@ export const onUpdateMessage = /* GraphQL */ `
               serving
               description
               images
-              video
+              videos
               ingredients {
                 name
                 count
@@ -6425,7 +6425,7 @@ export const onDeleteMessage = /* GraphQL */ `
             serving
             description
             images
-            video
+            videos
             ingredients {
               name
               count
@@ -6544,7 +6544,7 @@ export const onDeleteMessage = /* GraphQL */ `
               serving
               description
               images
-              video
+              videos
               ingredients {
                 name
                 count
@@ -6629,7 +6629,7 @@ export const onDeleteMessage = /* GraphQL */ `
               serving
               description
               images
-              video
+              videos
               ingredients {
                 name
                 count
@@ -6682,7 +6682,7 @@ export const onDeleteMessage = /* GraphQL */ `
         serving
         description
         images
-        video
+        videos
         ingredients {
           name
           count
@@ -6721,7 +6721,7 @@ export const onDeleteMessage = /* GraphQL */ `
               serving
               description
               images
-              video
+              videos
               ingredients {
                 name
                 count
@@ -6792,7 +6792,7 @@ export const onDeleteMessage = /* GraphQL */ `
                 serving
                 description
                 images
-                video
+                videos
                 instructions
                 calories
                 owner
@@ -6834,7 +6834,7 @@ export const onDeleteMessage = /* GraphQL */ `
                 serving
                 description
                 images
-                video
+                videos
                 instructions
                 calories
                 owner
@@ -6864,7 +6864,7 @@ export const onDeleteMessage = /* GraphQL */ `
               serving
               description
               images
-              video
+              videos
               ingredients {
                 name
                 count
@@ -6950,7 +6950,7 @@ export const onDeleteMessage = /* GraphQL */ `
               serving
               description
               images
-              video
+              videos
               ingredients {
                 name
                 count
@@ -7035,7 +7035,7 @@ export const onDeleteMessage = /* GraphQL */ `
               serving
               description
               images
-              video
+              videos
               ingredients {
                 name
                 count
@@ -7100,7 +7100,7 @@ export const onCreateCategory = /* GraphQL */ `
           serving
           description
           images
-          video
+          videos
           ingredients {
             name
             count
@@ -7139,7 +7139,7 @@ export const onCreateCategory = /* GraphQL */ `
                 serving
                 description
                 images
-                video
+                videos
                 instructions
                 calories
                 owner
@@ -7191,7 +7191,7 @@ export const onCreateCategory = /* GraphQL */ `
                 serving
                 description
                 images
-                video
+                videos
                 instructions
                 calories
                 owner
@@ -7234,7 +7234,7 @@ export const onCreateCategory = /* GraphQL */ `
                 serving
                 description
                 images
-                video
+                videos
                 instructions
                 calories
                 owner
@@ -7276,7 +7276,7 @@ export const onCreateCategory = /* GraphQL */ `
                 serving
                 description
                 images
-                video
+                videos
                 instructions
                 calories
                 owner
@@ -7314,7 +7314,7 @@ export const onUpdateCategory = /* GraphQL */ `
           serving
           description
           images
-          video
+          videos
           ingredients {
             name
             count
@@ -7353,7 +7353,7 @@ export const onUpdateCategory = /* GraphQL */ `
                 serving
                 description
                 images
-                video
+                videos
                 instructions
                 calories
                 owner
@@ -7405,7 +7405,7 @@ export const onUpdateCategory = /* GraphQL */ `
                 serving
                 description
                 images
-                video
+                videos
                 instructions
                 calories
                 owner
@@ -7448,7 +7448,7 @@ export const onUpdateCategory = /* GraphQL */ `
                 serving
                 description
                 images
-                video
+                videos
                 instructions
                 calories
                 owner
@@ -7490,7 +7490,7 @@ export const onUpdateCategory = /* GraphQL */ `
                 serving
                 description
                 images
-                video
+                videos
                 instructions
                 calories
                 owner
@@ -7528,7 +7528,7 @@ export const onDeleteCategory = /* GraphQL */ `
           serving
           description
           images
-          video
+          videos
           ingredients {
             name
             count
@@ -7567,7 +7567,7 @@ export const onDeleteCategory = /* GraphQL */ `
                 serving
                 description
                 images
-                video
+                videos
                 instructions
                 calories
                 owner
@@ -7619,7 +7619,7 @@ export const onDeleteCategory = /* GraphQL */ `
                 serving
                 description
                 images
-                video
+                videos
                 instructions
                 calories
                 owner
@@ -7662,7 +7662,7 @@ export const onDeleteCategory = /* GraphQL */ `
                 serving
                 description
                 images
-                video
+                videos
                 instructions
                 calories
                 owner
@@ -7704,7 +7704,7 @@ export const onDeleteCategory = /* GraphQL */ `
                 serving
                 description
                 images
-                video
+                videos
                 instructions
                 calories
                 owner
@@ -7760,7 +7760,7 @@ export const onCreateComment = /* GraphQL */ `
             serving
             description
             images
-            video
+            videos
             ingredients {
               name
               count
@@ -7879,7 +7879,7 @@ export const onCreateComment = /* GraphQL */ `
               serving
               description
               images
-              video
+              videos
               ingredients {
                 name
                 count
@@ -7964,7 +7964,7 @@ export const onCreateComment = /* GraphQL */ `
               serving
               description
               images
-              video
+              videos
               ingredients {
                 name
                 count
@@ -8017,7 +8017,7 @@ export const onCreateComment = /* GraphQL */ `
         serving
         description
         images
-        video
+        videos
         ingredients {
           name
           count
@@ -8056,7 +8056,7 @@ export const onCreateComment = /* GraphQL */ `
               serving
               description
               images
-              video
+              videos
               ingredients {
                 name
                 count
@@ -8127,7 +8127,7 @@ export const onCreateComment = /* GraphQL */ `
                 serving
                 description
                 images
-                video
+                videos
                 instructions
                 calories
                 owner
@@ -8169,7 +8169,7 @@ export const onCreateComment = /* GraphQL */ `
                 serving
                 description
                 images
-                video
+                videos
                 instructions
                 calories
                 owner
@@ -8199,7 +8199,7 @@ export const onCreateComment = /* GraphQL */ `
               serving
               description
               images
-              video
+              videos
               ingredients {
                 name
                 count
@@ -8285,7 +8285,7 @@ export const onCreateComment = /* GraphQL */ `
               serving
               description
               images
-              video
+              videos
               ingredients {
                 name
                 count
@@ -8370,7 +8370,7 @@ export const onCreateComment = /* GraphQL */ `
               serving
               description
               images
-              video
+              videos
               ingredients {
                 name
                 count
@@ -8453,7 +8453,7 @@ export const onUpdateComment = /* GraphQL */ `
             serving
             description
             images
-            video
+            videos
             ingredients {
               name
               count
@@ -8572,7 +8572,7 @@ export const onUpdateComment = /* GraphQL */ `
               serving
               description
               images
-              video
+              videos
               ingredients {
                 name
                 count
@@ -8657,7 +8657,7 @@ export const onUpdateComment = /* GraphQL */ `
               serving
               description
               images
-              video
+              videos
               ingredients {
                 name
                 count
@@ -8710,7 +8710,7 @@ export const onUpdateComment = /* GraphQL */ `
         serving
         description
         images
-        video
+        videos
         ingredients {
           name
           count
@@ -8749,7 +8749,7 @@ export const onUpdateComment = /* GraphQL */ `
               serving
               description
               images
-              video
+              videos
               ingredients {
                 name
                 count
@@ -8820,7 +8820,7 @@ export const onUpdateComment = /* GraphQL */ `
                 serving
                 description
                 images
-                video
+                videos
                 instructions
                 calories
                 owner
@@ -8862,7 +8862,7 @@ export const onUpdateComment = /* GraphQL */ `
                 serving
                 description
                 images
-                video
+                videos
                 instructions
                 calories
                 owner
@@ -8892,7 +8892,7 @@ export const onUpdateComment = /* GraphQL */ `
               serving
               description
               images
-              video
+              videos
               ingredients {
                 name
                 count
@@ -8978,7 +8978,7 @@ export const onUpdateComment = /* GraphQL */ `
               serving
               description
               images
-              video
+              videos
               ingredients {
                 name
                 count
@@ -9063,7 +9063,7 @@ export const onUpdateComment = /* GraphQL */ `
               serving
               description
               images
-              video
+              videos
               ingredients {
                 name
                 count
@@ -9146,7 +9146,7 @@ export const onDeleteComment = /* GraphQL */ `
             serving
             description
             images
-            video
+            videos
             ingredients {
               name
               count
@@ -9265,7 +9265,7 @@ export const onDeleteComment = /* GraphQL */ `
               serving
               description
               images
-              video
+              videos
               ingredients {
                 name
                 count
@@ -9350,7 +9350,7 @@ export const onDeleteComment = /* GraphQL */ `
               serving
               description
               images
-              video
+              videos
               ingredients {
                 name
                 count
@@ -9403,7 +9403,7 @@ export const onDeleteComment = /* GraphQL */ `
         serving
         description
         images
-        video
+        videos
         ingredients {
           name
           count
@@ -9442,7 +9442,7 @@ export const onDeleteComment = /* GraphQL */ `
               serving
               description
               images
-              video
+              videos
               ingredients {
                 name
                 count
@@ -9513,7 +9513,7 @@ export const onDeleteComment = /* GraphQL */ `
                 serving
                 description
                 images
-                video
+                videos
                 instructions
                 calories
                 owner
@@ -9555,7 +9555,7 @@ export const onDeleteComment = /* GraphQL */ `
                 serving
                 description
                 images
-                video
+                videos
                 instructions
                 calories
                 owner
@@ -9585,7 +9585,7 @@ export const onDeleteComment = /* GraphQL */ `
               serving
               description
               images
-              video
+              videos
               ingredients {
                 name
                 count
@@ -9671,7 +9671,7 @@ export const onDeleteComment = /* GraphQL */ `
               serving
               description
               images
-              video
+              videos
               ingredients {
                 name
                 count
@@ -9756,7 +9756,7 @@ export const onDeleteComment = /* GraphQL */ `
               serving
               description
               images
-              video
+              videos
               ingredients {
                 name
                 count
@@ -9838,7 +9838,7 @@ export const onCreateLike = /* GraphQL */ `
             serving
             description
             images
-            video
+            videos
             ingredients {
               name
               count
@@ -9957,7 +9957,7 @@ export const onCreateLike = /* GraphQL */ `
               serving
               description
               images
-              video
+              videos
               ingredients {
                 name
                 count
@@ -10042,7 +10042,7 @@ export const onCreateLike = /* GraphQL */ `
               serving
               description
               images
-              video
+              videos
               ingredients {
                 name
                 count
@@ -10095,7 +10095,7 @@ export const onCreateLike = /* GraphQL */ `
         serving
         description
         images
-        video
+        videos
         ingredients {
           name
           count
@@ -10134,7 +10134,7 @@ export const onCreateLike = /* GraphQL */ `
               serving
               description
               images
-              video
+              videos
               ingredients {
                 name
                 count
@@ -10205,7 +10205,7 @@ export const onCreateLike = /* GraphQL */ `
                 serving
                 description
                 images
-                video
+                videos
                 instructions
                 calories
                 owner
@@ -10247,7 +10247,7 @@ export const onCreateLike = /* GraphQL */ `
                 serving
                 description
                 images
-                video
+                videos
                 instructions
                 calories
                 owner
@@ -10277,7 +10277,7 @@ export const onCreateLike = /* GraphQL */ `
               serving
               description
               images
-              video
+              videos
               ingredients {
                 name
                 count
@@ -10363,7 +10363,7 @@ export const onCreateLike = /* GraphQL */ `
               serving
               description
               images
-              video
+              videos
               ingredients {
                 name
                 count
@@ -10448,7 +10448,7 @@ export const onCreateLike = /* GraphQL */ `
               serving
               description
               images
-              video
+              videos
               ingredients {
                 name
                 count
@@ -10530,7 +10530,7 @@ export const onUpdateLike = /* GraphQL */ `
             serving
             description
             images
-            video
+            videos
             ingredients {
               name
               count
@@ -10649,7 +10649,7 @@ export const onUpdateLike = /* GraphQL */ `
               serving
               description
               images
-              video
+              videos
               ingredients {
                 name
                 count
@@ -10734,7 +10734,7 @@ export const onUpdateLike = /* GraphQL */ `
               serving
               description
               images
-              video
+              videos
               ingredients {
                 name
                 count
@@ -10787,7 +10787,7 @@ export const onUpdateLike = /* GraphQL */ `
         serving
         description
         images
-        video
+        videos
         ingredients {
           name
           count
@@ -10826,7 +10826,7 @@ export const onUpdateLike = /* GraphQL */ `
               serving
               description
               images
-              video
+              videos
               ingredients {
                 name
                 count
@@ -10897,7 +10897,7 @@ export const onUpdateLike = /* GraphQL */ `
                 serving
                 description
                 images
-                video
+                videos
                 instructions
                 calories
                 owner
@@ -10939,7 +10939,7 @@ export const onUpdateLike = /* GraphQL */ `
                 serving
                 description
                 images
-                video
+                videos
                 instructions
                 calories
                 owner
@@ -10969,7 +10969,7 @@ export const onUpdateLike = /* GraphQL */ `
               serving
               description
               images
-              video
+              videos
               ingredients {
                 name
                 count
@@ -11055,7 +11055,7 @@ export const onUpdateLike = /* GraphQL */ `
               serving
               description
               images
-              video
+              videos
               ingredients {
                 name
                 count
@@ -11140,7 +11140,7 @@ export const onUpdateLike = /* GraphQL */ `
               serving
               description
               images
-              video
+              videos
               ingredients {
                 name
                 count
@@ -11222,7 +11222,7 @@ export const onDeleteLike = /* GraphQL */ `
             serving
             description
             images
-            video
+            videos
             ingredients {
               name
               count
@@ -11341,7 +11341,7 @@ export const onDeleteLike = /* GraphQL */ `
               serving
               description
               images
-              video
+              videos
               ingredients {
                 name
                 count
@@ -11426,7 +11426,7 @@ export const onDeleteLike = /* GraphQL */ `
               serving
               description
               images
-              video
+              videos
               ingredients {
                 name
                 count
@@ -11479,7 +11479,7 @@ export const onDeleteLike = /* GraphQL */ `
         serving
         description
         images
-        video
+        videos
         ingredients {
           name
           count
@@ -11518,7 +11518,7 @@ export const onDeleteLike = /* GraphQL */ `
               serving
               description
               images
-              video
+              videos
               ingredients {
                 name
                 count
@@ -11589,7 +11589,7 @@ export const onDeleteLike = /* GraphQL */ `
                 serving
                 description
                 images
-                video
+                videos
                 instructions
                 calories
                 owner
@@ -11631,7 +11631,7 @@ export const onDeleteLike = /* GraphQL */ `
                 serving
                 description
                 images
-                video
+                videos
                 instructions
                 calories
                 owner
@@ -11661,7 +11661,7 @@ export const onDeleteLike = /* GraphQL */ `
               serving
               description
               images
-              video
+              videos
               ingredients {
                 name
                 count
@@ -11747,7 +11747,7 @@ export const onDeleteLike = /* GraphQL */ `
               serving
               description
               images
-              video
+              videos
               ingredients {
                 name
                 count
@@ -11832,7 +11832,7 @@ export const onDeleteLike = /* GraphQL */ `
               serving
               description
               images
-              video
+              videos
               ingredients {
                 name
                 count

@@ -315,6 +315,13 @@ const Topbar: React.FC<Props> = ({ home, heading, headingButton }) => {
             >
               {user && user.sub !== "" ? (
                 <>
+                  {user.isAdmin && (
+                    <li className="navigation__item">
+                      <Link href="/dashboard">
+                        <span className="navigation__link">Dashboard</span>
+                      </Link>
+                    </li>
+                  )}
                   <li className="navigation__item">
                     <Link href="/account/profile">
                       <span className="navigation__link">{user.id}</span>

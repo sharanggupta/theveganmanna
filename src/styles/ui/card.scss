@@ -20,7 +20,7 @@
   }
 
   @media only screen and (max-width: $tab-port - 100) {
-    grid-template-columns: none;
+    grid-template-columns: 1fr;
   }
 }
 

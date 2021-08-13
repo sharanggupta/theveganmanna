@@ -40,7 +40,7 @@ export interface Recipe {
   serving: string;
   description: string;
   images?: string[];
-  video?: string;
+  videos?: string[];
   ingredients: Ingredient[];
   instructions: string[];
   calories: string;

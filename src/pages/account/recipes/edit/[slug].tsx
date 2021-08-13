@@ -31,11 +31,67 @@ import { API, graphqlOperation, Storage } from "aws-amplify";
 import { createRecipe, updateRecipe } from "graphql/mutations";
 import { getRecipeApi, getCategories, updateRecipeApi } from "api";
 import { useRequest } from "ahooks";
+import Slider from "react-slick";
 import config from "aws-exports";
 
 const { Option } = Select;
 const { TextArea } = Input;
 var request: any = null;
+
+const NextArrow = (props: any) => {
+  const { style, onClick } = props;
+  return (
+    <div
+      className="carousel-arrow"
+      style={{
+        ...style,
+        right: -15,
+      }}
+      onClick={onClick}
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        className="h-6 w-6"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M9 5l7 7-7 7"
+        />
+      </svg>
+    </div>
+  );
+};
+
+const PrevArrow = (props: any) => {
+  const { style, onClick } = props;
+  return (
+    <div
+      className="carousel-arrow"
+      style={{ ...style, left: -15 }} // should be -25
+      onClick={onClick}
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        className="h-6 w-6"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M15 19l-7-7 7-7"
+        />
+      </svg>
+    </div>
+  );
+};
 
 const EditRecipe = () => {
   const router = useRouter();
@@ -51,14 +107,33 @@ const EditRecipe = () => {
   const [width] = useWindow();
   const [ingredients, setIngredients] = useState<any>([{ name: "", count: 0 }]);
   const [instructions, setInstructions] = useState<any>([""]);
-  const [contentType, setContentType] = useState<"video" | "images" | "">("");
+  const [showImageUpload, setImageUpload] = useState<boolean>(false);
+  const [showVideoUpload, setVideoUpload] = useState<boolean>(false);
 
   const [initialValues, setInitialValues] = useState<any>(null);
 
   const [uploadState, setUploadState] = useState<any>(null);
 
-  const [videoUrl, setVideoUrl] = useState<string>("");
-  const [videoKey, setVideoKey] = useState<string>("");
+  const settings = {
+    className: "center video-carousel",
+    infinite: true,
+    centerPadding: "60px",
+    slidesToShow: 1,
+    swipeToSlide: true,
+    nextArrow: <NextArrow />,
+    prevArrow: <PrevArrow />,
+    afterChange: function (index: number) {
+      const videos: any = document.querySelectorAll(".carousel-video-item");
+      videos.forEach((video: HTMLVideoElement) => video.pause());
+    },
+  };
+
+  type VideoKey = {
+    videoKey: string;
+    url: string;
+  };
+
+  const [videoKeys, setVideoKeys] = useState<VideoKey[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
 
   const updateAction = useRequest(updateRecipeApi, {
@@ -150,7 +225,6 @@ const EditRecipe = () => {
 
   const handleChangeVideo = async (info: any) => {
     if (info.file.status === "uploading") {
-      console.log("info:", info);
       setLoading(true);
       return;
     }
@@ -159,8 +233,6 @@ const EditRecipe = () => {
         const fileName: string = `${Date.now()}-${info.file.name}`;
         const region = config.aws_user_files_s3_bucket_region;
         const bucketName = config.aws_user_files_s3_bucket;
-
-        setVideoKey(fileName);
 
         const body = {
           fileType: info.file.originFileObj.type,
@@ -192,18 +264,15 @@ const EditRecipe = () => {
 
         request.addEventListener("load", (e: any) => {
           if (request.status === 200) {
-            console.log("upload success");
-            setVideoUrl(url);
+            setVideoKeys([...videoKeys, { videoKey: fileName, url }]);
             setLoading(false);
             request = null;
           } else {
-            console.log("upload error");
             request = null;
           }
         });
 
         request.addEventListener("error", (e: any) => {
-          console.log("error uploading file");
           request = null;
         });
 
@@ -303,8 +372,16 @@ const EditRecipe = () => {
     return str;
   };
 
+  const customRequest = (props: any) => {
+    const { file, onSuccess } = props;
+
+    setTimeout(() => {
+      onSuccess("ok");
+    }, 0);
+  };
+
   const onFinish = async (values: any) => {
-    if (uploadState.fileList.length === 0 && videoKey === "") {
+    if (uploadState.fileList.length === 0 && videoKeys.length === 0) {
       message.warn("Upload video or images");
       return;
     }
@@ -313,8 +390,6 @@ const EditRecipe = () => {
       message.warn("Uploading in progress");
       return;
     }
-
-    console.log("Success:", values);
 
     Object.keys(values).forEach((k) => {
       const arr = k.split("_");
@@ -363,8 +438,10 @@ const EditRecipe = () => {
       owner: user.sub,
       userID: user.id,
       categoryID: values.categoryID,
-      images: contentType === "images" ? images : [],
-      video: contentType === "video" ? videoKey : "",
+      images: showImageUpload ? images : [],
+      videos: showVideoUpload
+        ? videoKeys.map((videoKey) => videoKey.videoKey)
+        : [],
       isArchived: 0,
     };
 
@@ -434,15 +511,15 @@ const EditRecipe = () => {
     });
   };
 
-  const fetchVideo = async (url: string) => {
-    const videoUrl: any = await Storage.get(url);
-    setVideoUrl(videoUrl);
-    setUploadState({
-      previewVisible: false,
-      previewImage: "",
-      previewTitle: "",
-      fileList: [],
+  const fetchVideo = async (videos: string[]) => {
+    const files: any[] = [];
+
+    await asyncForEach(videos, async (imgKey: string) => {
+      const url: any = await Storage.get(imgKey);
+      files.push({ videoKey: imgKey, url });
     });
+
+    setVideoKeys(files);
   };
 
   const getCalories = async (query: string) => {
@@ -471,12 +548,14 @@ const EditRecipe = () => {
       setInstructions(data.instructions);
       setIngredients(data.ingredients);
 
-      if (data.images && data.images?.length > 0) {
-        setContentType("images");
+      if (data.images) {
+        if (data.images.length > 0) setImageUpload(true);
         fetchImages(data.images);
-      } else if (data.video) {
-        setContentType("video");
-        fetchVideo(data.video);
+      }
+
+      if (data.videos) {
+        if (data.videos.length > 0) setVideoUpload(true);
+        fetchVideo(data.videos);
       }
 
       const initialValues: any = {};
@@ -771,135 +850,154 @@ const EditRecipe = () => {
               ))}
             </div>
 
-            {contentType === "images" ? (
-              <div
-                className="image-container"
-                style={{
-                  alignItems: "center",
-                  flexDirection: "column",
-                  justifyContent: "flex-start",
-                }}
-              >
+            <div>
+              {showImageUpload ? (
                 <div
+                  className="image-container"
                   style={{
-                    display: "flex",
-                    justifyContent: "flex-end",
-                    width: "100%",
+                    alignItems: "center",
+                    flexDirection: "column",
+                    justifyContent: "flex-start",
                   }}
                 >
-                  <Button
-                    onClick={() => {
-                      setContentType("");
-                      // setUploadState({
-                      //   previewVisible: false,
-                      //   previewImage: "",
-                      //   previewTitle: "",
-                      //   fileList: [],
-                      // });
+                  <div
+                    style={{
+                      display: "flex",
+                      justifyContent: "flex-end",
+                      width: "100%",
                     }}
-                    icon={<CloseOutlined />}
-                  />
-                </div>
-                <Form.Item>
-                  <Upload
-                    listType="picture-card"
-                    fileList={uploadState.fileList}
-                    onPreview={handlePreview}
-                    onChange={handleChange}
                   >
-                    {uploadState.fileList.length >= 8 ? null : uploadButton}
-                  </Upload>
-                  <Modal
-                    visible={uploadState.previewVisible}
-                    title={uploadState.previewTitle}
-                    footer={null}
-                    centered
-                    onCancel={handleCancel}
-                    width={width > 1024 ? "60%" : "80%"}
-                  >
-                    <img
-                      alt="example"
-                      style={{ width: "100%" }}
-                      src={uploadState.previewImage}
-                    />
-                  </Modal>
-                </Form.Item>
-              </div>
-            ) : contentType === "video" ? (
-              <div
-                className="image-container"
-                style={{
-                  alignItems: "center",
-                  flexDirection: "column",
-                  justifyContent: "flex-start",
-                }}
-              >
-                <div
-                  style={{
-                    display: "flex",
-                    justifyContent: "flex-end",
-                    width: "100%",
-                  }}
-                >
-                  <Button
-                    onClick={() => {
-                      setContentType("");
-                      // setVideoUrl("");
-                      // setVideoKey("");
-                      if (request) {
-                        message.error("Video upload cancelled");
-                        setLoading(false);
-                        request.abort();
-                      }
-                    }}
-                    icon={<CloseOutlined />}
-                  />
-                </div>
-                <Form.Item style={{ maxHeight: 800 }}>
-                  <Upload
-                    name="avatar"
-                    listType="picture-card"
-                    className="avatar-uploader"
-                    showUploadList={false}
-                    beforeUpload={beforeUploadVideo}
-                    onChange={handleChangeVideo}
-                  >
-                    {!videoUrl && videoUploadButton}
-                  </Upload>
-                  {videoUrl && (
-                    <video
-                      controls
-                      style={{
-                        minWidth: 250,
-                        maxWidth: "100%",
-                        maxHeight: 600,
+                    <Button
+                      onClick={() => {
+                        setImageUpload(false);
                       }}
+                      icon={<CloseOutlined />}
+                    />
+                  </div>
+                  <Form.Item>
+                    <Upload
+                      customRequest={customRequest}
+                      listType="picture-card"
+                      fileList={uploadState.fileList}
+                      onPreview={handlePreview}
+                      onChange={handleChange}
                     >
-                      <source src={videoUrl} type="video/mp4" />
-                      <source src={videoUrl} type="video/webm" />
-                      Sorry, your browser doesn't support embedded videos.
-                    </video>
-                  )}
-                </Form.Item>
-              </div>
-            ) : (
-              <div className="image-container">
-                <a
-                  onClick={() => setContentType("images")}
-                  style={{ width: 180, textAlign: "center" }}
-                  className="custom-btn custom-btn--green custom-btn--small"
+                      {uploadState.fileList.length >= 8 ? null : uploadButton}
+                    </Upload>
+                    <Modal
+                      visible={uploadState.previewVisible}
+                      title={uploadState.previewTitle}
+                      footer={null}
+                      centered
+                      onCancel={handleCancel}
+                      width={width > 1024 ? "60%" : "80%"}
+                    >
+                      <img
+                        alt="example"
+                        style={{ width: "100%" }}
+                        src={uploadState.previewImage}
+                      />
+                    </Modal>
+                  </Form.Item>
+                </div>
+              ) : (
+                <div className="image-container">
+                  <a
+                    onClick={() => setImageUpload(true)}
+                    style={{ width: 180, textAlign: "center" }}
+                    className="custom-btn custom-btn--green custom-btn--small"
+                  >
+                    Upload images
+                  </a>
+                </div>
+              )}
+
+              {showVideoUpload ? (
+                <div
+                  className="image-container"
+                  style={{
+                    alignItems: "center",
+                    flexDirection: "column",
+                    justifyContent: "flex-start",
+                  }}
                 >
-                  Upload images
-                </a>
-                <a
-                  onClick={() => setContentType("video")}
-                  style={{ width: 180, textAlign: "center" }}
-                  className="custom-btn custom-btn--green custom-btn--small"
-                >
-                  Upload video
-                </a>
-              </div>
-            )}
+                  <div
+                    style={{
+                      display: "flex",
+                      justifyContent: "flex-end",
+                      width: "100%",
+                    }}
+                  >
+                    <Button
+                      onClick={() => {
+                        setVideoUpload(false);
+                        if (request) {
+                          message.error("Video upload cancelled");
+                          setLoading(false);
+                          request.abort();
+                          request = null;
+                        }
+                      }}
+                      icon={<CloseOutlined />}
+                    />
+                  </div>
+                  <Form.Item style={{ maxHeight: 800 }}>
+                    <Upload
+                      customRequest={customRequest}
+                      name="avatar"
+                      listType="picture-card"
+                      className="avatar-uploader"
+                      showUploadList={false}
+                      beforeUpload={beforeUploadVideo}
+                      onChange={handleChangeVideo}
+                    >
+                      {videoUploadButton}
+                    </Upload>
+                    <Slider {...settings}>
+                      {videoKeys.map(({ url }) => (
+                        <div className="video-wrapper">
+                          <Button
+                            className="remove-video"
+                            onClick={() =>
+                              setVideoKeys([
+                                ...videoKeys.filter(
+                                  (videoKey) => videoKey.url !== url
+                                ),
+                              ])
+                            }
+                          >
+                            Remove video
+                          </Button>
+                          <video
+                            className="carousel-video-item"
+                            controls
+                            style={{
+                              minWidth: 250,
+                              maxWidth: "100%",
+                              maxHeight: 600,
+                            }}
+                          >
+                            <source src={url} type="video/mp4" />
+                            <source src={url} type="video/webm" />
+                            Sorry, your browser doesn't support embedded videos.
+                          </video>
+                        </div>
+                      ))}
+                    </Slider>
+                  </Form.Item>
+                </div>
+              ) : (
+                <div className="image-container">
+                  <a
+                    onClick={() => setVideoUpload(true)}
+                    style={{ width: 180, textAlign: "center" }}
+                    className="custom-btn custom-btn--green custom-btn--small"
+                  >
+                    Upload videos
+                  </a>
+                </div>
+              )}
+            </div>
 
             <Form.Item>
               <Button

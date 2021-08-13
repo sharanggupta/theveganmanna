@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Layout } from "antd";
+import { Button, Layout, Form } from "antd";
 import Link from "next/link";
 import { useWindow } from "hooks";
 import { SearchOutlined } from "@ant-design/icons";
@@ -16,6 +16,7 @@ const Topbar: React.FC<Props> = ({ home, heading }) => {
   const [user, dispatchUser] = useUser();
   const router = useRouter();
   const [width] = useWindow();
+  const [form] = Form.useForm();
 
   const linkClickHandler = (e: any) => {
     if (e.target.classList.contains("navigation__link")) {
@@ -125,18 +126,38 @@ const Topbar: React.FC<Props> = ({ home, heading }) => {
                       <span className="navigation__link">Register</span>
                     </Link>
                   </li>
-                  <div className="search__box search__box--mobile visible">
-                    <input
-                      className="search__input"
-                      placeholder="Search here"
-                    />
-                    <div style={{ display: "flex", alignItems: "center" }}>
-                      <SearchOutlined
-                        onClick={() => console.log("search")}
-                        className="search__icon search__icon--white"
-                      />
+                  <Form
+                    form={form}
+                    initialValues={{ recipeName: "" }}
+                    onFinish={(values) => {
+                      if (!!values.recipeName) {
+                        router.push({
+                          pathname: "/search",
+                          query: { recipeName: values.recipeName.value.trim() },
+                        });
+                      } else {
+                        router.push({ pathname: "/search" });
+                      }
+                    }}
+                  >
+                    <div className="search__box search__box--mobile visible">
+                      <Form.Item
+                        name="recipeName"
+                        style={{ marginBottom: 0, width: "100%" }}
+                      >
+                        <input
+                          className="search__input"
+                          placeholder="Search here"
+                        />
+                      </Form.Item>
+                      <div style={{ display: "flex", alignItems: "center" }}>
+                        <SearchOutlined
+                          onClick={() => form.submit()}
+                          className="search__icon search__icon--white"
+                        />
+                      </div>
                     </div>
-                  </div>
+                  </Form>
                 </>
               )}
             </ul>

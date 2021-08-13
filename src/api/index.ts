@@ -488,8 +488,6 @@ export const me = async () => {
 
     const user: User = getUserResponse?.data?.getUser;
 
-    console.log("user:", user);
-
     if (user) return { ...user, externalProvider };
     else
       return {
@@ -586,10 +584,8 @@ export const getUserPopularRecipes = async (id: string) => {
         limit: 6,
       })
     );
-    console.log("recipeByUser:", res);
     const recipes: any = res?.data?.recipesByUser.items;
     const x = recipes.map((recipe: Recipe) => recipe.likes?.items);
-    console.log("x:", x);
     return recipes.sort(
       (a: any, b: any) => b.likes.items.length - a.likes.items.length
     );
@@ -624,8 +620,6 @@ export const searchRecipes = async (prop: SearchProp) => {
     if (prepTime) filterObj["prepTime"] = { eq: prepTime };
     if (categoryID) filterObj["categoryID"] = { contains: categoryID };
 
-    console.log("filterObj: ", filterObj);
-
     const res: any = await API.graphql(
       graphqlOperation(listRecipes, {
         filter: filterObj,
@@ -659,12 +653,9 @@ export const changeRecipeStatus = async (data: {
 };
 
 export const getRecipeApi = async (id: string) => {
-  console.log("getRecipeApi:", id);
   try {
     const res: any = await API.graphql(graphqlOperation(getRecipe, { id }));
-    console.log("res: ", res);
     const recipe: Recipe = res?.data?.getRecipe;
-    console.log("single recipe: ", recipe);
     return recipe;
   } catch (err) {
     catchError(err);

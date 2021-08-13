@@ -36,9 +36,6 @@ const RecipeComponent = () => {
     }
   );
 
-  console.log("loading: ", loading);
-  console.log("data: ", data);
-
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [commentId, setCommentId] = useState<string>("");
   const [user] = useUser();
