@@ -204,8 +204,9 @@ const card: React.FC<Props> = ({ recipe, full, refresh }) => {
           <ImageGallery
             lazyLoad={true}
             showThumbnails={false}
-            showIndex={true}
+            showIndex={false}
             showPlayButton={false}
+            showFullscreenButton={false}
             items={[
               ...signedUrls.map((url) => {
                 return { original: url };

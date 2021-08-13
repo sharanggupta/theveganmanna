@@ -106,8 +106,22 @@ body {
   margin-bottom: 10px;
 }
 
-.image-gallery-icon:hover {
-  color: $color-primary;
+.image-gallery-icon {
+  color: #f3f3f3;
+  opacity: 0.3;
+  outline: none !important;
+
+  .image-gallery-svg {
+    color: #f3f3f3;
+    outline: none;
+  }
+
+  &:hover {
+    color: #f3f3f3;
+    .image-gallery-svg {
+      transform: scale(1.05);
+    }
+  }
 }
 
 .video-carousel {
