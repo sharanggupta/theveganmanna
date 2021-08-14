@@ -16,6 +16,7 @@ import {
   createReport,
   createUser,
   deleteDonation,
+  deleteMessage,
   deleteReport,
   deleteUser,
   updateDonation,
@@ -384,6 +385,16 @@ export const sendMessage = async (data: {
     await API.graphql(
       graphqlOperation(createMessage, { input: { ...data, isRead: 0 } })
     );
+    return true;
+  } catch (err) {
+    catchError(err);
+    return false;
+  }
+};
+
+export const deleteMessageApi = async (id: string) => {
+  try {
+    await API.graphql(graphqlOperation(deleteMessage, { input: { id } }));
     return true;
   } catch (err) {
     catchError(err);

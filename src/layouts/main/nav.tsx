@@ -3,6 +3,7 @@ import { Layout, Form, Badge, Popover, Divider } from "antd";
 import Link from "next/link";
 import { useWindow } from "hooks";
 import {
+  CloseOutlined,
   CaretDownOutlined,
   CaretUpOutlined,
   SearchOutlined,
@@ -10,8 +11,8 @@ import {
 } from "@ant-design/icons";
 import { useUser } from "contexts";
 import Router, { useRouter } from "next/router";
-import { logout } from "api";
-import { Message } from "interfaces";
+import { logout, deleteMessageApi, me } from "api";
+import { Message, User } from "interfaces";
 import { API, graphqlOperation } from "aws-amplify";
 
 type Props = {
@@ -107,6 +108,17 @@ const Topbar: React.FC<Props> = ({ home, heading, headingButton }) => {
     );
   };
 
+  const removeMessage = (id: string) => {
+    const messages = {
+      ...user.messages,
+      items:
+        user.messages?.items.filter((message: Message) => message.id !== id) ||
+        [],
+    };
+    dispatchUser({ type: "UPDATE", user: { ...user, messages } });
+    deleteMessageApi(id);
+  };
+
   return (
     <Layout.Header className="nav">
       <Link href="/">
@@ -194,16 +206,24 @@ const Topbar: React.FC<Props> = ({ home, heading, headingButton }) => {
                 <div>
                   {user.messages?.items.reverse().map((message: Message) => (
                     <>
-                      <Link href={`/recipes/${message.recipeID}`}>
-                        <span>
-                          Your <a>{message.recipeID}</a> recipe has reported
-                          <br />
-                          {new Date(message.createdAt).toDateString()},{" "}
-                          {new Date(message.createdAt).toLocaleTimeString()}
-                          <br />
-                          <Divider style={{ margin: "14px 0" }} />
+                      <span>
+                        <span style={{ display: "flex", alignItems: "center" }}>
+                          <Link href={`/recipes/${message.recipeID}`}>
+                            <span style={{ width: "100%" }}>
+                              Your <a>{message.recipeID}</a> recipe has reported
+                              <br />
+                              {new Date(message.createdAt).toDateString()},{" "}
+                              {new Date(message.createdAt).toLocaleTimeString()}
+                              <br />
+                            </span>
+                          </Link>
+                          <CloseOutlined
+                            onClick={() => removeMessage(message.id)}
+                            style={{ cursor: "pointer" }}
+                          />
                         </span>
-                      </Link>
+                        <Divider style={{ margin: "14px 0" }} />
+                      </span>
                     </>
                   ))}
                   {user.messages?.items.length === 0 && "No messages received"}
